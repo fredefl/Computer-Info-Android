@@ -39,7 +39,7 @@
   <widgets xsi:type="model:Master" id="3" measuredWidth="430" measuredHeight="844">
     <screen xsi:type="model:WidgetGroup" href="assets/Android4/Android4.screen#Phone"/>
   </widgets>
-  <widgets xsi:type="model:Master" id="4" x="38" y="131" measuredWidth="360" measuredHeight="46">
+  <widgets xsi:type="model:Master" id="4" x="37" y="132" measuredWidth="360" measuredHeight="46">
     <screen xsi:type="model:WidgetGroup" href="assets/Android4/Android4.screen#Action Bar"/>
     <overrides>
       <widgetChanges xsi:type="o:Insert" newIndex="6">
