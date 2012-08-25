@@ -107,7 +107,7 @@
       <widgets ref="5" text="1333 Mhz"/>
     </overrides>
   </widgets>
-  <widgets xsi:type="model:Master" id="26" x="48" y="560" measuredWidth="22" measuredHeight="28">
+  <widgets xsi:type="model:Master" id="26" x="52" y="560" measuredWidth="22" measuredHeight="28">
     <screen xsi:type="model:WidgetGroup" href="assets/Android4/Android4.screen#Text Size Small"/>
     <overrides>
       <widgets ref="6" text="#2"/>
