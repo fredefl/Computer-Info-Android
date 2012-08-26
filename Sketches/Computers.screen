@@ -5,33 +5,33 @@
     <overrides>
       <widgetChanges xsi:type="o:Delete" ref="12"/>
       <widgetChanges xsi:type="o:Delete" ref="11"/>
-      <widgets ref="10" y="0" text="BUF12345U&#xD;&#xA;BUF31235U&#xD;&#xA;BUF23455U&#xD;&#xA;BUF58694U&#xD;&#xA;BUF95865U&#xD;&#xA;BUF99357U&#xD;&#xA;UUF12345U&#xD;&#xA;UUF45683U&#xD;&#xA;UUF42345U&#xD;&#xA;UUF45884U&#xD;&#xA;UUF94835U">
-        <items ref="@items.0" text="BUF12345U"/>
-        <items ref="@items.1" text="BUF31235U"/>
-        <items ref="@items.2" text="BUF23455U"/>
+      <widgets ref="10" y="0" text="{computer} BUF12345U&#xD;&#xA;{computer} BUF31235U&#xD;&#xA;{computer} BUF23455U&#xD;&#xA;{computer} BUF58694U&#xD;&#xA;{computer} BUF95865U&#xD;&#xA;{computer} BUF99357U&#xD;&#xA;{computer} UUF12345U&#xD;&#xA;{computer} UUF45683U&#xD;&#xA;{computer} UUF42345U&#xD;&#xA;{computer} UUF45884U&#xD;&#xA;{computer} UUF94835U">
+        <items ref="@items.0" text="{computer} BUF12345U"/>
+        <items ref="@items.1" text="{computer} BUF31235U"/>
+        <items ref="@items.2" text="{computer} BUF23455U"/>
         <itemChanges xsi:type="o:Insert" newIndex="3">
-          <object xsi:type="model:Item" text="UUF94835U"/>
+          <object xsi:type="model:Item" text="{computer} UUF94835U"/>
         </itemChanges>
         <itemChanges xsi:type="o:Insert" newIndex="3">
-          <object xsi:type="model:Item" text="UUF45884U"/>
+          <object xsi:type="model:Item" text="{computer} UUF45884U"/>
         </itemChanges>
         <itemChanges xsi:type="o:Insert" newIndex="3">
-          <object xsi:type="model:Item" text="UUF42345U"/>
+          <object xsi:type="model:Item" text="{computer} UUF42345U"/>
         </itemChanges>
         <itemChanges xsi:type="o:Insert" newIndex="3">
-          <object xsi:type="model:Item" text="UUF45683U"/>
+          <object xsi:type="model:Item" text="{computer} UUF45683U"/>
         </itemChanges>
         <itemChanges xsi:type="o:Insert" newIndex="3">
-          <object xsi:type="model:Item" text="UUF12345U"/>
+          <object xsi:type="model:Item" text="{computer} UUF12345U"/>
         </itemChanges>
         <itemChanges xsi:type="o:Insert" newIndex="3">
-          <object xsi:type="model:Item" text="BUF99357U"/>
+          <object xsi:type="model:Item" text="{computer} BUF99357U"/>
         </itemChanges>
         <itemChanges xsi:type="o:Insert" newIndex="3">
-          <object xsi:type="model:Item" text="BUF95865U"/>
+          <object xsi:type="model:Item" text="{computer} BUF95865U"/>
         </itemChanges>
         <itemChanges xsi:type="o:Insert" newIndex="3">
-          <object xsi:type="model:Item" text="BUF58694U"/>
+          <object xsi:type="model:Item" text="{computer} BUF58694U"/>
         </itemChanges>
       </widgets>
     </overrides>
