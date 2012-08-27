@@ -10,6 +10,6 @@
     <screen href="Computers.screen#/"/>
   </panels>
   <panels x="675" y="75">
-    <screen href="Computer.screen#/"/>
+    <screen href="../../Computer.screen#/"/>
   </panels>
 </story:Storyboard>
