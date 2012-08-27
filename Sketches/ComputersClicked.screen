@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore" xmlns:o="http://wireframesketcher.com/1.0/model/overrides">
+  <widgets xsi:type="model:Master" id="1" measuredWidth="430" measuredHeight="844">
+    <screen xsi:type="model:WidgetGroup" href="assets/Android4/Android4.screen#Phone"/>
+  </widgets>
+  <widgets xsi:type="model:Accordion" id="8" x="37" y="128" width="361" height="578" text="BUF1919&#xD;&#xA;" measuredWidth="361" measuredHeight="578" selection="0">
+    <items x="0" y="2" width="361" height="25" text="BUF1919"/>
+  </widgets>
+  <widgets xsi:type="model:Master" id="9" x="37" y="153" measuredWidth="360" measuredHeight="552">
+    <screen xsi:type="model:WidgetGroup" href="assets/Android4/Android4.screen#List 1 Line"/>
+    <overrides>
+      <widgetChanges xsi:type="o:Insert" newIndex="3">
+        <object xsi:type="model:VScrollbar" x="343" y="2" height="550"/>
+      </widgetChanges>
+      <widgetChanges xsi:type="o:Delete" ref="11"/>
+      <widgets ref="10" y="2" text=" {computer}&#x9; Type: Laptop&#xA; {location}&#x9;Location : Ø1&#xA; {network}&#x9; MAC : 10:A4:F4:A7&#xA; {wifi}&#x9;&#x9; MAC : A6:B6:B7:10&#x9;&#x9;&#xA; {internet} &#x9;Ip : 10.10.10.40&#xA; {database}&#x9;&#x9; Memory: 2000Mb&#xA; {database}&#x9;&#x9; Harddrive:1000Gb&#xA; {image}&#x9;&#x9; Graphics Card : Intel HD 300&#xA; {image}&#x9;&#x9; Graphics Card: NVIDIA GeForce 680&#xA; {fast-forward}&#x9;&#x9; Processor : Intel I7&#xA; {fast-forward}&#x9;&#x9; Processor: Intel I5&#xA;">
+        <font/>
+        <items ref="@items.0" text=" {location}&#x9;Location : Ø1"/>
+        <items ref="@items.1" text=" {network}&#x9; MAC : 10:A4:F4:A7"/>
+        <items ref="@items.2" text=" {internet} &#x9;Ip : 10.10.10.40"/>
+        <itemChanges xsi:type="o:Insert" newIndex="3">
+          <object xsi:type="model:Item" text=" {fast-forward}&#x9;&#x9; Processor: Intel I5"/>
+        </itemChanges>
+        <itemChanges xsi:type="o:Insert" newIndex="3">
+          <object xsi:type="model:Item" text=" {fast-forward}&#x9;&#x9; Processor : Intel I7"/>
+        </itemChanges>
+        <itemChanges xsi:type="o:Insert" newIndex="3">
+          <object xsi:type="model:Item" text=" {image}&#x9;&#x9; Graphics Card: NVIDIA GeForce 680"/>
+        </itemChanges>
+        <itemChanges xsi:type="o:Insert" newIndex="3">
+          <object xsi:type="model:Item" text=" {image}&#x9;&#x9; Graphics Card : Intel HD 300"/>
+        </itemChanges>
+        <itemChanges xsi:type="o:Insert" newIndex="3">
+          <object xsi:type="model:Item" text=" {database}&#x9;&#x9; Harddrive:1000Gb"/>
+        </itemChanges>
+        <itemChanges xsi:type="o:Insert" newIndex="3">
+          <object xsi:type="model:Item" text=" {database}&#x9;&#x9; Memory: 2000Mb"/>
+        </itemChanges>
+        <itemChanges xsi:type="o:Insert" newIndex="2">
+          <object xsi:type="model:Item" text=" {wifi}&#x9;&#x9; MAC : A6:B6:B7:10&#x9;&#x9;"/>
+        </itemChanges>
+        <itemChanges xsi:type="o:Insert">
+          <object xsi:type="model:Item" text=" {computer}&#x9; Type: Laptop"/>
+        </itemChanges>
+      </widgets>
+      <widgets ref="12" y="0"/>
+    </overrides>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
