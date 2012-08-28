@@ -42,7 +42,7 @@
       <widgets ref="475" width="277" text="> 2048 MB"/>
     </overrides>
   </widgets>
-  <widgets xsi:type="model:DateField" id="15" x="47" y="384" width="335" text="Date of purchase" measuredWidth="335" measuredHeight="23"/>
+  <widgets xsi:type="model:DateField" id="15" x="47" y="384" width="341" text="Date of purchase" measuredWidth="341" measuredHeight="23"/>
   <widgets xsi:type="model:Master" id="16" x="48" y="427" width="336" measuredWidth="336" measuredHeight="33">
     <screen xsi:type="model:WidgetGroup" href="../assets/Android4/Android4.screen#Spinner"/>
     <overrides>

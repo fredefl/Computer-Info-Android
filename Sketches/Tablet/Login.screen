@@ -3,26 +3,26 @@
   <widgets xsi:type="model:Master" id="1" x="8" y="-9" measuredWidth="1452" measuredHeight="975">
     <screen xsi:type="model:WidgetGroup" href="../assets/Android4/Android4.screen#Tablet"/>
   </widgets>
-  <widgets xsi:type="model:Master" id="3" x="608" y="278" measuredWidth="281" measuredHeight="33">
+  <widgets xsi:type="model:Master" id="3" x="584" y="370" measuredWidth="281" measuredHeight="33">
     <screen xsi:type="model:WidgetGroup" href="../assets/Android4/Android4.screen#Text Field"/>
     <overrides>
       <widgets ref="478" width="281"/>
       <widgets ref="479" width="281" text="    "/>
     </overrides>
   </widgets>
-  <widgets xsi:type="model:Master" id="4" x="584" y="152" measuredWidth="280" measuredHeight="33">
+  <widgets xsi:type="model:Master" id="4" x="584" y="270" measuredWidth="280" measuredHeight="33">
     <screen xsi:type="model:WidgetGroup" href="../assets/Android4/Android4.screen#Text Size Medium"/>
     <overrides>
       <widgets ref="5" width="280" text="Username:"/>
     </overrides>
   </widgets>
-  <widgets xsi:type="model:Master" id="5" x="584" y="246" measuredWidth="281" measuredHeight="33">
+  <widgets xsi:type="model:Master" id="5" x="584" y="349" measuredWidth="281" measuredHeight="33">
     <screen xsi:type="model:WidgetGroup" href="../assets/Android4/Android4.screen#Text Size Medium"/>
     <overrides>
       <widgets ref="5" width="281" text="Password:"/>
     </overrides>
   </widgets>
-  <widgets xsi:type="model:Master" id="6" x="94" y="81" measuredWidth="1282" measuredHeight="46">
+  <widgets xsi:type="model:Master" id="6" x="94" y="78" measuredWidth="1282" measuredHeight="46">
     <screen xsi:type="model:WidgetGroup" href="../assets/Android4/Android4.screen#Action Bar"/>
     <overrides>
       <widgetChanges xsi:type="o:Insert" newIndex="6">
@@ -32,29 +32,29 @@
       <widgetChanges xsi:type="o:Delete" ref="672"/>
       <widgetChanges xsi:type="o:Delete" ref="670"/>
       <widgetChanges xsi:type="o:Delete" ref="690"/>
-      <widgets ref="669" x="1071" y="6" text="Login to Computer Info"/>
+      <widgets ref="669" x="58" y="6" text="Login to Computer Info"/>
       <widgets ref="666" width="1282"/>
     </overrides>
   </widgets>
-  <widgets xsi:type="model:Master" id="7" x="584" y="336" measuredWidth="281" measuredHeight="39">
+  <widgets xsi:type="model:Master" id="7" x="584" y="430" measuredWidth="281" measuredHeight="39">
     <screen xsi:type="model:WidgetGroup" href="../assets/Android4/Android4.screen#Button"/>
     <overrides>
       <widgets ref="497" width="281" text="Login"/>
     </overrides>
   </widgets>
-  <widgets xsi:type="model:Master" id="8" x="584" y="408" measuredWidth="281" measuredHeight="39">
+  <widgets xsi:type="model:Master" id="8" x="584" y="502" measuredWidth="281" measuredHeight="39">
     <screen xsi:type="model:WidgetGroup" href="../assets/Android4/Android4.screen#Button"/>
     <overrides>
       <widgets ref="497" width="281" text="Sign up"/>
     </overrides>
   </widgets>
-  <widgets xsi:type="model:Master" id="9" x="584" y="480" measuredWidth="281" measuredHeight="39">
+  <widgets xsi:type="model:Master" id="9" x="584" y="574" measuredWidth="281" measuredHeight="39">
     <screen xsi:type="model:WidgetGroup" href="../assets/Android4/Android4.screen#Button"/>
     <overrides>
       <widgets ref="497" width="281" text="Forgot password?"/>
     </overrides>
   </widgets>
-  <widgets xsi:type="model:Master" id="11" x="584" y="198" measuredWidth="280" measuredHeight="33">
+  <widgets xsi:type="model:Master" id="11" x="584" y="292" measuredWidth="280" measuredHeight="33">
     <screen xsi:type="model:WidgetGroup" href="../assets/Android4/Android4.screen#Text Field"/>
     <overrides>
       <widgets ref="478" y="10" width="280"/>
