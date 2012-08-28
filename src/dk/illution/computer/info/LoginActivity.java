@@ -6,9 +6,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
 
-public class Login extends Activity {
+public class LoginActivity extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -22,7 +21,7 @@ public class Login extends Activity {
 		switch (item.getItemId()) {
 			case android.R.id.home:
 				// app icon in action bar clicked; go home
-				Intent intent = new Intent(this, MainActivity.class);
+				Intent intent = new Intent(this, LoginSelectActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(intent);
 				return true;

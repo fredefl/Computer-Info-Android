@@ -12,7 +12,7 @@
 				android:label="@string/app_name"
 				android:theme="@style/AppTheme" >
 				<activity
-						android:name=".MainActivity"
+						android:name=".LoginSelectActivity"
 						android:label="@string/title_activity_main" >
 						<intent-filter>
 								<action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
 						</intent-filter>
 				</activity>
 				<activity
-						android:name=".Login"
+						android:name=".LoginActivity"
 						android:label="@string/title_activity_login" >
 						<intent-filter>
 								<action android:name="android.intent.action.MAIN" />
