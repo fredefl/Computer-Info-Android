@@ -4,5 +4,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">Computer Info</string>
+    <string name="username_and_password">Username and password</string>
+    <string name="google">Google</string>
+    <string name="choose_login_method">Choose login method</string>
+    <string name="title_activity_login">Login</string>
 
 </resources>
