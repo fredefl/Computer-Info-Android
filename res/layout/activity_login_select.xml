@@ -4,7 +4,7 @@
 		android:layout_height="match_parent" >
 
 		<Button
-				android:id="@+id/button2"
+				android:id="@+id/usernameAndPasswordButton"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_centerHorizontal="true"
@@ -12,19 +12,19 @@
 				android:text="@string/username_and_password"/>
 
 		<Button
-				android:id="@+id/button1"
+				android:id="@+id/googleButton"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_above="@+id/button2"
-				android:layout_alignRight="@+id/button2"
-				android:layout_alignLeft="@+id/button2"
+				android:layout_above="@+id/usernameAndPasswordButton"
+				android:layout_alignRight="@+id/usernameAndPasswordButton"
+				android:layout_alignLeft="@+id/usernameAndPasswordButton"
 				android:text="@string/google" />
 
 		<TextView
-				android:id="@+id/textView1"
+				android:id="@+id/chooseLoginMethodLabel"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_above="@+id/button1"
+				android:layout_above="@+id/googleButton"
 				android:layout_centerHorizontal="true"
 				android:text="@string/choose_login_method"
 				android:textAppearance="?android:attr/textAppearanceMedium" />
