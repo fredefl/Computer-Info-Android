@@ -16,7 +16,7 @@
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_marginTop="20dp"
-						android:text="Username:"
+						android:text="@string/username"
 						android:textAppearance="?android:attr/textAppearanceMedium" />
 
 				<EditText
@@ -25,7 +25,6 @@
 						android:layout_height="wrap_content"
 						android:ems="10"
 						android:inputType="textNoSuggestions" >
-
 						<requestFocus />
 				</EditText>
 
@@ -34,7 +33,7 @@
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_marginTop="10dp"
-						android:text="Password"
+						android:text="@string/password"
 						android:textAppearance="?android:attr/textAppearanceMedium" />
 
 				<EditText
@@ -48,13 +47,13 @@
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_marginTop="5dp"
-						android:text="Login" />
+						android:text="@string/login" />
 
 				<Button
 						android:id="@+id/button2"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="Sign up" />
+						android:text="@string/sign_up" />
 
 				<Button
 						android:id="@+id/button3"
@@ -62,7 +61,7 @@
 						android:layout_height="wrap_content"
 						android:layout_marginTop="5dp"
 						android:layout_marginBottom="20dp"
-						android:text="Forgot password?" />
+						android:text="@string/forgot_password" />
 		</TableLayout>
 
 </ScrollView>
