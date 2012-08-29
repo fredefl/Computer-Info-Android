@@ -13,7 +13,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".LoginSelectActivity"
-            android:label="@string/computer_info" >
+            android:label="@string/computer_info"
+            android:icon="@drawable/secure">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,11 +23,13 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/computer_info" >
+            android:label="@string/computer_info"
+            android:icon="@drawable/secure">
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/computer_info" >
+            android:label="@string/computer_info"
+            android:icon="@drawable/computer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
