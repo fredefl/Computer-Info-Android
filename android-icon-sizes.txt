@@ -1,0 +1,3 @@
+hdpi : 48 x 48
+mdpi : 32x32
+xhdpi: 64 x 64
