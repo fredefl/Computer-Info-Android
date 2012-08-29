@@ -34,14 +34,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
         // Set up the dropdown list navigation in the action bar.
         actionBar.setListNavigationCallbacks(
                 // Specify a SpinnerAdapter to populate the dropdown list.
-                new ArrayAdapter(
+                new ArrayAdapter<String>(
                         actionBar.getThemedContext(),
                         android.R.layout.simple_list_item_1,
                         android.R.id.text1,
                         new String[]{
-                                getString(R.string.title_section1),
-                                getString(R.string.title_section2),
-                                getString(R.string.title_section3),
+                                getString(R.string.computers),
+                                getString(R.string.printers),
+                                getString(R.string.units),
                         }),
                 this);
     }
