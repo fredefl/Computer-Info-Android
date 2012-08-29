@@ -1,32 +1,27 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		xmlns:tools="http://schemas.android.com/tools"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent" >
-
-		<Button
-				android:id="@+id/usernameAndPasswordButton"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_centerHorizontal="true"
-				android:layout_centerVertical="true"
-				android:text="@string/username_and_password"/>
-
-		<Button
-				android:id="@+id/googleButton"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_above="@+id/usernameAndPasswordButton"
-				android:layout_alignRight="@+id/usernameAndPasswordButton"
-				android:layout_alignLeft="@+id/usernameAndPasswordButton"
-				android:text="@string/google" />
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center">
+				
 		<TextView
-				android:id="@+id/chooseLoginMethodLabel"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_above="@+id/googleButton"
-				android:layout_centerHorizontal="true"
-				android:text="@string/choose_login_method"
-				android:textAppearance="?android:attr/textAppearanceMedium" />
+			android:id="@+id/chooseLoginMethodLabel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:text="@string/choose_login_method"
+			android:textAppearance="?android:attr/textAppearanceMedium" />
 
-</RelativeLayout>
+		<Button
+			android:id="@+id/googleButton"
+			android:layout_width="250dp"
+			android:layout_height="wrap_content"
+			android:text="@string/google" />
+
+		<Button
+		    android:id="@+id/usernameAndPasswordButton"
+		    android:layout_width="250dp"
+		    android:layout_height="wrap_content"
+		    android:text="@string/username_and_password" />
+
+</LinearLayout>
