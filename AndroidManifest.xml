@@ -14,24 +14,23 @@
         <activity
             android:name=".LoginSelectActivity"
             android:label="@string/computer_info"
-            android:icon="@drawable/secure">
+            android:logo="@drawable/secure">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity"
             android:label="@string/computer_info"
-            android:icon="@drawable/secure">
+            android:logo="@drawable/secure">
         </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/computer_info"
-            android:icon="@drawable/computer">
+            android:logo="@drawable/computer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
