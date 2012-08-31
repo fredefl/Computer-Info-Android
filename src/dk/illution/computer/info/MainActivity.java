@@ -66,22 +66,18 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 				);
 		list.setAdapter( expListAdapter );
 	}
+
 	Random rand = new Random();
+
 	public int getRandomNumber (int min, int max) {
 		return rand.nextInt(max - min + 1) + min;
 	}
 
-		public List<String> computers = new ArrayList<String>();
+	public List<String> computers = new ArrayList<String>();
 
-		public List<List<String>> singleComputer = new ArrayList<List<String>>();
+	public List<List<String>> singleComputer = new ArrayList<List<String>>();
 
-	/**
-	 * Creates the group list out of the colors[] array according to
-	 * the structure required by SimpleExpandableListAdapter. The resulting
-	 * List contains Maps. Each Map contains one entry with key "colorName" and
-	 * value of an entry in the colors[] array.
-	 */
-		private List<HashMap<String, String>> createGroupList() {
+	public List<HashMap<String, String>> createGroupList() {
 		ArrayList<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();
 		for(String name : computers) {
 			HashMap<String, String> m = new HashMap<String, String>();
@@ -89,16 +85,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 			result.add(m); 
 		}
 		return (List<HashMap<String, String>>) result;
-		}
+	}
 
-	/**
-	 * Creates the child list out of the shades[] array according to the
-	 * structure required by SimpleExpandableListAdapter. The resulting List
-	 * contains one list for each group. Each such second-level group contains
-	 * Maps. Each such Map contains two keys: "shadeName" is the name of the
-	 * shade and "rgb" is the RGB value for the shade.
-	 */
-	private List<ArrayList<HashMap<String, String>>> createChildList() {
+	public List<ArrayList<HashMap<String, String>>> createChildList() {
 		ArrayList<ArrayList<HashMap<String, String>>> result = new ArrayList<ArrayList<HashMap<String, String>>>();
 		for(List<String> computer : singleComputer) {
 	// Second-level lists
@@ -156,16 +145,5 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 		}
 
 		public static final String ARG_SECTION_NUMBER = "section_number";
-
-		//@Override
-		/*
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			TextView textView = new TextView(getActivity());
-			textView.setGravity(Gravity.CENTER);
-			Bundle args = getArguments();
-			textView.setText(Integer.toString(args.getInt(ARG_SECTION_NUMBER)));
-			return textView;
-		}*/
 	}
 }
