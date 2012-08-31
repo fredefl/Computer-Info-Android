@@ -3,32 +3,16 @@ package dk.illution.computer.info;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import android.app.ActionBar;
-import android.app.ExpandableListActivity;
-import android.content.Context;
-//import android.app.FragmentTransaction;
-//import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-//import android.support.v4.app.FragmentManager;
-//import android.support.v4.app.NavUtils;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
-//import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
-import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity implements ActionBar.OnNavigationListener {
 
@@ -66,11 +50,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 				new SimpleExpandableListAdapter(
 					this,
 					createGroupList(),	// groupData describes the first-level entries
-					R.layout.group_row,	// Layout for the first-level entries
+					R.layout.base_group_row,	// Layout for the first-level entries
 					new String[] { "colorName" },	// Key in the groupData maps to display
 					new int[] { R.id.groupname },		// Data under "colorName" key goes into this TextView
 					createChildList(),	// childData describes second-level entries
-					R.layout.child_row,	// Layout for second-level entries
+					R.layout.computer_child_row,	// Layout for second-level entries
 					new String[] { "shadeName", "rgb" },	// Keys in childData maps to display
 					new int[] { R.id.childname, R.id.rgb }	// Data under the keys above go into these TextViews
 				);
@@ -116,14 +100,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 	 * List contains Maps. Each Map contains one entry with key "colorName" and
 	 * value of an entry in the colors[] array.
 	 */
-		private List createGroupList() {
-		ArrayList<HashMap> result = new ArrayList<HashMap>();
+		private List<HashMap<String, String>> createGroupList() {
+		ArrayList<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();
 		for(String name : computers) {
-			HashMap m = new HashMap();
+			HashMap<String, String> m = new HashMap<String, String>();
 			m.put("colorName", name);
-			result.add( m ); 
+			result.add(m); 
 		}
-		return (List)result;
+		return (List<HashMap<String, String>>) result;
 		}
 
 	/**
@@ -133,13 +117,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 	 * Maps. Each such Map contains two keys: "shadeName" is the name of the
 	 * shade and "rgb" is the RGB value for the shade.
 	 */
-	private List createChildList() {
-		ArrayList result = new ArrayList();
+	private List<ArrayList<HashMap<String, String>>> createChildList() {
+		ArrayList<ArrayList<HashMap<String, String>>> result = new ArrayList<ArrayList<HashMap<String, String>>>();
 		for( int i = 0 ; i < shades.length ; ++i ) {
 	// Second-level lists
-		ArrayList secList = new ArrayList();
+		ArrayList<HashMap<String, String>> secList = new ArrayList<HashMap<String, String>>();
 		for( int n = 0 ; n < shades[i].length ; n += 2 ) {
-			HashMap child = new HashMap();
+			HashMap<String, String> child = new HashMap<String, String>();
 			child.put( "shadeName", shades[i][n] );
 			child.put( "rgb", shades[i][n+1] );
 			secList.add( child );
