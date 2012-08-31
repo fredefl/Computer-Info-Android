@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.ActionBar;
+import android.app.ExpandableListActivity;
 import android.content.Context;
 //import android.app.FragmentTransaction;
 //import android.content.Context;
@@ -25,6 +26,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity implements ActionBar.OnNavigationListener {
@@ -55,98 +57,95 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 						}),
 				this);
 
-		ExpandableListView mEntries = (ExpandableListView) findViewById(R.id.computerList);
-		ExpandableListAdapter adapter = new MyExpandableListAdapter(this);
-		mEntries.setAdapter(adapter);
+		ExpandableListView list = (ExpandableListView) findViewById(R.id.computerList);
+		SimpleExpandableListAdapter expListAdapter =
+				new SimpleExpandableListAdapter(
+					this,
+					createGroupList(),	// groupData describes the first-level entries
+					R.layout.child_row,	// Layout for the first-level entries
+					new String[] { "colorName" },	// Key in the groupData maps to display
+					new int[] { R.id.childname },		// Data under "colorName" key goes into this TextView
+					createChildList(),	// childData describes second-level entries
+					R.layout.child_row,	// Layout for second-level entries
+					new String[] { "shadeName", "rgb" },	// Keys in childData maps to display
+					new int[] { R.id.childname, R.id.rgb }	// Data under the keys above go into these TextViews
+				);
+		list.setAdapter( expListAdapter );
 	}
 
-	public class MyExpandableListAdapter extends BaseExpandableListAdapter {
-		private String[] groups = {"BUF323542U", "UUF534256U"};
-		private String[][] children = {
-			{"Memory", "Processor"},
-			{"In", "Ruh"}
+		final String colors[] = {
+		"grey",
+		"blue",
+		"yellow",
+		"red"
 		};
 
-		private Context cxt;
+		final String shades[][] = {
+	// Shades of grey
+		{
+			"lightgrey","#D3D3D3",
+			"dimgray","#696969",
+			"sgi gray 92","#EAEAEA"
+		},
+	// Shades of blue
+		{
+			"dodgerblue 2","#1C86EE",
+			"steelblue 2","#5CACEE",
+			"powderblue","#B0E0E6"
+		},
+	// Shades of yellow
+		{
+			"yellow 1","#FFFF00",
+			"gold 1","#FFD700",
+			"darkgoldenrod 1","	#FFB90F"
+		},
+	// Shades of red
+		{
+			"indianred 1","#FF6A6A",
+			"firebrick 1","#FF3030",
+			"maroon","#800000"
+		}
+		};
 
-		public MyExpandableListAdapter(Context cxt) {
-			this.cxt = cxt;
+	/**
+	 * Creates the group list out of the colors[] array according to
+	 * the structure required by SimpleExpandableListAdapter. The resulting
+	 * List contains Maps. Each Map contains one entry with key "colorName" and
+	 * value of an entry in the colors[] array.
+	 */
+		private List createGroupList() {
+		ArrayList<HashMap> result = new ArrayList<HashMap>();
+		for( int i = 0 ; i < colors.length ; ++i ) {
+			HashMap m = new HashMap();
+			m.put( "colorName",colors[i] );
+			result.add( m );
+		}
+		return (List)result;
 		}
 
-		@Override
-		public Object getChild(int groupPos, int childPos) {
-			return children[groupPos][childPos];
+	/**
+	 * Creates the child list out of the shades[] array according to the
+	 * structure required by SimpleExpandableListAdapter. The resulting List
+	 * contains one list for each group. Each such second-level group contains
+	 * Maps. Each such Map contains two keys: "shadeName" is the name of the
+	 * shade and "rgb" is the RGB value for the shade.
+	 */
+	private List createChildList() {
+		ArrayList<HashMap> result = new ArrayList<HashMap>();
+		for( int i = 0 ; i < shades.length ; ++i ) {
+	// Second-level lists
+		ArrayList<HashMap> secList = new ArrayList<HashMap>();
+		for( int n = 0 ; n < shades[i].length ; n += 2 ) {
+			HashMap child = new HashMap();
+			child.put( "shadeName", shades[i][n] );
+			child.put( "rgb", shades[i][n+1] );
+			secList.add( child );
 		}
-
-		@Override
-		public long getChildId(int groupPos, int childPos) {
-			return childPos;
+		result.add( secList );
 		}
-
-		@Override
-		public View getChildView(int groupPos, int childPos,
-				boolean isLastChild, View convertView, ViewGroup parent) {
-			TextView tv = getGenericView();
-			tv.setText(getChild(groupPos, childPos).toString());
-			return tv;
-		}
-
-		@Override
-		public int getChildrenCount(int groupPos) {
-			return children[groupPos].length;
-		}
-
-		@Override
-		public Object getGroup(int groupPos) {
-			return groups[groupPos];
-		}
-
-		@Override
-		public int getGroupCount() {
-			return groups.length;
-		}
-
-		@Override
-		public long getGroupId(int groupPos) {
-			return groupPos;
-		}
-
-		public TextView getGenericView() {
-			// Layout parameters for the ExpandableListView
-			AbsListView.LayoutParams lp = new AbsListView.LayoutParams(
-				ViewGroup.LayoutParams.WRAP_CONTENT, 64);
-
-			TextView tv = new TextView(this.cxt);
-			tv.setTextColor(getResources().getColor(android.R.color.holo_blue_dark));
-			tv.setLayoutParams(lp);
-			tv.setTextAppearance(this.cxt, android.R.attr.textAppearanceMedium);
-			// Center the text vertically
-			tv.setGravity(Gravity.CENTER_VERTICAL);
-			// Set the text starting position
-			tv.setPadding(70, 0, 0, 0);
-			return tv;
-		}
-
-		@Override
-		public View getGroupView(int groupPos, boolean isExpanded, View convertView,
-				ViewGroup parent) {
-			TextView tv = getGenericView();
-			tv.setText(getGroup(groupPos).toString());
-			tv.setTextAppearance(this.cxt, android.R.attr.textAppearanceMedium);
-			return tv;
-		}
-
-		@Override
-		public boolean hasStableIds() {
-			return true;
-		}
-
-		@Override
-		public boolean isChildSelectable(int groupPos, int childPos) {
-			return true;
-		}
-
+		return result;
 	}
+
 
 	@Override
 	public void onRestoreInstanceState(Bundle savedInstanceState) {
