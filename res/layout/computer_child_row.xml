@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content">
 
-    <TextView android:id="@+id/childname"
-		 android:paddingLeft="30dp"
+    <TextView android:id="@+id/title"
+        android:paddingLeft="30dp"
          android:textSize="20dp"
-         android:textStyle="italic"
-         android:layout_width="500dp"
+         android:textStyle="bold"
+         android:layout_width="200dp"
          android:layout_height="wrap_content"/>
 
-    <TextView android:id="@+id/rgb"
+    <TextView android:id="@+id/value"
+         android:paddingLeft="30dp"
          android:textSize="20dp"
-         android:textStyle="italic"
-         android:layout_width="500dp"
+         android:textStyle="normal"
+         android:layout_width="200dp"
          android:layout_height="wrap_content"/>
 </LinearLayout>

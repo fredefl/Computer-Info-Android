@@ -43,6 +43,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 				this);
 		for (int i = 0; i <= 100; i++) {
 			computers.add("BUF " + Integer.toString(getRandomNumber(10000,99999)) + "U");
+			List<String> computer = new ArrayList<String>();
+			for (int j = 0; j <= 20; j++) {
+				computer.add("Hell");
+				computer.add("Yeah!");
+			}
+			singleComputer.add(computer);
 		}
 		
 		ExpandableListView list = (ExpandableListView) findViewById(R.id.computerList);
@@ -51,12 +57,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 					this,
 					createGroupList(),	// groupData describes the first-level entries
 					R.layout.base_group_row,	// Layout for the first-level entries
-					new String[] { "colorName" },	// Key in the groupData maps to display
+					new String[] { "name" },	// Key in the groupData maps to display
 					new int[] { R.id.groupname },		// Data under "colorName" key goes into this TextView
 					createChildList(),	// childData describes second-level entries
 					R.layout.computer_child_row,	// Layout for second-level entries
-					new String[] { "shadeName", "rgb" },	// Keys in childData maps to display
-					new int[] { R.id.childname, R.id.rgb }	// Data under the keys above go into these TextViews
+					new String[] { "title", "value" },	// Keys in childData maps to display
+					new int[] { R.id.title, R.id.value }	// Data under the keys above go into these TextViews
 				);
 		list.setAdapter( expListAdapter );
 	}
@@ -67,32 +73,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 
 		public List<String> computers = new ArrayList<String>();
 
-		final String shades[][] = {
-	// Shades of grey
-		{
-			"lightgrey","#D3D3D3",
-			"dimgray","#696969",
-			"sgi gray 92","#EAEAEA"
-		},
-	// Shades of blue
-		{
-			"dodgerblue 2","#1C86EE",
-			"steelblue 2","#5CACEE",
-			"powderblue","#B0E0E6"
-		},
-	// Shades of yellow
-		{
-			"yellow 1","#FFFF00",
-			"gold 1","#FFD700",
-			"darkgoldenrod 1","	#FFB90F"
-		},
-	// Shades of red
-		{
-			"indianred 1","#FF6A6A",
-			"firebrick 1","#FF3030",
-			"maroon","#800000"
-		}
-		};
+		public List<List<String>> singleComputer = new ArrayList<List<String>>();
 
 	/**
 	 * Creates the group list out of the colors[] array according to
@@ -104,7 +85,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 		ArrayList<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();
 		for(String name : computers) {
 			HashMap<String, String> m = new HashMap<String, String>();
-			m.put("colorName", name);
+			m.put("name", name);
 			result.add(m); 
 		}
 		return (List<HashMap<String, String>>) result;
@@ -119,13 +100,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 	 */
 	private List<ArrayList<HashMap<String, String>>> createChildList() {
 		ArrayList<ArrayList<HashMap<String, String>>> result = new ArrayList<ArrayList<HashMap<String, String>>>();
-		for( int i = 0 ; i < shades.length ; ++i ) {
+		for(List<String> computer : singleComputer) {
 	// Second-level lists
 		ArrayList<HashMap<String, String>> secList = new ArrayList<HashMap<String, String>>();
-		for( int n = 0 ; n < shades[i].length ; n += 2 ) {
+		for(int n = 0 ; n < computer.size() ; n += 2) {
 			HashMap<String, String> child = new HashMap<String, String>();
-			child.put( "shadeName", shades[i][n] );
-			child.put( "rgb", shades[i][n+1] );
+			child.put( "title", computer.get(n) );
+			child.put( "value", computer.get(n+1) );
 			secList.add( child );
 		}
 		result.add( secList );
