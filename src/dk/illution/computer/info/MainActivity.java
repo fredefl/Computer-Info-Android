@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import android.app.ActionBar;
 import android.app.ExpandableListActivity;
@@ -56,15 +57,18 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 								getString(R.string.units),
 						}),
 				this);
-
+		for (int i = 0; i <= 100; i++) {
+			computers.add("BUF " + Integer.toString(getRandomNumber(10000,99999)) + "U");
+		}
+		
 		ExpandableListView list = (ExpandableListView) findViewById(R.id.computerList);
 		SimpleExpandableListAdapter expListAdapter =
 				new SimpleExpandableListAdapter(
 					this,
 					createGroupList(),	// groupData describes the first-level entries
-					R.layout.child_row,	// Layout for the first-level entries
+					R.layout.group_row,	// Layout for the first-level entries
 					new String[] { "colorName" },	// Key in the groupData maps to display
-					new int[] { R.id.childname },		// Data under "colorName" key goes into this TextView
+					new int[] { R.id.groupname },		// Data under "colorName" key goes into this TextView
 					createChildList(),	// childData describes second-level entries
 					R.layout.child_row,	// Layout for second-level entries
 					new String[] { "shadeName", "rgb" },	// Keys in childData maps to display
@@ -72,13 +76,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 				);
 		list.setAdapter( expListAdapter );
 	}
+	Random rand = new Random();
+	public int getRandomNumber (int min, int max) {
+		return rand.nextInt(max - min + 1) + min;
+	}
 
-		final String colors[] = {
-		"grey",
-		"blue",
-		"yellow",
-		"red"
-		};
+		public List<String> computers = new ArrayList<String>();
 
 		final String shades[][] = {
 	// Shades of grey
@@ -115,10 +118,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 	 */
 		private List createGroupList() {
 		ArrayList<HashMap> result = new ArrayList<HashMap>();
-		for( int i = 0 ; i < colors.length ; ++i ) {
+		for(String name : computers) {
 			HashMap m = new HashMap();
-			m.put( "colorName",colors[i] );
-			result.add( m );
+			m.put("colorName", name);
+			result.add( m ); 
 		}
 		return (List)result;
 		}
@@ -131,10 +134,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 	 * shade and "rgb" is the RGB value for the shade.
 	 */
 	private List createChildList() {
-		ArrayList<HashMap> result = new ArrayList<HashMap>();
+		ArrayList result = new ArrayList();
 		for( int i = 0 ; i < shades.length ; ++i ) {
 	// Second-level lists
-		ArrayList<HashMap> secList = new ArrayList<HashMap>();
+		ArrayList secList = new ArrayList();
 		for( int n = 0 ; n < shades[i].length ; n += 2 ) {
 			HashMap child = new HashMap();
 			child.put( "shadeName", shades[i][n] );

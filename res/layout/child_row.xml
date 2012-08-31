@@ -5,15 +5,15 @@
     android:layout_height="wrap_content">
 
     <TextView android:id="@+id/childname"
-		 android:paddingLeft="50px"
-         android:textSize="14px"
+		 android:paddingLeft="30dp"
+         android:textSize="20dp"
          android:textStyle="italic"
-         android:layout_width="150px"
+         android:layout_width="500dp"
          android:layout_height="wrap_content"/>
 
     <TextView android:id="@+id/rgb"
-         android:textSize="14px"
+         android:textSize="20dp"
          android:textStyle="italic"
-         android:layout_width="100px"
+         android:layout_width="500dp"
          android:layout_height="wrap_content"/>
 </LinearLayout>
