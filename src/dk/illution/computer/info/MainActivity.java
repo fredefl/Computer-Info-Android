@@ -63,8 +63,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 				JSONObject computer = computers_array.getJSONObject(i);
 				computers.add(computer.getString("identifier"));
 				List<String> computerList = new ArrayList<String>();
+
 				computerList.add("Ip");
 				computerList.add(computer.getString("ip"));
+				computerList.add("LAN MAC");
+				computerList.add(computer.getString("lan_mac"));
+
 				singleComputer.add(computerList);
 			}
 		} catch (JSONException e) {

@@ -3,6 +3,7 @@ package dk.illution.computer.info;
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
@@ -18,9 +19,19 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.activity_login);
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
-		final Button button = (Button) findViewById(R.id.loginButton);
+		final Button loginButton = (Button) findViewById(R.id.loginButton);
+		final Button signUpButton = (Button) findViewById(R.id.signUpButton);
 		final Context context = this;
-		button.setOnClickListener(new View.OnClickListener() {
+
+		loginButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				ProgressDialog dialog = ProgressDialog.show(LoginActivity.this, "",
+						"Loading. Please wait...", true);
+				dialog.setCancelable(true);
+			}
+		});
+
+		signUpButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(context, MainActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -32,7 +43,7 @@ public class LoginActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case android.R.id.home:
-				// app icon in action bar clicked; go home
+				//
 				Intent intent = new Intent(this, LoginSelectActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(intent);

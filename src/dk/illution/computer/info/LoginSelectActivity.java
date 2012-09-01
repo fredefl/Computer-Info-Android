@@ -14,11 +14,20 @@ public class LoginSelectActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login_select);
-		final Button button = (Button) findViewById(R.id.usernameAndPasswordButton);
+		final Button usernameAndPasswordButton = (Button) findViewById(R.id.usernameAndPasswordButton);
+		final Button googleButton = (Button) findViewById(R.id.googleButton);
 		final Context context = this;
-		button.setOnClickListener(new View.OnClickListener() {
+		usernameAndPasswordButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(context, LoginActivity.class);
+				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent);
+			}
+		});
+
+		googleButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				Intent intent = new Intent(context, MainActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(intent);
 			}
