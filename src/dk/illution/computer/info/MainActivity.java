@@ -1,14 +1,21 @@
 package dk.illution.computer.info;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.ActionBar;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
@@ -22,6 +29,48 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		String computers_json = "{}";
+		try {
+			Resources res = getResources();
+			InputStream in_s = res.openRawResource(R.raw.computers);
+
+			byte[] b = new byte[in_s.available()];
+			in_s.read(b);
+			computers_json = new String(b);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		JSONObject computers_data = null;
+
+		try {
+			computers_data = new JSONObject(computers_json);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		try {
+			Log.d("count", computers_data.getString("count"));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		try {
+			JSONArray computers_array = computers_data.getJSONArray("Computers");
+			for (int i = 0; i <= computers_array.length(); i++) {
+				JSONObject computer = computers_array.getJSONObject(i);
+				computers.add(computer.getString("identifier"));
+				List<String> computerList = new ArrayList<String>();
+				computerList.add("Ip");
+				computerList.add(computer.getString("ip"));
+				singleComputer.add(computerList);
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
@@ -41,16 +90,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 								getString(R.string.units),
 						}),
 				this);
-		for (int i = 0; i <= 100; i++) {
-			computers.add("BUF " + Integer.toString(getRandomNumber(10000,99999)) + "U");
-			List<String> computer = new ArrayList<String>();
-			for (int j = 0; j <= 20; j++) {
-				computer.add("Hell");
-				computer.add("Yeah!");
-			}
-			singleComputer.add(computer);
-		}
-		
+
 		ExpandableListView list = (ExpandableListView) findViewById(R.id.computerList);
 		SimpleExpandableListAdapter expListAdapter =
 				new SimpleExpandableListAdapter(
@@ -82,7 +122,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 		for(String name : computers) {
 			HashMap<String, String> m = new HashMap<String, String>();
 			m.put("name", name);
-			result.add(m); 
+			result.add(m);
 		}
 		return (List<HashMap<String, String>>) result;
 	}
