@@ -27,7 +27,7 @@ public class LoginSelectActivity extends Activity {
 
 		googleButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent(context, MainActivity.class);
+				Intent intent = new Intent(context, ComputerListActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(intent);
 			}

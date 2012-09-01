@@ -20,5 +20,7 @@
     <string name="computers">Computers</string>
     <string name="printers">Printers</string>
     <string name="units">Units</string>
+    <string name="title_computer_detail">Computer Detail</string>
+    <string name="title_computer_list">Computers</string>
 
 </resources>

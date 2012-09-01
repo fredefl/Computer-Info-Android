@@ -1,0 +1,3 @@
+<resources>
+    <item type="layout" name="activity_computer_list">@layout/activity_computer_twopane</item>
+</resources>
