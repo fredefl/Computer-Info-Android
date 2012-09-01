@@ -177,6 +177,18 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
 		getSupportFragmentManager().beginTransaction()
 				.replace(R.id.container, fragment)
 				.commit();
+		switch (position) {
+			case 0:
+				getActionBar().setLogo(R.drawable.computer);
+				break;
+			case 1:
+				getActionBar().setLogo(R.drawable.printer);
+				break;
+			case 2:
+				getActionBar().setLogo(R.drawable.camera);
+				break;
+
+		}
 		return true;
 	}
 
