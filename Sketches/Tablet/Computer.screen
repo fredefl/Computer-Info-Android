@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Master" id="1" measuredWidth="1452" measuredHeight="975">
+    <screen xsi:type="model:WidgetGroup" href="../assets/Android4/Android4.screen#Tablet"/>
+  </widgets>
+  <widgets xsi:type="model:Master" id="2" x="87" y="87" measuredWidth="1280" measuredHeight="56">
+    <screen xsi:type="model:WidgetGroup" href="../assets/Android4/Android4.screen#Action Bar Tablet"/>
+  </widgets>
+  <widgets xsi:type="model:Placeholder" id="4" x="101" y="160" width="256" height="256" measuredWidth="256" measuredHeight="256"/>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
