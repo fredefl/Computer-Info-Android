@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import dk.illution.computer.info.ComputerList;
+import dk.illution.computer.info.ComputerInfo;
 
 import android.app.Activity;
 import android.content.res.Resources;
@@ -45,25 +46,8 @@ public class ComputerListFragment extends ListFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		String computers_json = "{}";
-		try {
-			Resources res = getResources();
-			InputStream in_s = res.openRawResource(R.raw.computers);
-
-			byte[] b = new byte[in_s.available()];
-			in_s.read(b);
-			computers_json = new String(b);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		JSONObject computers_data = null;
-
-		try {
-			computers_data = new JSONObject(computers_json);
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		JSONObject computers_data = ComputerInfo.loadComputers();
+		Log.d("ComputerInfo", "Loaded computers.");
 
 		try {
 			Log.d("count", computers_data.getString("count"));
@@ -83,6 +67,7 @@ public class ComputerListFragment extends ListFragment {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, computers);
 
 		this.setListAdapter(adapter);
