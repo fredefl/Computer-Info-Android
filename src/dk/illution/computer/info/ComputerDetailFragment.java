@@ -2,7 +2,7 @@ package dk.illution.computer.info;
 
 import org.json.JSONException;
 
-import dk.illution.computer.info.dummy.DummyContent;
+import dk.illution.computer.info.ComputerList;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,7 +15,7 @@ public class ComputerDetailFragment extends Fragment {
 
 	public static final String ARG_ITEM_ID = "item_id";
 
-	DummyContent.DummyItem mItem;
+	ComputerList.Computer mItem;
 
 	public ComputerDetailFragment() {
 	}
@@ -24,7 +24,7 @@ public class ComputerDetailFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		if (getArguments().containsKey(ARG_ITEM_ID)) {
-			mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+			mItem = ComputerList.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
 		}
 	}
 

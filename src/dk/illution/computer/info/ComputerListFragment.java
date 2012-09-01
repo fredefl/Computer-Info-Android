@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import dk.illution.computer.info.dummy.DummyContent;
+import dk.illution.computer.info.ComputerList;
 
 import android.app.Activity;
 import android.content.res.Resources;
@@ -77,7 +77,7 @@ public class ComputerListFragment extends ListFragment {
 			for (int i = 0; i <= computers_array.length(); i++) {
 				JSONObject computer = computers_array.getJSONObject(i);
 				computers.add(computer.getString("identifier"));
-				DummyContent.addItem(new DummyContent.DummyItem(computer.getString("id"), computer));
+				ComputerList.addItem(new ComputerList.Computer(computer.getString("id"), computer));
 			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -117,7 +117,7 @@ public class ComputerListFragment extends ListFragment {
 	@Override
 	public void onListItemClick(ListView listView, View view, int position, long id) {
 		super.onListItemClick(listView, view, position, id);
-		mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+		mCallbacks.onItemSelected(ComputerList.ITEMS.get(position).id);
 	}
 
 	@Override
