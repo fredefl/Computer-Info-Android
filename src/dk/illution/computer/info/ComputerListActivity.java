@@ -4,6 +4,8 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 
 public class ComputerListActivity extends FragmentActivity
@@ -74,5 +76,23 @@ public class ComputerListActivity extends FragmentActivity
 
 		}
 		return true;
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.activity_main, menu);
+		return true;
+	}
+
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.menu_settings:
+				Intent settingsActivity = new Intent(getBaseContext(),
+						Preferences.class);
+				startActivity(settingsActivity);
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
 	}
 }

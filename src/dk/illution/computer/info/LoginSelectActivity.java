@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class LoginSelectActivity extends Activity {
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -36,23 +36,22 @@ public class LoginSelectActivity extends Activity {
 			}
 		});
 	}
-	
-    public void openPreferences() {
-        Intent settingsActivity = new Intent(getBaseContext(),
-                Preferences.class);
-        startActivity(settingsActivity);
-    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_login_select, menu);
 		return true;
 	}
-	
+
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == R.id.menu_settings) {
-			openPreferences();
+		switch (item.getItemId()) {
+			case R.id.menu_settings:
+				Intent settingsActivity = new Intent(getBaseContext(),
+						Preferences.class);
+				startActivity(settingsActivity);
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
 		}
-		return true;
 	}
 }

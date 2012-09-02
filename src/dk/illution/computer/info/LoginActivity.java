@@ -36,31 +36,31 @@ import android.widget.TextView;
 
 class SignIn extends AsyncTask<String, Void, HttpResponse> {
 
-    protected HttpResponse doInBackground(String... params) {
-	    // Create a new HttpClient and Post Header
-	    HttpClient httpclient = new DefaultHttpClient();
-	    HttpPost httppost = new HttpPost("http://192.168.0.194/ci/login/device");
+	protected HttpResponse doInBackground(String... params) {
+		// Create a new HttpClient and Post Header
+		HttpClient httpclient = new DefaultHttpClient();
+		HttpPost httppost = new HttpPost("http://192.168.0.194/ci/login/device");
 
-	    try {
-	        // Add your data
-	        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-	        nameValuePairs.add(new BasicNameValuePair("username", params[0]));
-	        nameValuePairs.add(new BasicNameValuePair("password", params[1]));
-	        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+		try {
+			// Add your data
+			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+			nameValuePairs.add(new BasicNameValuePair("username", params[0]));
+			nameValuePairs.add(new BasicNameValuePair("password", params[1]));
+			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-	        // Execute HTTP Post Request
-	        HttpResponse response = httpclient.execute(httppost);
-	        return response;
-	    } catch (ClientProtocolException e) {
-	        return null;
-	    } catch (IOException e) {
-	        return null;
-	    }
-    }
+			// Execute HTTP Post Request
+			HttpResponse response = httpclient.execute(httppost);
+			return response;
+		} catch (ClientProtocolException e) {
+			return null;
+		} catch (IOException e) {
+			return null;
+		}
+	}
 
-    protected void onPostExecute(HttpResponse response) {
-		String response_text = "";	
-		HttpEntity entity = null;	
+	protected void onPostExecute(HttpResponse response) {
+		String response_text = "";
+		HttpEntity entity = null;
 		try {
 			entity = response.getEntity();
 			response_text = _getResponseBody(entity);
@@ -68,93 +68,93 @@ class SignIn extends AsyncTask<String, Void, HttpResponse> {
 			e.printStackTrace();
 		} catch (IOException e) {
 			if (entity != null) {
-		
+
 					try {
 							entity.consumeContent();
-		
+
 					} catch (IOException e1) {
-						
-		
+
+
 					}
 			}
 		}
-    	LoginActivity.dialog.hide();
-    	Log.d("ComputerInfo", response_text);
-    }
-    
+		LoginActivity.dialog.hide();
+		Log.d("ComputerInfo", response_text);
+	}
+
 
 	public static String _getResponseBody(final HttpEntity entity) throws IOException, ParseException {
-	
+
 	if (entity == null) { throw new IllegalArgumentException("HTTP entity may not be null"); }
-	
+
 	InputStream instream = entity.getContent();
-	
+
 	if (instream == null) { return ""; }
-	
+
 	if (entity.getContentLength() > Integer.MAX_VALUE) { throw new IllegalArgumentException(
-	
+
 	"HTTP entity too large to be buffered in memory"); }
-	
+
 	String charset = getContentCharSet(entity);
-	
+
 	if (charset == null) {
-	
+
 	charset = HTTP.DEFAULT_CONTENT_CHARSET;
-	
+
 	}
-	
+
 	Reader reader = new InputStreamReader(instream, charset);
-	
+
 	StringBuilder buffer = new StringBuilder();
-	
+
 	try {
-	
+
 	char[] tmp = new char[1024];
-	
+
 	int l;
-	
+
 	while ((l = reader.read(tmp)) != -1) {
-	
+
 	buffer.append(tmp, 0, l);
-	
+
 	}
-	
+
 	} finally {
-	
+
 	reader.close();
-	
+
 	}
-	
+
 	return buffer.toString();
-	
+
 	}
-	
+
 	public static String getContentCharSet(final HttpEntity entity) throws ParseException {
-	
+
 	if (entity == null) { throw new IllegalArgumentException("HTTP entity may not be null"); }
-	
+
 	String charset = null;
-	
+
 	if (entity.getContentType() != null) {
-	
+
 	HeaderElement values[] = entity.getContentType().getElements();
-	
+
 	if (values.length > 0) {
-	
+
 	NameValuePair param = values[0].getParameterByName("charset");
-	
+
 	if (param != null) {
-	
+
 	charset = param.getValue();
-	
+
 	}
-	
+
 	}
-	
+
 	}
-	
+
 	return charset;
-	
+
 	}
 
 
@@ -201,6 +201,11 @@ public class LoginActivity extends Activity {
 				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(intent);
 				return true;
+			case R.id.menu_settings:
+				Intent settingsActivity = new Intent(getBaseContext(),
+						Preferences.class);
+				startActivity(settingsActivity);
+				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 		}
@@ -211,6 +216,4 @@ public class LoginActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_login, menu);
 		return true;
 	}
-
-
 }
