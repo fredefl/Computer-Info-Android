@@ -22,5 +22,6 @@
     <string name="units">Units</string>
     <string name="title_computer_detail">Computer Detail</string>
     <string name="title_computer_list">Computers</string>
+    <string name="settings_title">Settings</string>
 
 </resources>

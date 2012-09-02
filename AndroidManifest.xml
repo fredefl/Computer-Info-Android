@@ -10,10 +10,13 @@
 		<uses-permission android:name="android.permission.INTERNET" />
 
 		<application
-					android:name="ComputerInfo"
+				android:name="ComputerInfo"
 				android:icon="@drawable/ic_launcher"
 				android:label="@string/app_name"
-				android:theme="@style/AppTheme" >
+				android:theme="@style/AppTheme">
+        		<activity android:name=".Preferences"
+                	android:label=""
+                	android:exported="true" />
 				<activity
 						android:name=".LoginSelectActivity"
 						android:label="@string/computer_info"
@@ -29,7 +32,7 @@
 				</activity>
 				<activity
 						android:name=".ComputerListActivity"
-						android:label="@string/title_computer_list"
+						android:label="@string/app_name"
 						android:logo="@drawable/computer"
 						android:launchMode="singleTop" >
 						<intent-filter>
@@ -40,7 +43,7 @@
 				</activity>
 				<activity
 						android:name=".ComputerDetailActivity"
-						android:label="@string/title_computer_detail"
+						android:label="@string/app_name"
 						android:logo="@drawable/computer" >
 						<meta-data
 								android:name="android.support.PARENT_ACTIVITY"
