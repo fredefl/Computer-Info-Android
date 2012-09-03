@@ -55,6 +55,9 @@ class SignIn extends AsyncTask<String, Void, HttpResponse> {
 			return null;
 		} catch (IOException e) {
 			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 
@@ -68,14 +71,11 @@ class SignIn extends AsyncTask<String, Void, HttpResponse> {
 			e.printStackTrace();
 		} catch (IOException e) {
 			if (entity != null) {
-
-					try {
-							entity.consumeContent();
-
-					} catch (IOException e1) {
-
-
-					}
+				try {
+					entity.consumeContent();
+				} catch (IOException f) {
+					f.printStackTrace();
+				}
 			}
 		}
 		LoginActivity.dialog.hide();
