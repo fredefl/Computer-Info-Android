@@ -1,4 +1,6 @@
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp">
     <CheckBoxPreference
         android:key="pref_sync"
         android:title="Sync"
