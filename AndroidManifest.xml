@@ -15,7 +15,7 @@
 				android:label="@string/app_name"
 				android:theme="@style/AppTheme">
         		<activity android:name=".Preferences"
-                	android:label=""
+                	android:label="Settings"
                 	android:exported="true" />
 				<activity
 						android:name=".LoginSelectActivity"
