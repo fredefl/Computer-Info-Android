@@ -17,8 +17,8 @@ public class LoginSelectActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login_select);
-		final Button usernameAndPasswordButton = (Button) findViewById(R.id.usernameAndPasswordButton);
-		final Button googleButton = (Button) findViewById(R.id.googleButton);
+		final Button usernameAndPasswordButton = (Button) findViewById(R.id.username_and_password_button);
+		final Button googleButton = (Button) findViewById(R.id.google_button);
 		final Context context = this;
 		usernameAndPasswordButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
