@@ -17,20 +17,20 @@ public class PrinterDetailActivity extends FragmentActivity {
 
         if (savedInstanceState == null) {
             Bundle arguments = new Bundle();
-            arguments.putString(PrinterDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(PrinterDetailFragment.ARG_ITEM_ID));
+            arguments.putString(PrinterDetailFragment.ARG_ITEM_ID, getIntent()
+                    .getStringExtra(PrinterDetailFragment.ARG_ITEM_ID));
             PrinterDetailFragment fragment = new PrinterDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.printer_detail_container, fragment)
-                    .commit();
+                    .add(R.id.printer_detail_container, fragment).commit();
         }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            NavUtils.navigateUpTo(this, new Intent(this, PrinterListActivity.class));
+            NavUtils.navigateUpTo(this, new Intent(this,
+                    PrinterListActivity.class));
             return true;
         }
 

@@ -36,157 +36,158 @@ import android.widget.TextView;
 
 class SignIn extends AsyncTask<String, Void, HttpResponse> {
 
-	protected HttpResponse doInBackground(String... params) {
-		// Create a new HttpClient and Post Header
-		HttpClient httpclient = new DefaultHttpClient();
-		HttpPost httppost = new HttpPost("http://192.168.0.194/ci/login/device");
+    protected HttpResponse doInBackground(String... params) {
+        // Create a new HttpClient and Post Header
+        HttpClient httpclient = new DefaultHttpClient();
+        HttpPost httppost = new HttpPost("http://192.168.0.194/ci/login/device");
 
-		try {
-			// Add your data
-			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-			nameValuePairs.add(new BasicNameValuePair("username", params[0]));
-			nameValuePairs.add(new BasicNameValuePair("password", params[1]));
-			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+        try {
+            // Add your data
+            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+            nameValuePairs.add(new BasicNameValuePair("username", params[0]));
+            nameValuePairs.add(new BasicNameValuePair("password", params[1]));
+            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-			// Execute HTTP Post Request
-			HttpResponse response = httpclient.execute(httppost);
-			return response;
-		} catch (ClientProtocolException e) {
-			return null;
-		} catch (IOException e) {
-			return null;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
+            // Execute HTTP Post Request
+            HttpResponse response = httpclient.execute(httppost);
+            return response;
+        } catch (ClientProtocolException e) {
+            return null;
+        } catch (IOException e) {
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
-	protected void onPostExecute(HttpResponse response) {
-		String response_text = "";
-		HttpEntity entity = null;
-		try {
-			entity = response.getEntity();
-			response_text = _getResponseBody(entity);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			if (entity != null) {
-				try {
-					entity.consumeContent();
-				} catch (IOException f) {
-					f.printStackTrace();
-				}
-			}
-		}
-		LoginActivity.dialog.hide();
-		Log.d("ComputerInfo", response_text);
-	}
+    protected void onPostExecute(HttpResponse response) {
+        String response_text = "";
+        HttpEntity entity = null;
+        try {
+            entity = response.getEntity();
+            response_text = _getResponseBody(entity);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            if (entity != null) {
+                try {
+                    entity.consumeContent();
+                } catch (IOException f) {
+                    f.printStackTrace();
+                }
+            }
+        }
+        LoginActivity.dialog.hide();
+        Log.d("ComputerInfo", response_text);
+    }
 
+    public static String _getResponseBody(final HttpEntity entity)
+            throws IOException, ParseException {
+        if (entity == null) {
+            throw new IllegalArgumentException("HTTP entity may not be null");
+        }
+        InputStream instream = entity.getContent();
+        if (instream == null) {
+            return "";
+        }
+        if (entity.getContentLength() > Integer.MAX_VALUE) {
+            throw new IllegalArgumentException(
+                    "HTTP entity too large to be buffered in memory");
+        }
+        String charset = getContentCharSet(entity);
+        if (charset == null) {
+            charset = HTTP.DEFAULT_CONTENT_CHARSET;
+        }
+        Reader reader = new InputStreamReader(instream, charset);
+        StringBuilder buffer = new StringBuilder();
+        try {
+            char[] tmp = new char[1024];
+            int l;
+            while ((l = reader.read(tmp)) != -1) {
+                buffer.append(tmp, 0, l);
+            }
+        } finally {
+            reader.close();
+        }
+        return buffer.toString();
+    }
 
-	public static String _getResponseBody(final HttpEntity entity) throws IOException, ParseException {
-		if (entity == null) {
-			throw new IllegalArgumentException("HTTP entity may not be null");
-		}
-		InputStream instream = entity.getContent();
-		if (instream == null) {
-			return "";
-		}
-		if (entity.getContentLength() > Integer.MAX_VALUE) {
-			throw new IllegalArgumentException("HTTP entity too large to be buffered in memory");
-		}
-		String charset = getContentCharSet(entity);
-		if (charset == null) {
-			charset = HTTP.DEFAULT_CONTENT_CHARSET;
-		}
-		Reader reader = new InputStreamReader(instream, charset);
-		StringBuilder buffer = new StringBuilder();
-		try {
-			char[] tmp = new char[1024];
-			int l;
-			while ((l = reader.read(tmp)) != -1) {
-				buffer.append(tmp, 0, l);
-			}
-		} finally {
-			reader.close();
-		}
-		return buffer.toString();
-	}
-
-	public static String getContentCharSet(final HttpEntity entity) throws ParseException {
-		if (entity == null) {
-			throw new IllegalArgumentException("HTTP entity may not be null");
-		}
-		String charset = null;
-		if (entity.getContentType() != null) {
-			HeaderElement values[] = entity.getContentType().getElements();
-				if (values.length > 0) {
-					NameValuePair param = values[0].getParameterByName("charset");
-					if (param != null) {
-						charset = param.getValue();
-					}
-				}
-		}
-		return charset;
-	}
-
+    public static String getContentCharSet(final HttpEntity entity)
+            throws ParseException {
+        if (entity == null) {
+            throw new IllegalArgumentException("HTTP entity may not be null");
+        }
+        String charset = null;
+        if (entity.getContentType() != null) {
+            HeaderElement values[] = entity.getContentType().getElements();
+            if (values.length > 0) {
+                NameValuePair param = values[0].getParameterByName("charset");
+                if (param != null) {
+                    charset = param.getValue();
+                }
+            }
+        }
+        return charset;
+    }
 
 }
 
 public class LoginActivity extends Activity {
 
-	public static ProgressDialog dialog;
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
-		ActionBar actionBar = getActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(true);
-		final Button loginButton = (Button) findViewById(R.id.login_button);
-		final Button signUpButton = (Button) findViewById(R.id.sign_up_button);
-		final Context context = this;
+    public static ProgressDialog dialog;
 
-		loginButton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				final TextView usernameBox = (TextView) findViewById(R.id.username_box);
-				final TextView passwordBox = (TextView) findViewById(R.id.password_box);
-				dialog = ProgressDialog.show(
-						LoginActivity.this,
-						"",
-						"Loading. Please wait...",
-						true);
-				dialog.setCancelable(true);
-				new SignIn().execute(usernameBox.getText().toString(), passwordBox.getText().toString());
-			}
-		});
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        final Button loginButton = (Button) findViewById(R.id.login_button);
+        final Button signUpButton = (Button) findViewById(R.id.sign_up_button);
+        final Context context = this;
 
-		signUpButton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				Intent intent = new Intent(context, ComputerListActivity.class);
-				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				startActivity(intent);
-			}
-		});
-	}
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                final TextView usernameBox = (TextView) findViewById(R.id.username_box);
+                final TextView passwordBox = (TextView) findViewById(R.id.password_box);
+                dialog = ProgressDialog.show(LoginActivity.this, "",
+                        "Loading. Please wait...", true);
+                dialog.setCancelable(true);
+                new SignIn().execute(usernameBox.getText().toString(),
+                        passwordBox.getText().toString());
+            }
+        });
 
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-			case android.R.id.home:
-				Intent intent = new Intent(this, LoginSelectActivity.class);
-				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				startActivity(intent);
-				return true;
-			case R.id.menu_settings:
-				Intent settingsActivity = new Intent(getBaseContext(), Preferences.class);
-				startActivity(settingsActivity);
-				return true;
-			default:
-				return super.onOptionsItemSelected(item);
-		}
-	}
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ComputerListActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+    }
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_login, menu);
-		return true;
-	}
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case android.R.id.home:
+            Intent intent = new Intent(this, LoginSelectActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            return true;
+        case R.id.menu_settings:
+            Intent settingsActivity = new Intent(getBaseContext(),
+                    Preferences.class);
+            startActivity(settingsActivity);
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_login, menu);
+        return true;
+    }
 }

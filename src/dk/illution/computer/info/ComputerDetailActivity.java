@@ -17,20 +17,20 @@ public class ComputerDetailActivity extends FragmentActivity {
 
         if (savedInstanceState == null) {
             Bundle arguments = new Bundle();
-            arguments.putString(ComputerDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(ComputerDetailFragment.ARG_ITEM_ID));
+            arguments.putString(ComputerDetailFragment.ARG_ITEM_ID, getIntent()
+                    .getStringExtra(ComputerDetailFragment.ARG_ITEM_ID));
             ComputerDetailFragment fragment = new ComputerDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.computer_detail_container, fragment)
-                    .commit();
+                    .add(R.id.computer_detail_container, fragment).commit();
         }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            NavUtils.navigateUpTo(this, new Intent(this, ComputerListActivity.class));
+            NavUtils.navigateUpTo(this, new Intent(this,
+                    ComputerListActivity.class));
             return true;
         }
 
