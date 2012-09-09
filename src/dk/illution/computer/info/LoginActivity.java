@@ -77,6 +77,8 @@ class SignIn extends AsyncTask<String, Void, HttpResponse> {
                     f.printStackTrace();
                 }
             }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
         LoginActivity.dialog.hide();
         Log.d("ComputerInfo", response_text);
