@@ -69,6 +69,9 @@ public class ComputerListActivity extends FragmentActivity
 				break;
 			case 1:
 				getActionBar().setLogo(R.drawable.printer);
+				Intent intent = new Intent(this, PrinterListActivity.class);
+				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent);
 				break;
 			case 2:
 				getActionBar().setLogo(R.drawable.camera);
