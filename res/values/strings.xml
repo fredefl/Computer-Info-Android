@@ -16,5 +16,8 @@
     <string name="units">Units</string>
     <string name="title_computer_detail">Computer Detail</string>
     <string name="settings_title">Settings</string>
+    <string name="menu_logout">Logout</string>
+    <string name="title_printer_detail">Printer Detail</string>
+    <string name="title_printer_list">Printers</string>
 
 </resources>

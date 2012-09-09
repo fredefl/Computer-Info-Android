@@ -1,3 +1,6 @@
 <resources>
-    <item type="layout" name="activity_computer_list">@layout/activity_computer_twopane</item>
+
+    <item name="activity_computer_list" type="layout">@layout/activity_computer_twopane</item>
+    <item name="activity_printer_list" type="layout">@layout/activity_printer_twopane</item>
+
 </resources>

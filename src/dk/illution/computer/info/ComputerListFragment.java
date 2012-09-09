@@ -1,6 +1,5 @@
 package dk.illution.computer.info;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +11,6 @@ import dk.illution.computer.info.ComputerList;
 import dk.illution.computer.info.ComputerInfo;
 
 import android.app.Activity;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
