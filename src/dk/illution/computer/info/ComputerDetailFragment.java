@@ -35,13 +35,14 @@ public class ComputerDetailFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_computer_detail,
                 container, false);
         if (mItem != null) {
+        	/*
             try {
                 ((TextView) rootView.findViewById(R.id.computer_detail))
                         .setText(mItem.computer.getString("serial"));
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
-            }
+            }*/
         }
         return rootView;
     }
