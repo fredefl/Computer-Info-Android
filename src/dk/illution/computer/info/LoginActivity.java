@@ -141,16 +141,19 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.activity_login);
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
-		final Button loginButton = (Button) findViewById(R.id.loginButton);
-		final Button signUpButton = (Button) findViewById(R.id.signUpButton);
+		final Button loginButton = (Button) findViewById(R.id.login_button);
+		final Button signUpButton = (Button) findViewById(R.id.sign_up_button);
 		final Context context = this;
 
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				final TextView usernameBox = (TextView) findViewById(R.id.usernameBox);
-				final TextView passwordBox = (TextView) findViewById(R.id.passwordBox);
-				dialog = ProgressDialog.show(LoginActivity.this, "",
-						"Loading. Please wait...", true);
+				final TextView usernameBox = (TextView) findViewById(R.id.username_box);
+				final TextView passwordBox = (TextView) findViewById(R.id.password_box);
+				dialog = ProgressDialog.show(
+						LoginActivity.this,
+						"",
+						"Loading. Please wait...",
+						true);
 				dialog.setCancelable(true);
 				new SignIn().execute(usernameBox.getText().toString(), passwordBox.getText().toString());
 			}
@@ -174,8 +177,7 @@ public class LoginActivity extends Activity {
 				startActivity(intent);
 				return true;
 			case R.id.menu_settings:
-				Intent settingsActivity = new Intent(getBaseContext(),
-						Preferences.class);
+				Intent settingsActivity = new Intent(getBaseContext(), Preferences.class);
 				startActivity(settingsActivity);
 				return true;
 			default:

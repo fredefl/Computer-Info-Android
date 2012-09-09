@@ -1,17 +1,17 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:tools="http://schemas.android.com/tools"
-		android:id="@+id/scrollView"
+		android:id="@+id/scroll_view"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content">
-		
+
 		<TableLayout
-				android:id="@+id/tableLayout"
+				android:id="@+id/table_layout"
 				android:layout_width="250dp"
 				android:layout_height="wrap_content"
 				android:layout_gravity="center_horizontal" >
 
 				<TextView
-						android:id="@+id/usernameLabel"
+						android:id="@+id/username_label"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_marginTop="20dp"
@@ -19,7 +19,7 @@
 						android:textAppearance="?android:attr/textAppearanceMedium" />
 
 				<EditText
-						android:id="@+id/usernameBox"
+						android:id="@+id/username_box"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:ems="10"
@@ -29,7 +29,7 @@
 				</EditText>
 
 				<TextView
-						android:id="@+id/passwordLabel"
+						android:id="@+id/password_label"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_marginTop="10dp"
@@ -37,27 +37,27 @@
 						android:textAppearance="?android:attr/textAppearanceMedium" />
 
 				<EditText
-						android:id="@+id/passwordBox"
+						android:id="@+id/password_box"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:inputType="textPassword"
 						android:text="test1234"/>
 
 				<Button
-						android:id="@+id/loginButton"
+						android:id="@+id/login_button"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_marginTop="5dp"
 						android:text="@string/login" />
 
 				<Button
-						android:id="@+id/signUpButton"
+						android:id="@+id/sign_up_button"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:text="@string/sign_up" />
 
 				<Button
-						android:id="@+id/forgotPasswordButton"
+						android:id="@+id/forgot_password_button"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_marginTop="5dp"
