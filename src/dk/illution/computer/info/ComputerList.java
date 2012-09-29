@@ -9,22 +9,48 @@ import org.json.JSONObject;
 
 public class ComputerList {
 
-    public static class Computer {
+	/**
+	 * The computer class.
+	 * @author Illution
+	 */
+	public static class Computer {
 
-        public String id;
-        public JSONObject computer;
+		/**
+		 * The id of the computer
+		 */
+		public String id;
+		/**
+		 * The JSONObject of the computer containing all the information
+		 */
+		public JSONObject computer;
 
-        public Computer(String id, JSONObject computer) {
-            this.id = id;
-            this.computer = computer;
-        }
-    }
+		/**
+		 * Creates a Computer object
+		 * @param id The id of the computer
+		 * @param computer The JSONObject of the computer containing all the information
+		 */
+		public Computer(String id, JSONObject computer) {
+			this.id = id;
+			this.computer = computer;
+		}
+	}
 
-    public static List<Computer> ITEMS = new ArrayList<Computer>();
-    public static Map<String, Computer> ITEM_MAP = new HashMap<String, Computer>();
+	/**
+	 * The list of computers
+	 */
+	public static List<Computer> ITEMS = new ArrayList<Computer>();
 
-    public static void addItem(Computer item) {
-        ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
-    }
+	/**
+	 * The map of the computers that consists of the id and the Computer obejct
+	 */
+	public static Map<String, Computer> ITEM_MAP = new HashMap<String, Computer>();
+
+	/**
+	 * Adds a Computer to the list
+	 * @param item The Computer object
+	 */
+	public static void addItem(Computer item) {
+		ITEMS.add(item);
+		ITEM_MAP.put(item.id, item);
+	}
 }
