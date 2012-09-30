@@ -1,0 +1,10 @@
+<resources>
+
+    <color name="border_color">#d3d3d3</color>
+    
+    <color name="header_color">#dadbda</color>
+    <color name="header_border_shadow">#ffffff</color>
+    
+    <color name="section_color">#ffffff</color>
+    
+</resources>
