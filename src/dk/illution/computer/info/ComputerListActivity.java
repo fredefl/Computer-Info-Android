@@ -89,6 +89,11 @@ public class ComputerListActivity extends FragmentActivity implements
                     Preferences.class);
             startActivity(settingsActivity);
             return true;
+        case R.id.menu_logout:
+            Intent loginSelectActivity = new Intent(getBaseContext(),
+                    LoginSelectActivity.class);
+            startActivity(loginSelectActivity);
+            this.finish();
         default:
             return super.onOptionsItemSelected(item);
         }
