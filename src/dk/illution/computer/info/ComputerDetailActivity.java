@@ -10,42 +10,42 @@ import android.view.MenuItem;
 
 public class ComputerDetailActivity extends FragmentActivity {
 
-    public Menu menu;
+	public Menu menu;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_computer_detail);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_computer_detail);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        if (savedInstanceState == null) {
-            Bundle arguments = new Bundle();
-            arguments.putString(ComputerDetailFragment.ARG_ITEM_ID, getIntent()
-                    .getStringExtra(ComputerDetailFragment.ARG_ITEM_ID));
-            ComputerDetailFragment fragment = new ComputerDetailFragment();
-            fragment.setArguments(arguments);
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.computer_detail_container, fragment).commit();
-        }
-    }
+		if (savedInstanceState == null) {
+			Bundle arguments = new Bundle();
+			arguments.putString(ComputerDetailFragment.ARG_ITEM_ID, getIntent()
+					.getStringExtra(ComputerDetailFragment.ARG_ITEM_ID));
+			ComputerDetailFragment fragment = new ComputerDetailFragment();
+			fragment.setArguments(arguments);
+			getSupportFragmentManager().beginTransaction()
+					.add(R.id.computer_detail_container, fragment).commit();
+		}
+	}
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_computer_detail, menu);
-        Log.d("ComputerInfo", "Menu has been created");
-        this.menu = menu;
-        return true;
-    }
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.activity_computer_detail, menu);
+		Log.d("ComputerInfo", "Menu has been created");
+		this.menu = menu;
+		return true;
+	}
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            NavUtils.navigateUpTo(this, new Intent(this,
-                    ComputerListActivity.class));
-            return true;
-        }
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getItemId() == android.R.id.home) {
+			NavUtils.navigateUpTo(this, new Intent(this,
+					ComputerListActivity.class));
+			return true;
+		}
 
-        return super.onOptionsItemSelected(item);
-    }
+		return super.onOptionsItemSelected(item);
+	}
 }

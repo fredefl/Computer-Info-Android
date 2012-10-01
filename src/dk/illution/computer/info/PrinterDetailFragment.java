@@ -11,31 +11,31 @@ import android.widget.TextView;
 
 public class PrinterDetailFragment extends Fragment {
 
-    public static final String ARG_ITEM_ID = "item_id";
+	public static final String ARG_ITEM_ID = "item_id";
 
-    DummyContent.DummyItem mItem;
+	DummyContent.DummyItem mItem;
 
-    public PrinterDetailFragment() {
-    }
+	public PrinterDetailFragment() {
+	}
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments().containsKey(ARG_ITEM_ID)) {
-            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(
-                    ARG_ITEM_ID));
-        }
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		if (getArguments().containsKey(ARG_ITEM_ID)) {
+			mItem = DummyContent.ITEM_MAP.get(getArguments().getString(
+					ARG_ITEM_ID));
+		}
+	}
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_printer_detail,
-                container, false);
-        if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.printer_detail))
-                    .setText(mItem.content);
-        }
-        return rootView;
-    }
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View rootView = inflater.inflate(R.layout.fragment_printer_detail,
+				container, false);
+		if (mItem != null) {
+			((TextView) rootView.findViewById(R.id.printer_detail))
+					.setText(mItem.content);
+		}
+		return rootView;
+	}
 }
