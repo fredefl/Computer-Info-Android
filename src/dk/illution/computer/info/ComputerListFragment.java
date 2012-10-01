@@ -58,7 +58,7 @@ public class ComputerListFragment extends ListFragment {
 		try {
 			JSONArray computers_array = computers_data
 					.getJSONArray("Computers");
-			for (int i = 0; i <= computers_array.length(); i++) {
+			for (int i = 0; i <= computers_array.length() - 1; i++) {
 				JSONObject computer = computers_array.getJSONObject(i);
 				computers.add(computer.getString("identifier"));
 				ComputerList.addItem(new ComputerList.Computer(computer

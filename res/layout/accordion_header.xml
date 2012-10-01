@@ -23,7 +23,7 @@
 						android:layout_marginLeft="8sp"
 						android:layout_marginTop="4sp"
 						accordion:icon_resource="@drawable/navigation_down"
-						accordion:icon_resource_off="@drawable/navigation_right" />
+						accordion:icon_resource_off="@drawable/navigation_next_item" />
 
 				<!-- paddingRight added to center text correctly -->
 

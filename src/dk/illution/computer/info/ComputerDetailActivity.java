@@ -4,9 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 
 public class ComputerDetailActivity extends FragmentActivity {
+    
+    public Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,14 @@ public class ComputerDetailActivity extends FragmentActivity {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.computer_detail_container, fragment).commit();
         }
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_computer_detail, menu);
+        Log.d("ComputerInfo", "Menu has been created");
+        this.menu = menu;
+        return true;
     }
 
     @Override
