@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class ComputerDetailActivity extends FragmentActivity {
-    
+
     public Menu menu;
 
     @Override
@@ -29,7 +29,7 @@ public class ComputerDetailActivity extends FragmentActivity {
                     .add(R.id.computer_detail_container, fragment).commit();
         }
     }
-    
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_computer_detail, menu);
