@@ -30,6 +30,15 @@ public class ComputerDetailActivity extends FragmentActivity {
 		}
 	}
 
+	public void viewComputer (String id) {
+		Bundle arguments = new Bundle();
+		arguments.putString(ComputerDetailFragment.ARG_ITEM_ID, id);
+		ComputerDetailFragment fragment = new ComputerDetailFragment();
+		fragment.setArguments(arguments);
+		getSupportFragmentManager().beginTransaction()
+				.add(R.id.computer_detail_container, fragment).commit();
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_computer_detail, menu);

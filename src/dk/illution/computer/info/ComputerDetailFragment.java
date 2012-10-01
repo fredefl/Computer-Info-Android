@@ -9,8 +9,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class ComputerDetailFragment extends Fragment {
 
@@ -51,12 +53,16 @@ public class ComputerDetailFragment extends Fragment {
 		// doesn't
 		if (!ComputerList.ITEM_MAP.containsKey(String.valueOf(id + 1))) {
 			menu.findItem(R.id.navigation_next).setVisible(false);
+		} else {
+			menu.findItem(R.id.navigation_next).setVisible(true);
 		}
 
 		// Check if the previous computer exists, and remove the previous arrow
 		// if it doesn't
 		if (!ComputerList.ITEM_MAP.containsKey(String.valueOf(id - 1))) {
 			menu.findItem(R.id.navigation_previous).setVisible(false);
+		} else {
+			menu.findItem(R.id.navigation_previous).setVisible(true);
 		}
 
 		// Get the menu inflated
@@ -71,8 +77,28 @@ public class ComputerDetailFragment extends Fragment {
 		// Make sure the computer isn't null
 		if (computer != null) {
 			// TODO: Gogo!
+			try {
+				((TextView) rootView.findViewById(R.id.test)).setText(computer.getString("serial"));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
 		return rootView;
+	}
+
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.navigation_next:
+			((ComputerDetailActivity)getActivity()).viewComputer(String.valueOf(id + 1));
+			return true;
+		case R.id.navigation_previous:
+			((ComputerDetailActivity)getActivity()).viewComputer(String.valueOf(id - 1));
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 
 }
