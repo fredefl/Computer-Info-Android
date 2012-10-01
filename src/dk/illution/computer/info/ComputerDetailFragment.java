@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import dk.illution.computer.info.ComputerList;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ComputerDetailFragment extends Fragment {
@@ -48,7 +50,7 @@ public class ComputerDetailFragment extends Fragment {
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		// Get the current computers id
 		id = Integer.parseInt(getArguments().getString(ARG_ITEM_ID));
-
+		
 		// Check if the next computer exists, and remove the next arrow if it
 		// doesn't
 		if (!ComputerList.ITEM_MAP.containsKey(String.valueOf(id + 1))) {
@@ -83,7 +85,12 @@ public class ComputerDetailFragment extends Fragment {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
+			
+			LinearLayout ll = (LinearLayout) rootView.findViewById(R.id.section_computer_processor);
+			View processor = inflater.inflate(R.layout.computer_processor, null);
+			ll.addView(processor);
+			processor = inflater.inflate(R.layout.computer_processor, null);
+			ll.addView(processor);
 		}
 		return rootView;
 	}

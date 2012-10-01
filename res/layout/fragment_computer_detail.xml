@@ -23,32 +23,44 @@
 						android:background="#fff5f5f5"
 						android:orientation="vertical" >
 
+				    	<LinearLayout
+								android:id="@+id/section_computer_general"
+								android:layout_width="fill_parent"
+								android:layout_height="wrap_content"
+								android:orientation="vertical" >
 						<TextView
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
 								android:text="Item 1"
 								android:id="@+id/test" />
+						</LinearLayout>
 
+				    	<LinearLayout
+								android:id="@+id/section_computer_processor"
+								android:layout_width="fill_parent"
+								android:layout_height="wrap_content"
+								android:orientation="vertical" >
 						<TextView
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
 								android:text="Item 1" />
+						</LinearLayout>
 
 						<LinearLayout
-								android:id="@+id/example_get_by_id"
-								android:layout_width="fill_parent"
+							android:id="@+id/section_computer_memory"
+							android:layout_width="fill_parent"
+							android:layout_height="wrap_content"
+							android:orientation="vertical" >
+
+							<TextView
+								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
-								android:orientation="vertical" >
+								android:text="Item 2" />
 
-								<TextView
-										android:layout_width="wrap_content"
-										android:layout_height="wrap_content"
-										android:text="Item 2" />
-
-								<TextView
-										android:layout_width="wrap_content"
-										android:layout_height="wrap_content"
-										android:text="Item 3" />
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="Item 3" />
 						</LinearLayout>
 
 				</dk.illution.computer.info.widget.AccordionView>
