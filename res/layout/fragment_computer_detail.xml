@@ -1,10 +1,56 @@
-<GridLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:columnCount="4"
-    android:rowCount="4" >
- 
-    <TextView
-        android:text="1,1" />
-</GridLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:accordion="http://schemas.android.com/apk/res-auto/com.sentaca.android.accordion"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:background="@android:color/white"
+		android:orientation="vertical" >
+
+		<ScrollView
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent" >
+
+				<dk.illution.computer.info.widget.AccordionView
+						android:id="@+id/accordion_view"
+						android:layout_width="fill_parent"
+						android:layout_height="fill_parent"
+						accordion:header_layout_fold_button_id="@id/foldButton"
+						accordion:header_layout_id="@layout/accordion_header"
+						accordion:header_layout_label_id="@id/foldText"
+						accordion:section_bottom="@layout/accordion_footer"
+						accordion:section_container="@layout/accordion_section"
+						accordion:section_container_parent="@id/section_content"
+						accordion:section_headers="@array/computer_sections"
+						android:background="#fff5f5f5"
+						android:orientation="vertical" >
+
+						<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="Item 1" />
+
+						<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="Item 1" />
+
+						<LinearLayout
+								android:id="@+id/example_get_by_id"
+								android:layout_width="fill_parent"
+								android:layout_height="wrap_content"
+								android:orientation="vertical" >
+
+								<TextView
+										android:layout_width="wrap_content"
+										android:layout_height="wrap_content"
+										android:text="Item 2" />
+
+								<TextView
+										android:layout_width="wrap_content"
+										android:layout_height="wrap_content"
+										android:text="Item 3" />
+						</LinearLayout>
+
+				</dk.illution.computer.info.widget.AccordionView>
+		</ScrollView>
+
+</LinearLayout>
