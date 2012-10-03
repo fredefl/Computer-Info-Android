@@ -1,5 +1,6 @@
 package dk.illution.computer.info;
 
+import dk.illution.computer.info.widget.ToggleImageLabeledButton;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
@@ -17,13 +18,14 @@ public class ExpandAnimation extends Animation {
 	private int mMarginStart, mMarginEnd;
 	private boolean mIsVisibleAfter = false;
 	private boolean mWasEndedAlready = false;
+	private ToggleImageLabeledButton foldButton;
 
 	/**
 	 * Initialize the animation
 	 * @param view The layout we want to animate
 	 * @param duration The duration of the animation, in ms
 	 */
-	public ExpandAnimation(View view, int duration) {
+	public ExpandAnimation(View view, int duration, ToggleImageLabeledButton foldButton) {
 
 		setDuration(duration);
 		mAnimatedView = view;
@@ -36,6 +38,17 @@ public class ExpandAnimation extends Animation {
 		mMarginEnd = (mMarginStart == 0 ? (0- view.getHeight()) : 0);
 
 		view.setVisibility(View.VISIBLE);
+		
+		this.foldButton = foldButton;
+		
+		toggleButton();
+	}
+	
+	private void toggleButton () {
+		if (foldButton instanceof ToggleImageLabeledButton) {
+			final ToggleImageLabeledButton toggleButton = (ToggleImageLabeledButton) foldButton;
+			toggleButton.handleNewState(!mIsVisibleAfter);
+		}
 	}
 
 	@Override
@@ -61,5 +74,7 @@ public class ExpandAnimation extends Animation {
 			}
 			mWasEndedAlready = true;
 		}
+		toggleButton();
+
 	}
 }

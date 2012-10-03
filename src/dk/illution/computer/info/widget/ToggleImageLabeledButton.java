@@ -46,7 +46,7 @@ public class ToggleImageLabeledButton extends ImageView {
 
 	}
 
-	private void handleNewState(boolean newState) {
+	public void handleNewState(boolean newState) {
 		if (newState) {
 			setImageResource(imageOn);
 		} else {

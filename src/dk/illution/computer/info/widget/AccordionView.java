@@ -47,12 +47,12 @@ public class AccordionView extends LinearLayout {
 	private int sectionBottom;
 
 	private String[] sectionHeaders;
-	public boolean useAnimations = true;
 
 	private View[] children;
 	private View[] wrappedChildren;
 
-	public static int collapseExpandSpeed = 250;
+	public static int collapseExpandDuration = 250;
+	public boolean useAnimations = true;
 
 	private Map<Integer, View> sectionByChildId = new HashMap<Integer, View>();
 
@@ -147,17 +147,13 @@ public class AccordionView extends LinearLayout {
 		final OnClickListener onClickListener = new OnClickListener() {
 
 			public void onClick(View v) {
+				int duration = 0;
 				if (useAnimations) {
-					ExpandAnimation expandAnimation = new ExpandAnimation(wrappedChildren[position], collapseExpandSpeed);
-
-					wrappedChildren[position].startAnimation(expandAnimation);
-				} else {
-					if (wrappedChildren[position].getVisibility() == VISIBLE) {
-						wrappedChildren[position].setVisibility(GONE);
-					} else {
-						wrappedChildren[position].setVisibility(VISIBLE);
-					}
+					duration = collapseExpandDuration;
 				}
+				ExpandAnimation expandAnimation = new ExpandAnimation(wrappedChildren[position], duration, (ToggleImageLabeledButton) foldButton);
+
+				v.startAnimation(expandAnimation);
 			}
 		};
 
