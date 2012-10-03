@@ -11,7 +11,7 @@ public class ComputerList {
 
 	/**
 	 * The computer class.
-	 *
+	 * 
 	 * @author Illution
 	 */
 	public static class Computer {
@@ -27,7 +27,7 @@ public class ComputerList {
 
 		/**
 		 * Creates a Computer object
-		 *
+		 * 
 		 * @param id
 		 *            The id of the computer
 		 * @param computer
@@ -52,7 +52,7 @@ public class ComputerList {
 
 	/**
 	 * Adds a Computer to the list
-	 *
+	 * 
 	 * @param item
 	 *            The Computer object
 	 */

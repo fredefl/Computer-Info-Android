@@ -1,6 +1,15 @@
 /**
- * Copyright (c) 2011, 2012 Sentaca Communications Ltd.
+ * The MIT License
+ *
+ * Copyright (c) 2011 Sentaca Poland sp. z o.o. / http://sentaca.com/
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
 package dk.illution.computer.info.widget;
 
 import java.util.HashMap;
@@ -15,7 +24,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import dk.illution.computer.info.utils.FontUtils;
+import dk.illution.computer.info.ExpandAnimation;
 
 import dk.illution.computer.info.R;
 
@@ -32,9 +41,12 @@ public class AccordionView extends LinearLayout {
 	private int sectionBottom;
 
 	private String[] sectionHeaders;
+	public boolean useAnimations = true;
 
 	private View[] children;
 	private View[] wrappedChildren;
+
+	public static int collapseExpandSpeed = 250;
 
 	private Map<Integer, View> sectionByChildId = new HashMap<Integer, View>();
 
@@ -98,8 +110,6 @@ public class AccordionView extends LinearLayout {
 		final ViewGroup newParent = (ViewGroup) container
 				.findViewById(sectionContainerParent);
 		newParent.addView(children[i]);
-		FontUtils.setCustomFont(container, AccordionView.this.getContext()
-				.getAssets());
 		if (container.getId() == -1) {
 			container.setId(i);
 		}
@@ -114,9 +124,6 @@ public class AccordionView extends LinearLayout {
 		final View view = inflater.inflate(headerLayoutId, null);
 		((TextView) view.findViewById(headerLabel))
 				.setText(sectionHeaders[position]);
-
-		FontUtils.setCustomFont(view, AccordionView.this.getContext()
-				.getAssets());
 
 		// -- support for no fold button
 		if (headerFoldButton == 0) {
@@ -134,10 +141,16 @@ public class AccordionView extends LinearLayout {
 		final OnClickListener onClickListener = new OnClickListener() {
 
 			public void onClick(View v) {
-				if (wrappedChildren[position].getVisibility() == VISIBLE) {
-					wrappedChildren[position].setVisibility(GONE);
+				if (useAnimations) {
+					ExpandAnimation expandAnimation = new ExpandAnimation(wrappedChildren[position], collapseExpandSpeed);
+
+					wrappedChildren[position].startAnimation(expandAnimation);
 				} else {
-					wrappedChildren[position].setVisibility(VISIBLE);
+					if (wrappedChildren[position].getVisibility() == VISIBLE) {
+						wrappedChildren[position].setVisibility(GONE);
+					} else {
+						wrappedChildren[position].setVisibility(VISIBLE);
+					}
 				}
 			}
 		};
