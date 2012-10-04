@@ -21,9 +21,7 @@ public class LoginSelectActivity extends Activity {
 		usernameAndPasswordButton
 				.setOnClickListener(new View.OnClickListener() {
 					public void onClick(View v) {
-						Intent intent = new Intent(context, LoginActivity.class);
-						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-						startActivity(intent);
+						ComputerInfo.launchLogin(LoginSelectActivity.this);
 					}
 				});
 

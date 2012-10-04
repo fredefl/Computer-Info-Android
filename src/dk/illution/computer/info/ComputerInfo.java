@@ -88,6 +88,18 @@ public class ComputerInfo extends Application {
 		}
 	}
 
+	public static void launchLogin (Activity activity) {
+		Intent newIntent = new Intent(activity.getBaseContext(),
+				LoginActivity.class);
+		activity.startActivity(newIntent);
+	}
+
+	public static void launchLoginSelect (Activity activity) {
+		Intent newIntent = new Intent(activity.getBaseContext(),
+				LoginSelectActivity.class);
+		activity.startActivity(newIntent);
+	}
+
 	public static void launchPreferences (Activity activity) {
 		Intent newIntent = new Intent(activity.getBaseContext(),
 				Preferences.class);
