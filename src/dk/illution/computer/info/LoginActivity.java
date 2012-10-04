@@ -11,7 +11,6 @@ import java.util.Scanner;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.net.Credentials;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.ActionBar;
@@ -90,25 +89,29 @@ class SignIn extends AsyncTask<String, Void, String> {
 		if (response != null) {
 			try {
 				JSONObject credentials = new JSONObject(response);
-				Log.d("ComputerInfo", response);
-				if (credentials.getString("status") == "FAIL") {
+				
+				Log.d("ComputerInfo", "Login status: " + credentials.getString("status"));
+				if (credentials.getString("status").equals("FAIL")) {
 					LoginActivity.dialog.hide();
 					Toast.makeText(appContext, "Wrong email or password, please try again.", Toast.LENGTH_LONG).show();
 					return;
 				}
-				if (credentials)
-				String token = credentials.getJSONObject("token").getString("token");
-				if (token.length() > 0) {
-					Log.d("ComputerInfo", "Successfully logged in with token: " + token);
-				}
-				// Huge success
-				LoginActivity.dialog.hide();
-				ComputerInfo.launchComputerList(activity);
+				if (credentials.getString("status").equals("OK")) {
+					String token = credentials.getJSONObject("token").getString("token");
+					if (token.length() > 0) {
+						Log.d("ComputerInfo", "Successfully logged in with token: " + token);
+					}
+					// Huge success
+					LoginActivity.dialog.hide();
+					ComputerInfo.launchComputerList(activity);
+				}				
 			} catch (JSONException e) {
 				e.printStackTrace();
+				LoginActivity.dialog.hide();
 				Toast.makeText(appContext, "There was an in the servers response, please try again.", Toast.LENGTH_LONG).show();
 			}
 		} else {
+			LoginActivity.dialog.hide();
 			Toast.makeText(appContext, "There was an error while connecting to the server, please try again.", Toast.LENGTH_LONG).show();
 		}
 	}
