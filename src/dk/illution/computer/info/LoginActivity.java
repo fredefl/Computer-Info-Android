@@ -21,20 +21,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 class SignIn extends AsyncTask<String, Void, String> {
 
+	private Activity activity;
 	private Context appContext;
 
 	public SignIn (Activity activity) {
 		appContext = activity.getApplicationContext();
+		this.activity = activity;
 	}
 
 	protected String doInBackground (String... params) {
 		URL url;
 		HttpURLConnection connection;
 
-		try{
+		try {
 			String response= "";
 
 			// Set the URL
@@ -81,8 +84,13 @@ class SignIn extends AsyncTask<String, Void, String> {
 	}
 
 	protected void onPostExecute(String response) {
-		LoginActivity.dialog.hide();
-		Log.d("ComputerInfo", response);
+		if (response != null) {
+			LoginActivity.dialog.hide();
+			Log.d("ComputerInfo", response);
+			ComputerInfo.launchComputerList(activity);
+		} else {
+			Toast.makeText(appContext, "There was an error while connecting to the server, please try again.", Toast.LENGTH_LONG).show();
+		}
 	}
 }
 
@@ -98,7 +106,6 @@ public class LoginActivity extends Activity {
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		final Button loginButton = (Button) findViewById(R.id.login_button);
 		final Button signUpButton = (Button) findViewById(R.id.sign_up_button);
-		final Context context = this;
 
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -114,9 +121,7 @@ public class LoginActivity extends Activity {
 
 		signUpButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent(context, ComputerListActivity.class);
-				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				startActivity(intent);
+				ComputerInfo.launchComputerList(LoginActivity.this);
 			}
 		});
 	}
@@ -129,9 +134,7 @@ public class LoginActivity extends Activity {
 			startActivity(intent);
 			return true;
 		case R.id.menu_settings:
-			Intent settingsActivity = new Intent(getBaseContext(),
-					Preferences.class);
-			startActivity(settingsActivity);
+			ComputerInfo.launchPreferences(this);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

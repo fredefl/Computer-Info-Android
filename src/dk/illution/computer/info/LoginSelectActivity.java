@@ -1,7 +1,5 @@
 package dk.illution.computer.info;
 
-import dk.illution.computer.info.Preferences;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -31,9 +29,7 @@ public class LoginSelectActivity extends Activity {
 
 		googleButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent(context, ComputerListActivity.class);
-				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				startActivity(intent);
+				ComputerInfo.launchComputerList(LoginSelectActivity.this);
 			}
 		});
 	}
@@ -47,9 +43,7 @@ public class LoginSelectActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_settings:
-			Intent settingsActivity = new Intent(getBaseContext(),
-					Preferences.class);
-			startActivity(settingsActivity);
+			ComputerInfo.launchPreferences(this);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

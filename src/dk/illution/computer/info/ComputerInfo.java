@@ -9,8 +9,10 @@ import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 
 public class ComputerInfo extends Application {
@@ -84,5 +86,18 @@ public class ComputerInfo extends Application {
 		} catch (NoSuchAlgorithmException e) {
 			return null;
 		}
+	}
+
+	public static void launchPreferences (Activity activity) {
+		Intent newIntent = new Intent(activity.getBaseContext(),
+				Preferences.class);
+		activity.startActivity(newIntent);
+	}
+
+	public static void launchComputerList (Activity activity) {
+		Intent newIntent = new Intent(activity.getBaseContext(),
+				ComputerListActivity.class);
+		newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		activity.startActivity(newIntent);
 	}
 }

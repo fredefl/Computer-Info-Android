@@ -85,9 +85,7 @@ public class ComputerListActivity extends FragmentActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_settings:
-			Intent settingsActivity = new Intent(getBaseContext(),
-					Preferences.class);
-			startActivity(settingsActivity);
+			ComputerInfo.launchPreferences(this);
 			return true;
 		case R.id.menu_logout:
 			Intent loginSelectActivity = new Intent(getBaseContext(),
