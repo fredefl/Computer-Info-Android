@@ -36,10 +36,17 @@ import android.widget.TextView;
 
 class SignIn extends AsyncTask<String, Void, HttpResponse> {
 
+	private Context appContext;
+	
+	public SignIn (Activity activity) {
+		appContext = activity.getApplicationContext();
+	}
+	
 	protected HttpResponse doInBackground(String... params) {
 		// Create a new HttpClient and Post Header
 		HttpClient httpclient = new DefaultHttpClient();
-		HttpPost httppost = new HttpPost("http://192.168.0.194/ci/login/device");
+		//appContext.getString(R.string.base_url)
+		HttpPost httppost = new HttpPost("https://ci.illution.dk/login/device");
 
 		try {
 			// Add your data
@@ -47,15 +54,20 @@ class SignIn extends AsyncTask<String, Void, HttpResponse> {
 			nameValuePairs.add(new BasicNameValuePair("username", params[0]));
 			nameValuePairs.add(new BasicNameValuePair("password", params[1]));
 			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+			httppost.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
 			// Execute HTTP Post Request
 			HttpResponse response = httpclient.execute(httppost);
 			return response;
 		} catch (ClientProtocolException e) {
+			Log.d("ComputerInfo", "Error while loggin in: ClientProtocolException");
 			return null;
 		} catch (IOException e) {
+			Log.d("ComputerInfo", "Error while loggin in: IOException");
+			e.printStackTrace();
 			return null;
 		} catch (Exception e) {
+			Log.d("ComputerInfo", "Error while loggin in");
 			e.printStackTrace();
 			return null;
 		}
@@ -156,7 +168,7 @@ public class LoginActivity extends Activity {
 				dialog = ProgressDialog.show(LoginActivity.this, "",
 						"Loading. Please wait...", true);
 				dialog.setCancelable(true);
-				new SignIn().execute(usernameBox.getText().toString(),
+				new SignIn(LoginActivity.this).execute(usernameBox.getText().toString(),
 						passwordBox.getText().toString());
 			}
 		});

@@ -24,5 +24,6 @@
 				<item >Processors</item>
 				<item >Memory</item>
 		</string-array>
+		<string name="base_url">https://ci.illution.dk</string>
 
 </resources>
