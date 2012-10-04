@@ -44,7 +44,7 @@ class SignIn extends AsyncTask<String, Void, String> {
 			String param="username=" + URLEncoder.encode(params[0],"UTF-8")+
 			"&password="+URLEncoder.encode(params[1],"UTF-8");
 
-			// Open connectionection
+			// Open connection
 			connection=(HttpURLConnection)url.openConnection();
 			connection.setDoOutput(true);
 			connection.setRequestMethod("POST");
