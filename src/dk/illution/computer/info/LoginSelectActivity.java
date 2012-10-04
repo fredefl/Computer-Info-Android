@@ -2,8 +2,6 @@ package dk.illution.computer.info;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +15,7 @@ public class LoginSelectActivity extends Activity {
 		setContentView(R.layout.activity_login_select);
 		final Button usernameAndPasswordButton = (Button) findViewById(R.id.username_and_password_button);
 		final Button googleButton = (Button) findViewById(R.id.google_button);
-		final Context context = this;
+
 		usernameAndPasswordButton
 				.setOnClickListener(new View.OnClickListener() {
 					public void onClick(View v) {

@@ -8,13 +8,16 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Scanner;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.net.Credentials;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -85,9 +88,26 @@ class SignIn extends AsyncTask<String, Void, String> {
 
 	protected void onPostExecute(String response) {
 		if (response != null) {
-			LoginActivity.dialog.hide();
-			Log.d("ComputerInfo", response);
-			ComputerInfo.launchComputerList(activity);
+			try {
+				JSONObject credentials = new JSONObject(response);
+				Log.d("ComputerInfo", response);
+				if (credentials.getString("status") == "FAIL") {
+					LoginActivity.dialog.hide();
+					Toast.makeText(appContext, "Wrong email or password, please try again.", Toast.LENGTH_LONG).show();
+					return;
+				}
+				if (credentials)
+				String token = credentials.getJSONObject("token").getString("token");
+				if (token.length() > 0) {
+					Log.d("ComputerInfo", "Successfully logged in with token: " + token);
+				}
+				// Huge success
+				LoginActivity.dialog.hide();
+				ComputerInfo.launchComputerList(activity);
+			} catch (JSONException e) {
+				e.printStackTrace();
+				Toast.makeText(appContext, "There was an in the servers response, please try again.", Toast.LENGTH_LONG).show();
+			}
 		} else {
 			Toast.makeText(appContext, "There was an error while connecting to the server, please try again.", Toast.LENGTH_LONG).show();
 		}
