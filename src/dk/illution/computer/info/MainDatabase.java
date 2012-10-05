@@ -21,6 +21,7 @@ public class MainDatabase {
 	}
 
 	public void insertCredential (String key, String value) {
+		this.deleteCredential(key);
 		SQLiteStatement statement = this.db.compileStatement("insert into credentials (key, value) values (?, ?)");
 		statement.bindString(1, key);
 		statement.bindString(2, value);
