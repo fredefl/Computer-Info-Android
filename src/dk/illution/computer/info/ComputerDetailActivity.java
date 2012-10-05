@@ -50,9 +50,13 @@ public class ComputerDetailActivity extends FragmentActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == android.R.id.home) {
-			NavUtils.navigateUpTo(this, new Intent(this,
-					ComputerListActivity.class));
-			return true;
+			Intent parentActivityIntent = new Intent(this, ComputerListActivity.class);
+            parentActivityIntent.addFlags(
+                    Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                    Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(parentActivityIntent);
+            finish();
+            return true;
 		}
 
 		return super.onOptionsItemSelected(item);

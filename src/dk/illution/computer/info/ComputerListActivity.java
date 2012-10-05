@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 
 public class ComputerListActivity extends FragmentActivity implements
-		ComputerListFragment.Callbacks, ActionBar.OnNavigationListener {
+		ComputerListFragment.Callbacks {
 
 	private boolean mTwoPane;
 
@@ -36,21 +36,10 @@ public class ComputerListActivity extends FragmentActivity implements
 		final ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-
-
-
-		// Set up the dropdown list navigation in the action bar.
-		actionBar.setListNavigationCallbacks(
-		// Specify a SpinnerAdapter to populate the dropdown list.
-				new ArrayAdapter<String>(actionBar.getThemedContext(),
-						android.R.layout.simple_list_item_1,
-						android.R.id.text1, new String[] {
-								getString(R.string.computers),
-								getString(R.string.printers),
-								getString(R.string.units), }), this);
+		
+		ComputerInfo.addDeviceSpinner(actionBar, this, "computers");
 	}
 
-	@Override
 	public void onItemSelected(String id) {
 		if (mTwoPane) {
 			Bundle arguments = new Bundle();
@@ -65,27 +54,6 @@ public class ComputerListActivity extends FragmentActivity implements
 			detailIntent.putExtra(ComputerDetailFragment.ARG_ITEM_ID, id);
 			startActivity(detailIntent);
 		}
-	}
-
-	public boolean onNavigationItemSelected(int position, long id) {
-		switch (position) {
-		case 0:
-			getActionBar().setLogo(R.drawable.computer);
-			break;
-		case 1:
-			getActionBar().setLogo(R.drawable.printer);
-			/*
-			Intent intent = new Intent(this, PrinterListActivity.class);
-			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			startActivity(intent);*/
-			Activity activity = ComputerListActivity.this;
-			break;
-		case 2:
-			getActionBar().setLogo(R.drawable.camera);
-			break;
-
-		}
-		return true;
 	}
 
 	@Override

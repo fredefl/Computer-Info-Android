@@ -22,7 +22,6 @@ public class PrinterListFragment extends ListFragment {
 	}
 
 	private static Callbacks sDummyCallbacks = new Callbacks() {
-		@Override
 		public void onItemSelected(String id) {
 		}
 	};

@@ -52,7 +52,8 @@
 				</activity>
 				<activity
 						android:name=".PrinterListActivity"
-						android:label="@string/title_printer_list" >
+						android:label="@string/title_printer_list"
+						android:logo="@drawable/printer" >
 						<intent-filter>
 								<action android:name="android.intent.action.MAIN" />
 						</intent-filter>

@@ -31,8 +31,10 @@ public class ComputerListFragment extends ListFragment {
 	}
 
 	private static Callbacks sDummyCallbacks = new Callbacks() {
-		@Override
+
 		public void onItemSelected(String id) {
+			// TODO Auto-generated method stub
+			
 		}
 	};
 

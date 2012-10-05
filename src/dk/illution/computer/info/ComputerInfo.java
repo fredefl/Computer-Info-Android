@@ -9,21 +9,28 @@ import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.ActionBar;
+import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-public class ComputerInfo extends Application {
+public class ComputerInfo extends Application implements OnNavigationListener {
 
 	/**
 	 * Stores the app context
 	 */
 	private static Context context;
-	public static MainDatabase mainDatabase;
+	private static Activity activity;
+	private static String device;
+	private static int deviceId;
+	private static String [] deviceList;
+	public static MainDatabase mainDatabase; 
 
 	public void onCreate() {
 		super.onCreate();
@@ -39,6 +46,55 @@ public class ComputerInfo extends Application {
 	public static Context getAppContext() {
 		return ComputerInfo.context;
 	}
+	
+	public static void addDeviceSpinner (ActionBar actionBar, Activity activity, String device) {
+		ComputerInfo.activity = activity;
+		ComputerInfo.device = device;
+		deviceList = new String [3];
+		if (device == "computers") {
+			deviceId = 0;
+			deviceList[0] = activity.getString(R.string.computers);
+			deviceList[1] = activity.getString(R.string.printers);
+			deviceList[2] = activity.getString(R.string.units);
+		} else if (device == "printers") {
+			deviceId = 1;
+			deviceList[0] = activity.getString(R.string.printers);
+			deviceList[1] = activity.getString(R.string.computers);
+			deviceList[2] = activity.getString(R.string.units);
+		} else if (device == "units") {
+			deviceId = 2;
+			deviceList[0] = activity.getString(R.string.units);
+			deviceList[1] = activity.getString(R.string.computers);
+			deviceList[2] = activity.getString(R.string.printers);
+		}
+		// Set up the dropdown list navigation in the action bar.
+		actionBar.setListNavigationCallbacks(
+		// Specify a SpinnerAdapter to populate the dropdown list.
+				new ArrayAdapter<String>(actionBar.getThemedContext(),
+						android.R.layout.simple_list_item_1,
+						android.R.id.text1, deviceList), ComputerInfo.onNavigationItemSelected);
+	}
+	
+	private static OnNavigationListener onNavigationItemSelected = new OnNavigationListener() {
+		public boolean onNavigationItemSelected (int position, long id) {
+			Log.d("ComputerInfo", "Switch to " + String.valueOf(position) + deviceList[position]);
+			if (position == 0) {
+				return true;
+			}
+			if (deviceList[position].equalsIgnoreCase("computers")) {
+				activity.getActionBar().setLogo(R.drawable.computer);
+				launchComputerList(activity);
+				activity.finish();
+			} else if (deviceList[position].equalsIgnoreCase("printers")) {
+				activity.getActionBar().setLogo(R.drawable.printer);
+				launchPrinterList(activity);
+				//activity.finish();
+			} else if (deviceList[position].equalsIgnoreCase("units")) {
+				activity.getActionBar().setLogo(R.drawable.camera);
+			}
+			return true;
+		}
+	};
 
 	/**
 	 * Loads computers from the raw folder
@@ -116,6 +172,12 @@ public class ComputerInfo extends Application {
 		newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		activity.startActivity(newIntent);
 	}
+	
+	public static void launchPrinterList (Activity activity) {
+		Intent newIntent = new Intent(activity, PrinterListActivity.class);
+		newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		activity.startActivity(newIntent);
+	}
 
 	public static boolean parseUserTokenResponse (String response, Context context) {
 		try {
@@ -141,6 +203,11 @@ public class ComputerInfo extends Application {
 			e.printStackTrace();
 			return false;
 		}
+		return false;
+	}
+
+	public boolean onNavigationItemSelected(int arg0, long arg1) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 }

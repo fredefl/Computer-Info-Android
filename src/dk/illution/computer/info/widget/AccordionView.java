@@ -159,7 +159,6 @@ public class AccordionView extends LinearLayout {
 
 		final OnTouchListener onTouchListener = new OnTouchListener() {
 
-			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				/*if (event.getAction() == MotionEvent.ACTION_DOWN) {
 						Log.d("ComputerInfo", "Shit got pushed on!");
