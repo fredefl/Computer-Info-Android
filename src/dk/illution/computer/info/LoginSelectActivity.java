@@ -1,21 +1,17 @@
 package dk.illution.computer.info;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
-import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -27,6 +23,66 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+class GoogleAuthTokenValidator extends AsyncTask<String, Void, String> {
+
+	private Activity activity;
+	private Context appContext;
+
+	public GoogleAuthTokenValidator (Activity activity) {
+		appContext = activity.getApplicationContext();
+		this.activity = activity;
+	}
+
+	protected String doInBackground (String... params) {
+		URL url;
+		HttpURLConnection connection;
+
+		try {
+			String response= "";
+
+			// Set the URL
+			url=new URL(appContext.getString(R.string.base_url) + "/login/device/google?access_token=" + params[0]);
+
+
+			// Open connection
+			connection=(HttpURLConnection)url.openConnection();
+			connection.setDoOutput(true);
+			connection.setRequestMethod("GET");
+
+			// Set headers
+			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+
+			// Send request
+			PrintWriter out = new PrintWriter(connection.getOutputStream());
+			out.close();
+
+			// Get stream
+			Scanner inStream = new Scanner(connection.getInputStream());
+
+			// Loop through stream and add get the response
+			while(inStream.hasNextLine())
+				response+=(inStream.nextLine());
+
+			// Return the response
+			return response;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	protected void onPostExecute(String response) {
+		if (response != null) {
+			if (ComputerInfo.parseUserTokenResponse(response, appContext)) {
+				ComputerInfo.launchComputerList(activity);
+			} else {
+				Toast.makeText(appContext, "There was an error while validating your login request, please try again.", Toast.LENGTH_LONG).show();
+			}
+		} else {
+			Toast.makeText(appContext, "There was an error while connecting to the server, please try again.", Toast.LENGTH_LONG).show();
+		}
+	}
+}
 
 public class LoginSelectActivity extends Activity {
 
@@ -82,24 +138,7 @@ public class LoginSelectActivity extends Activity {
 									// a token is available.
 									String token = future.getResult().getString(AccountManager.KEY_AUTHTOKEN);
 									Log.d("ComputerInfo", token);
-
-									HttpResponse response = null;
-									try {
-											HttpClient client = new DefaultHttpClient();
-											HttpGet request = new HttpGet();
-											request.setURI(new URI("https://ci.illution.dk/login/device/google?access_token=" + token));
-											response = client.execute(request);
-										} catch (URISyntaxException e) {
-											e.printStackTrace();
-										} catch (ClientProtocolException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										} catch (IOException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										}
-										Log.d("ComputerInfo", response.getEntity().getContent().toString());
-
+									new GoogleAuthTokenValidator (LoginSelectActivity.this).execute(token);
 									// Now you can use the Tasks API...
 								} catch (OperationCanceledException e) {
 									// TODO: The user has denied you access to the API, you should handle that

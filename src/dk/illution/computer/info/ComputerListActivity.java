@@ -20,9 +20,8 @@ public class ComputerListActivity extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_computer_list);
 
-		MainDatabase database = new MainDatabase(this.getApplicationContext());
 		try {
-			database.selectCredential("token");
+			ComputerInfo.mainDatabase.selectCredential("token");
 		} catch (SQLiteException e) {
 			ComputerInfo.launchLoginSelect(this);
 		}

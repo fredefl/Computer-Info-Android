@@ -14,6 +14,8 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.util.Log;
+import android.widget.Toast;
 
 public class ComputerInfo extends Application {
 
@@ -21,10 +23,12 @@ public class ComputerInfo extends Application {
 	 * Stores the app context
 	 */
 	private static Context context;
+	public static MainDatabase mainDatabase;
 
 	public void onCreate() {
 		super.onCreate();
 		ComputerInfo.context = getApplicationContext();
+		this.mainDatabase = new MainDatabase(context);
 	}
 
 	/**
@@ -111,5 +115,32 @@ public class ComputerInfo extends Application {
 				ComputerListActivity.class);
 		newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		activity.startActivity(newIntent);
+	}
+
+	public static boolean parseUserTokenResponse (String response, Context context) {
+		try {
+			JSONObject credentials = new JSONObject(response);
+
+			Log.d("ComputerInfo", "Login status: " + credentials.getString("status"));
+			if (credentials.getString("status").equals("FAIL")) {
+				return false;
+			}
+			if (credentials.getString("status").equals("OK")) {
+				String token = credentials.getJSONObject("token").getString("token");
+
+				if (token.length() > 0) {
+					// Create database link and create an SQL statement
+
+					ComputerInfo.mainDatabase.insertCredential("token", token);
+					return true;
+				} else {
+					return false;
+				}
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return false;
 	}
 }

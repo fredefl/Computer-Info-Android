@@ -8,16 +8,12 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Scanner;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -88,33 +84,12 @@ class SignIn extends AsyncTask<String, Void, String> {
 
 	protected void onPostExecute(String response) {
 		if (response != null) {
-			try {
-				JSONObject credentials = new JSONObject(response);
-
-				Log.d("ComputerInfo", "Login status: " + credentials.getString("status"));
-				if (credentials.getString("status").equals("FAIL")) {
-					LoginActivity.dialog.hide();
-					Toast.makeText(appContext, "Wrong email or password, please try again.", Toast.LENGTH_LONG).show();
-					return;
-				}
-				if (credentials.getString("status").equals("OK")) {
-					String token = credentials.getJSONObject("token").getString("token");
-
-					if (token.length() > 0) {
-						// Create database link and create an SQL statement
-						MainDatabase database = new MainDatabase(appContext);
-						database.insertCredential("token", token);
-
-						Log.d("ComputerInfo", "Successfully logged in with token: " + token);
-					}
-					// Huge success
-					LoginActivity.dialog.hide();
-					ComputerInfo.launchComputerList(activity);
-				}
-			} catch (JSONException e) {
-				e.printStackTrace();
+			if (ComputerInfo.parseUserTokenResponse(response, appContext)) {
 				LoginActivity.dialog.hide();
-				Toast.makeText(appContext, "There was an in the servers response, please try again.", Toast.LENGTH_LONG).show();
+				ComputerInfo.launchComputerList(activity);
+			} else {
+				LoginActivity.dialog.hide();
+				Toast.makeText(appContext, "We couldn't validate your credentials, please check your username and password. This could also be a problem with the server.", Toast.LENGTH_LONG).show();
 			}
 		} else {
 			LoginActivity.dialog.hide();
