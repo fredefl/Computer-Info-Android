@@ -19,6 +19,7 @@
 		<string name="menu_logout">Logout</string>
 		<string name="title_printer_detail">Printer Detail</string>
 		<string name="title_printer_list">Printers</string>
+		<string name="preferences">Preferences</string>
 		<string-array name="computer_sections">
 				<item >General</item>
 				<item >Processors</item>
