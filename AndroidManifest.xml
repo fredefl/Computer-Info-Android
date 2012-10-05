@@ -19,14 +19,14 @@
 				<activity
 						android:name=".Preferences"
 						android:exported="true"
-						android:label="@string/preferences" />
+						android:label="@string/preferences"
+						android:logo="@drawable/preferences" />
 				<activity
 						android:name=".LoginSelectActivity"
 						android:label="@string/computer_info"
 						android:logo="@drawable/secure" >
 						<intent-filter>
 								<action android:name="android.intent.action.MAIN" />
-								<category android:name="android.intent.category.LAUNCHER" />
 						</intent-filter>
 				</activity>
 				<activity
@@ -37,10 +37,10 @@
 				<activity
 						android:name=".ComputerListActivity"
 						android:label="@string/app_name"
-						android:launchMode="singleTop"
 						android:logo="@drawable/computer" >
 						<intent-filter>
 								<action android:name="android.intent.action.MAIN" />
+								<category android:name="android.intent.category.LAUNCHER" />
 						</intent-filter>
 				</activity>
 				<activity

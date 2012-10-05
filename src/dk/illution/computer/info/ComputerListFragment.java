@@ -44,7 +44,16 @@ public class ComputerListFragment extends ListFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		setRetainInstance(true);
 
+		if (savedInstanceState != null) {
+			return;
+		}
+		/****************************************
+		 * Code beyond this point will not be run if a saved instance is available
+		 ****************************************/
+		
 		JSONObject computers_data = ComputerInfo.loadComputers();
 		Log.d("ComputerInfo", "Loaded computers.");
 

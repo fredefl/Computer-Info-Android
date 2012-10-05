@@ -1,10 +1,14 @@
 package dk.illution.computer.info;
 
 import android.app.ActionBar;
+import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -74,9 +78,11 @@ public class ComputerListActivity extends FragmentActivity implements
 			break;
 		case 1:
 			getActionBar().setLogo(R.drawable.printer);
+			/*
 			Intent intent = new Intent(this, PrinterListActivity.class);
 			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			startActivity(intent);
+			startActivity(intent);*/
+			Activity activity = ComputerListActivity.this;
 			break;
 		case 2:
 			getActionBar().setLogo(R.drawable.camera);
