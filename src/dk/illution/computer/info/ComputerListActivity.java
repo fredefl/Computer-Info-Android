@@ -2,8 +2,10 @@ package dk.illution.computer.info;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -18,6 +20,13 @@ public class ComputerListActivity extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_computer_list);
 
+		MainDatabase database = new MainDatabase(this.getApplicationContext());
+		try {
+			database.selectCredential("token");
+		} catch (SQLiteException e) {
+			ComputerInfo.launchLoginSelect(this);
+		}
+
 		if (findViewById(R.id.computer_detail_container) != null) {
 			mTwoPane = true;
 			((ComputerListFragment) getSupportFragmentManager()
@@ -28,6 +37,8 @@ public class ComputerListActivity extends FragmentActivity implements
 		final ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+
+
 
 		// Set up the dropdown list navigation in the action bar.
 		actionBar.setListNavigationCallbacks(
@@ -88,6 +99,8 @@ public class ComputerListActivity extends FragmentActivity implements
 			ComputerInfo.launchPreferences(this);
 			return true;
 		case R.id.menu_logout:
+			MainDatabase database = new MainDatabase(this.getApplicationContext());
+			database.deleteCredential("token");
 			ComputerInfo.launchLoginSelect(ComputerListActivity.this);
 			this.finish();
 		default:

@@ -17,6 +17,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -89,7 +90,7 @@ class SignIn extends AsyncTask<String, Void, String> {
 		if (response != null) {
 			try {
 				JSONObject credentials = new JSONObject(response);
-				
+
 				Log.d("ComputerInfo", "Login status: " + credentials.getString("status"));
 				if (credentials.getString("status").equals("FAIL")) {
 					LoginActivity.dialog.hide();
@@ -98,13 +99,18 @@ class SignIn extends AsyncTask<String, Void, String> {
 				}
 				if (credentials.getString("status").equals("OK")) {
 					String token = credentials.getJSONObject("token").getString("token");
+
 					if (token.length() > 0) {
+						// Create database link and create an SQL statement
+						MainDatabase database = new MainDatabase(appContext);
+						database.insertCredential("token", token);
+
 						Log.d("ComputerInfo", "Successfully logged in with token: " + token);
 					}
 					// Huge success
 					LoginActivity.dialog.hide();
 					ComputerInfo.launchComputerList(activity);
-				}				
+				}
 			} catch (JSONException e) {
 				e.printStackTrace();
 				LoginActivity.dialog.hide();
@@ -129,6 +135,8 @@ public class LoginActivity extends Activity {
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		final Button loginButton = (Button) findViewById(R.id.login_button);
 		final Button signUpButton = (Button) findViewById(R.id.sign_up_button);
+
+
 
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
