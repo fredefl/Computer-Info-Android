@@ -11,7 +11,7 @@ public class MainDatabase {
 	private static final int DATABASE_VERSION = 1;
 	static final String TABLE_NAME = "credentials";
 	private static Context context;
-	static SQLiteDatabase db;
+	public static SQLiteDatabase db;
 
 	public MainDatabase (Context context) {
 		MainDatabase.context = context;
@@ -22,21 +22,21 @@ public class MainDatabase {
 
 	public void insertCredential (String key, String value) {
 		this.deleteCredential(key);
-		SQLiteStatement statement = this.db.compileStatement("insert into credentials (key, value) values (?, ?)");
+		SQLiteStatement statement = MainDatabase.db.compileStatement("insert into credentials (key, value) values (?, ?)");
 		statement.bindString(1, key);
 		statement.bindString(2, value);
 		statement.executeInsert();
 	}
 
 	public String selectCredential (String key) {
-		SQLiteStatement statement = this.db.compileStatement("select value from credentials where key=?");
+		SQLiteStatement statement = MainDatabase.db.compileStatement("select value from credentials where key=?");
 		statement.bindString(1, key);
 
 		return statement.simpleQueryForString();
 	}
 
 	public void deleteCredential (String key) {
-		SQLiteStatement statement = this.db.compileStatement("delete from credentials where key=?");
+		SQLiteStatement statement = MainDatabase.db.compileStatement("delete from credentials where key=?");
 		statement.bindString(1, key);
 
 		statement.execute();

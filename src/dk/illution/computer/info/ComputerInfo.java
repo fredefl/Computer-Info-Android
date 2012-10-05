@@ -28,7 +28,7 @@ public class ComputerInfo extends Application {
 	public void onCreate() {
 		super.onCreate();
 		ComputerInfo.context = getApplicationContext();
-		this.mainDatabase = new MainDatabase(context);
+		ComputerInfo.mainDatabase = new MainDatabase(context);
 	}
 
 	/**

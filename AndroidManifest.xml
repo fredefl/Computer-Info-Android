@@ -18,7 +18,6 @@
 				android:theme="@style/AppTheme" >
 				<activity
 						android:name=".Preferences"
-						android:exported="true"
 						android:label="@string/preferences"
 						android:logo="@drawable/preferences" />
 				<activity
