@@ -13,8 +13,4 @@
 				android:title="Next"
 				android:icon="@drawable/navigation_next_item"
 				android:showAsAction="ifRoom" />
-		<item android:id="@+id/menu_about"
-				android:title="About"
-				android:orderInCategory="100"
-				android:showAsAction="never" />
 </menu>

@@ -104,9 +104,6 @@ public class ComputerDetailFragment extends Fragment {
 		case R.id.navigation_previous:
 			((ComputerDetailActivity)getActivity()).viewComputer(String.valueOf(id - 1));
 			return true;
-		case R.id.menu_about:
-			ComputerInfo.launchAbout(this.getActivity());
-			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
