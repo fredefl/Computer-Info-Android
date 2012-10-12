@@ -67,6 +67,10 @@ class SignIn extends AsyncTask<String, Void, String> {
 			while(inStream.hasNextLine())
 				response+=(inStream.nextLine());
 
+			if (connection.getResponseCode() != 200) {
+				Log.d("ComputerInfo", "Shit: " + response);
+				return "error.statusCode." + connection.getResponseCode();
+			}
 			// Return the response
 			return response;
 		}
@@ -83,7 +87,7 @@ class SignIn extends AsyncTask<String, Void, String> {
 	}
 
 	protected void onPostExecute(String response) {
-		if (response != null) {
+		if (response != null && !response.startsWith("error")) {
 			if (ComputerInfo.parseUserTokenResponse(response, appContext)) {
 				LoginActivity.dialog.hide();
 				ComputerInfo.launchComputerList(activity);
@@ -91,9 +95,11 @@ class SignIn extends AsyncTask<String, Void, String> {
 				LoginActivity.dialog.hide();
 				Toast.makeText(appContext, "We couldn't validate your credentials, please check your username and password. This could also be a problem with the server.", Toast.LENGTH_LONG).show();
 			}
-		} else {
+		} else if (response.equals("error.io")) {
 			LoginActivity.dialog.hide();
 			Toast.makeText(appContext, "There was an error while connecting to the server, please try again.", Toast.LENGTH_LONG).show();
+		} else if (response.startsWith("error.statusCode")) {
+			Toast.makeText(appContext, "The operation didn't succeed. Status code: " + response, Toast.LENGTH_LONG).show();
 		}
 	}
 }

@@ -30,7 +30,7 @@ public class ComputerInfo extends Application implements OnNavigationListener {
 	private static String device;
 	private static int deviceId;
 	private static String [] deviceList;
-	public static MainDatabase mainDatabase; 
+	public static MainDatabase mainDatabase;
 
 	public void onCreate() {
 		super.onCreate();
@@ -46,7 +46,7 @@ public class ComputerInfo extends Application implements OnNavigationListener {
 	public static Context getAppContext() {
 		return ComputerInfo.context;
 	}
-	
+
 	public static void addDeviceSpinner (ActionBar actionBar, Activity activity, String device) {
 		ComputerInfo.activity = activity;
 		ComputerInfo.device = device;
@@ -74,7 +74,7 @@ public class ComputerInfo extends Application implements OnNavigationListener {
 						android.R.layout.simple_list_item_1,
 						android.R.id.text1, deviceList), ComputerInfo.onNavigationItemSelected);
 	}
-	
+
 	private static OnNavigationListener onNavigationItemSelected = new OnNavigationListener() {
 		public boolean onNavigationItemSelected (int position, long id) {
 			Log.d("ComputerInfo", "Switch to " + String.valueOf(position) + deviceList[position]);
@@ -172,7 +172,7 @@ public class ComputerInfo extends Application implements OnNavigationListener {
 		newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		activity.startActivity(newIntent);
 	}
-	
+
 	public static void launchPrinterList (Activity activity) {
 		Intent newIntent = new Intent(activity, PrinterListActivity.class);
 		newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -181,8 +181,8 @@ public class ComputerInfo extends Application implements OnNavigationListener {
 
 	public static boolean parseUserTokenResponse (String response, Context context) {
 		try {
+			Log.d("ComputerInfo", response);
 			JSONObject credentials = new JSONObject(response);
-
 			Log.d("ComputerInfo", "Login status: " + credentials.getString("status"));
 			if (credentials.getString("status").equals("FAIL")) {
 				return false;
@@ -201,6 +201,7 @@ public class ComputerInfo extends Application implements OnNavigationListener {
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
+			Log.d("ComputerInfo", "ComputerInfo.java:204");
 			return false;
 		}
 		return false;
