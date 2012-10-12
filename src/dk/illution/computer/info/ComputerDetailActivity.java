@@ -3,7 +3,6 @@ package dk.illution.computer.info;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,12 +50,12 @@ public class ComputerDetailActivity extends FragmentActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == android.R.id.home) {
 			Intent parentActivityIntent = new Intent(this, ComputerListActivity.class);
-            parentActivityIntent.addFlags(
-                    Intent.FLAG_ACTIVITY_CLEAR_TOP |
-                    Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(parentActivityIntent);
-            finish();
-            return true;
+			parentActivityIntent.addFlags(
+					Intent.FLAG_ACTIVITY_CLEAR_TOP |
+					Intent.FLAG_ACTIVITY_NEW_TASK);
+			startActivity(parentActivityIntent);
+			finish();
+			return true;
 		}
 
 		return super.onOptionsItemSelected(item);

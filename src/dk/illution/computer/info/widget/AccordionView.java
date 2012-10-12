@@ -17,11 +17,7 @@ import java.util.Map;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Color;
-import android.graphics.drawable.PaintDrawable;
-import android.graphics.drawable.ShapeDrawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -29,7 +25,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.view.InputEvent;
 import dk.illution.computer.info.ExpandAnimation;
 
 import dk.illution.computer.info.R;
@@ -160,13 +155,14 @@ public class AccordionView extends LinearLayout {
 		final OnTouchListener onTouchListener = new OnTouchListener() {
 
 			public boolean onTouch(View v, MotionEvent event) {
-				/*if (event.getAction() == MotionEvent.ACTION_DOWN) {
+				/* An attempt at adding an animation to the accordion
+				 *
+				 * if (event.getAction() == MotionEvent.ACTION_DOWN) {
 						Log.d("ComputerInfo", "Shit got pushed on!");
 						wrappedChildren[position].findViewById(R.id.header_shape)
 				} else if (event.getAction() == MotionEvent.ACTION_UP) {
 
 				}*/
-
 				return false;
 			}
 		};

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
-import android.widget.ArrayAdapter;
 
 public class PrinterListActivity extends FragmentActivity implements
 		PrinterListFragment.Callbacks, OnNavigationListener {
@@ -18,7 +17,7 @@ public class PrinterListActivity extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_printer_list);
 		getWindow().setWindowAnimations(0);
-		
+
 
 		if (findViewById(R.id.printer_detail_container) != null) {
 			mTwoPane = true;
@@ -26,7 +25,7 @@ public class PrinterListActivity extends FragmentActivity implements
 					.findFragmentById(R.id.printer_list))
 					.setActivateOnItemClick(true);
 		}
-		
+
 		final ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
@@ -54,7 +53,7 @@ public class PrinterListActivity extends FragmentActivity implements
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_main, menu);

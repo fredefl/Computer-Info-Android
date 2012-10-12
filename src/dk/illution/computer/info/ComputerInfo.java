@@ -22,7 +22,6 @@ import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ComputerInfo extends Application implements OnNavigationListener {
 
@@ -31,8 +30,6 @@ public class ComputerInfo extends Application implements OnNavigationListener {
 	 */
 	private static Context context;
 	private static Activity activity;
-	private static String device;
-	private static int deviceId;
 	private static String [] deviceList;
 	public static MainDatabase mainDatabase;
 
@@ -53,20 +50,16 @@ public class ComputerInfo extends Application implements OnNavigationListener {
 
 	public static void addDeviceSpinner (ActionBar actionBar, Activity activity, String device) {
 		ComputerInfo.activity = activity;
-		ComputerInfo.device = device;
 		deviceList = new String [3];
 		if (device == "computers") {
-			deviceId = 0;
 			deviceList[0] = activity.getString(R.string.computers);
 			deviceList[1] = activity.getString(R.string.printers);
 			deviceList[2] = activity.getString(R.string.units);
 		} else if (device == "printers") {
-			deviceId = 1;
 			deviceList[0] = activity.getString(R.string.printers);
 			deviceList[1] = activity.getString(R.string.computers);
 			deviceList[2] = activity.getString(R.string.units);
 		} else if (device == "units") {
-			deviceId = 2;
 			deviceList[0] = activity.getString(R.string.units);
 			deviceList[1] = activity.getString(R.string.computers);
 			deviceList[2] = activity.getString(R.string.printers);
