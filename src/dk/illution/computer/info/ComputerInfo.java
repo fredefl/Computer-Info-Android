@@ -12,12 +12,16 @@ import org.json.JSONObject;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ComputerInfo extends Application implements OnNavigationListener {
@@ -77,7 +81,7 @@ public class ComputerInfo extends Application implements OnNavigationListener {
 
 	private static OnNavigationListener onNavigationItemSelected = new OnNavigationListener() {
 		public boolean onNavigationItemSelected (int position, long id) {
-			Log.d("ComputerInfo", "Switch to " + String.valueOf(position) + deviceList[position]);
+			Log.d("ComputerInfo", "Switched to " + deviceList[position]);
 			if (position == 0) {
 				return true;
 			}
@@ -177,6 +181,21 @@ public class ComputerInfo extends Application implements OnNavigationListener {
 		Intent newIntent = new Intent(activity, PrinterListActivity.class);
 		newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		activity.startActivity(newIntent);
+	}
+
+	public static void launchAbout (Activity activity) {
+		((TextView) new AlertDialog.Builder(activity)
+		.setTitle("About")
+		.setIcon(R.drawable.action_about)
+		.setMessage(Html.fromHtml("" +
+				"<h4>Computer Info for Android</h4>" +
+				"This app is made by <a href='https://illution.dk'>Illution</a>.<br><br>" +
+				"This app is open source, grab the source code from <a href='https://github.com/fredefl/Computer-Info-Android'>github</a>.<br><br>" +
+				"This app includes icons from <a href='http://wireframesketcher.com'>WireframeSketcher.com</a>."))
+		.setPositiveButton("OK",null)
+		.show()
+		.findViewById(android.R.id.message))
+		.setMovementMethod(LinkMovementMethod.getInstance());
 	}
 
 	public static boolean parseUserTokenResponse (String response, Context context) {

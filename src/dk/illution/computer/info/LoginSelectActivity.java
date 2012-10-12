@@ -170,6 +170,9 @@ public class LoginSelectActivity extends Activity {
 		case R.id.menu_settings:
 			ComputerInfo.launchPreferences(this);
 			return true;
+		case R.id.menu_about:
+			ComputerInfo.launchAbout(this);
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}

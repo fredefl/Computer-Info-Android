@@ -36,7 +36,7 @@ public class ComputerListActivity extends FragmentActivity implements
 		final ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-		
+
 		ComputerInfo.addDeviceSpinner(actionBar, this, "computers");
 	}
 
@@ -72,6 +72,9 @@ public class ComputerListActivity extends FragmentActivity implements
 			database.deleteCredential("token");
 			ComputerInfo.launchLoginSelect(ComputerListActivity.this);
 			this.finish();
+		case R.id.menu_about:
+			ComputerInfo.launchAbout(this);
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}

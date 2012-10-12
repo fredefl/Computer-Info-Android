@@ -12,8 +12,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -68,7 +72,6 @@ class SignIn extends AsyncTask<String, Void, String> {
 				response+=(inStream.nextLine());
 
 			if (connection.getResponseCode() != 200) {
-				Log.d("ComputerInfo", "Shit: " + response);
 				return "error.statusCode." + connection.getResponseCode();
 			}
 			// Return the response
@@ -100,6 +103,10 @@ class SignIn extends AsyncTask<String, Void, String> {
 			Toast.makeText(appContext, "There was an error while connecting to the server, please try again.", Toast.LENGTH_LONG).show();
 		} else if (response.startsWith("error.statusCode")) {
 			Toast.makeText(appContext, "The operation didn't succeed. Status code: " + response, Toast.LENGTH_LONG).show();
+		}
+		if (response.startsWith("error")) {
+			LoginActivity.dialog.hide();
+			Log.d("ComputerInfo", "An error occured in the login process: " + response);
 		}
 	}
 }
@@ -145,6 +152,9 @@ public class LoginActivity extends Activity {
 			return true;
 		case R.id.menu_settings:
 			ComputerInfo.launchPreferences(this);
+			return true;
+		case R.id.menu_about:
+			ComputerInfo.launchAbout(this);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
