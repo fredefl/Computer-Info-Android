@@ -15,6 +15,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.text.Html;
@@ -78,15 +79,15 @@ public class ComputerInfo extends Application implements OnNavigationListener {
 			if (position == 0) {
 				return true;
 			}
-			if (deviceList[position].equalsIgnoreCase("computers")) {
+			if (deviceList[position].equalsIgnoreCase(activity.getString(R.string.computers))) {
 				activity.getActionBar().setLogo(R.drawable.computer);
 				launchComputerList(activity);
 				activity.finish();
-			} else if (deviceList[position].equalsIgnoreCase("printers")) {
+			} else if (deviceList[position].equalsIgnoreCase(activity.getString(R.string.printers))) {
 				activity.getActionBar().setLogo(R.drawable.printer);
 				launchPrinterList(activity);
 				//activity.finish();
-			} else if (deviceList[position].equalsIgnoreCase("units")) {
+			} else if (deviceList[position].equalsIgnoreCase(activity.getString(R.string.units))) {
 				activity.getActionBar().setLogo(R.drawable.camera);
 			}
 			return true;
@@ -178,17 +179,22 @@ public class ComputerInfo extends Application implements OnNavigationListener {
 
 	public static void launchAbout (Activity activity) {
 		((TextView) new AlertDialog.Builder(activity)
-		.setTitle("About")
+		.setTitle(activity.getString(R.string.about))
 		.setIcon(R.drawable.action_about)
 		.setMessage(Html.fromHtml("" +
-				"<h4>Computer Info for Android</h4>" +
-				"This app is made by <a href='https://illution.dk'>Illution</a>.<br><br>" +
-				"This app is open source, grab the source code from <a href='https://github.com/fredefl/Computer-Info-Android'>github</a>.<br><br>" +
-				"This app includes icons from <a href='http://wireframesketcher.com'>WireframeSketcher.com</a>."))
-		.setPositiveButton("OK",null)
+				activity.getString(R.string.about_title) +
+				activity.getString(R.string.about_made_by) +
+				activity.getString(R.string.about_open_source) +
+				activity.getString(R.string.about_icons_wireframesketcher_studio)))
+		.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int id) {
+	        	dialog.cancel();
+	        }
+	    })
 		.show()
 		.findViewById(android.R.id.message))
 		.setMovementMethod(LinkMovementMethod.getInstance());
+	
 	}
 
 	public static boolean parseUserTokenResponse (String response, Context context) {

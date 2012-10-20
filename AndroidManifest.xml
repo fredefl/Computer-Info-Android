@@ -52,15 +52,14 @@
 				</activity>
 				<activity
 						android:name=".PrinterListActivity"
-						android:label="@string/title_printer_list"
+						android:label="@string/printers"
 						android:logo="@drawable/printer" >
 						<intent-filter>
 								<action android:name="android.intent.action.MAIN" />
 						</intent-filter>
 				</activity>
 				<activity
-						android:name=".PrinterDetailActivity"
-						android:label="@string/title_printer_detail" >
+						android:name=".PrinterDetailActivity">
 						<meta-data
 								android:name="android.support.PARENT_ACTIVITY"
 								android:value=".PrinterListActivity" />

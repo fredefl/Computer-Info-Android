@@ -62,19 +62,20 @@ public class ComputerListActivity extends FragmentActivity implements
 
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.menu_settings:
-			ComputerInfo.launchPreferences(this);
-			return true;
-		case R.id.menu_logout:
-			MainDatabase database = new MainDatabase(this.getApplicationContext());
-			database.deleteCredential("token");
-			ComputerInfo.launchLoginSelect(ComputerListActivity.this);
-			this.finish();
-		case R.id.menu_about:
-			ComputerInfo.launchAbout(this);
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
+			case R.id.menu_preferences:
+				ComputerInfo.launchPreferences(this);
+				return true;
+			case R.id.menu_logout:
+				MainDatabase database = new MainDatabase(this.getApplicationContext());
+				database.deleteCredential("token");
+				ComputerInfo.launchLoginSelect(ComputerListActivity.this);
+				this.finish();
+				return true;
+			case R.id.menu_about:
+				ComputerInfo.launchAbout(this);
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
 		}
 	}
 }

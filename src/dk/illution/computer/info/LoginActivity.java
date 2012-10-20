@@ -92,13 +92,13 @@ class SignIn extends AsyncTask<String, Void, String> {
 				ComputerInfo.launchComputerList(activity);
 			} else {
 				LoginActivity.dialog.hide();
-				Toast.makeText(appContext, "We couldn't validate your credentials, please check your username and password. This could also be a problem with the server.", Toast.LENGTH_LONG).show();
+				Toast.makeText(appContext, this.activity.getString(R.string.login_error_validation), Toast.LENGTH_LONG).show();
 			}
 		} else if (response.equals("error.io")) {
 			LoginActivity.dialog.hide();
-			Toast.makeText(appContext, "There was an error while connecting to the server, please try again.", Toast.LENGTH_LONG).show();
+			Toast.makeText(appContext, this.activity.getString(R.string.login_error_connection), Toast.LENGTH_LONG).show();
 		} else if (response.startsWith("error.statusCode")) {
-			Toast.makeText(appContext, "The operation didn't succeed. Status code: " + response, Toast.LENGTH_LONG).show();
+			Toast.makeText(appContext, this.activity.getString(R.string.login_error_status_code) + response, Toast.LENGTH_LONG).show();
 		}
 		if (response.startsWith("error")) {
 			LoginActivity.dialog.hide();
@@ -127,7 +127,7 @@ public class LoginActivity extends Activity {
 				final TextView usernameBox = (TextView) findViewById(R.id.username_box);
 				final TextView passwordBox = (TextView) findViewById(R.id.password_box);
 				dialog = ProgressDialog.show(LoginActivity.this, "",
-						"Loading. Please wait...", true);
+						LoginActivity.this.getString(R.string.login_loading), true);
 				dialog.setCancelable(true);
 				new SignIn(LoginActivity.this).execute(usernameBox.getText().toString(),
 						passwordBox.getText().toString());
@@ -146,7 +146,7 @@ public class LoginActivity extends Activity {
 		case android.R.id.home:
 			ComputerInfo.launchLoginSelect(LoginActivity.this);
 			return true;
-		case R.id.menu_settings:
+		case R.id.menu_preferences:
 			ComputerInfo.launchPreferences(this);
 			return true;
 		case R.id.menu_about:

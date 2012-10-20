@@ -76,10 +76,10 @@ class GoogleAuthTokenValidator extends AsyncTask<String, Void, String> {
 			if (ComputerInfo.parseUserTokenResponse(response, appContext)) {
 				ComputerInfo.launchComputerList(activity);
 			} else {
-				Toast.makeText(appContext, "There was an error while validating your login request, please try again.", Toast.LENGTH_LONG).show();
+				Toast.makeText(appContext, this.activity.getString(R.string.login_error_google_validation), Toast.LENGTH_LONG).show();
 			}
 		} else {
-			Toast.makeText(appContext, "There was an error while connecting to the server, please try again.", Toast.LENGTH_LONG).show();
+			Toast.makeText(appContext, this.activity.getString(R.string.login_error_connection), Toast.LENGTH_LONG).show();
 		}
 	}
 }
@@ -111,7 +111,7 @@ public class LoginSelectActivity extends Activity {
 
 
 				if (accounts.length <= 0) {
-					Toast.makeText(context, "Sorry, no Google accounts were found on this phone. Please set one up before proceeding.", Toast.LENGTH_LONG).show();
+					Toast.makeText(context, LoginSelectActivity.this.getString(R.string.login_error_google_no_accounts), Toast.LENGTH_LONG).show();
 					return;
 				}
 
@@ -167,7 +167,7 @@ public class LoginSelectActivity extends Activity {
 
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.menu_settings:
+		case R.id.menu_preferences:
 			ComputerInfo.launchPreferences(this);
 			return true;
 		case R.id.menu_about:
