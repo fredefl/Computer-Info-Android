@@ -1,6 +1,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_marginLeft="16dp"
 		android:layout_marginRight="16dp">
+		<SwitchPreference
+			android:key="preference_sync"
+			android:title="@string/preference_sync"
+			android:defaultValue="true" />
 		<EditTextPreference
 				android:key="preference_endpoint"
 				android:title="@string/preference_endpoint"

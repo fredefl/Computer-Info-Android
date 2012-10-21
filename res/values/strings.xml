@@ -36,4 +36,5 @@
 		<string name="login_error_google_no_accounts">Sorry, no Google accounts were found on this device. Please set one up before proceeding.</string>
 		<string name="preference_endpoint">Endpoint</string>
 		<string name="preference_endpoint_summary">The authentication and data endpoint</string>
+		<string name="preference_sync">Sync</string>
 </resources>

@@ -33,4 +33,5 @@
 		<string name="login_error_google_no_accounts">Der blev desværre ikke fundet nogen Google konti på denne enhed. Set venligst en op, og prøv igen.</string>
 		<string name="preference_endpoint">Endpoint</string>
 		<string name="preference_endpoint_summary">Autentifikations- og dataserveren</string>
+		<string name="preference_sync">Synkronisering</string>
 </resources>
