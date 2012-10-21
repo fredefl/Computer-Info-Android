@@ -52,6 +52,7 @@ class SignIn extends AsyncTask<String, Void, String> {
 			// Open connection
 			connection = (HttpURLConnection)url.openConnection();
 			connection.setDoOutput(true);
+			connection.setInstanceFollowRedirects(false);
 			connection.setRequestMethod("POST");
 
 			// Set headers
