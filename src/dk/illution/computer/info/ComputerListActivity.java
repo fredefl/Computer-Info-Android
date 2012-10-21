@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +18,7 @@ public class ComputerListActivity extends FragmentActivity implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_computer_list);
+		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
 		try {
 			ComputerInfo.mainDatabase.selectCredential("token");

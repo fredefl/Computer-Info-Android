@@ -122,6 +122,7 @@ public class LoginActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		final Button loginButton = (Button) findViewById(R.id.login_button);

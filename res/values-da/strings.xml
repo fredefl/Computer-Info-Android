@@ -29,7 +29,7 @@
 		<string name="login_error_status_code">Operationen returnerede ikke en succes. Statuskode: </string>
 		<string name="login_error_malformedUrl">Endpoint URLen var misdannet. Tjek den venligst for du fortsætter.</string>
 		<string name="login_error_general">Der opstod et generelt problem. Vi undskylder.</string>
-		<string name="login_loading">Indlæser. Vent venligst...</string>
+		<string name="login_loading">Indlæser. Vent venligst&#8230;</string>
 		<string name="login_error_google_no_accounts">Der blev desværre ikke fundet nogen Google konti på denne enhed. Set venligst en op, og prøv igen.</string>
 		<string name="preference_endpoint">Endpoint</string>
 		<string name="preference_endpoint_summary">Autentifikations- og dataserveren</string>
