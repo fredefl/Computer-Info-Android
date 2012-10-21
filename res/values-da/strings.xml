@@ -3,7 +3,7 @@
 		<string name="preferences">Indstillinger</string>
 		<string name="refresh">Genopfrisk</string>
 		<string name="username_and_password">Brugernavn og kodeord</string>
-		<string name="choose_login_method">Vælg metode</string>
+		<string name="choose_login_method">Vælg autentifikations metode</string>
 		<string name="username">Brugernavn:</string>
 		<string name="password">Kodeord:</string>
 		<string name="forgot_password">Glemt dit kodeord?</string>
@@ -27,6 +27,10 @@
 		<string name="login_error_connection">Der opstod et problem med at forbinde til serveren, prøv igen.</string>
 		<string name="login_error_validation">Vi kunne ikke validere dine oplysninger, tjek venligst dit brugernavn og kodeord. Dette kan også skyldes et problem med serveren.</string>
 		<string name="login_error_status_code">Operationen returnerede ikke en succes. Statuskode: </string>
+		<string name="login_error_malformedUrl">Endpoint URLen var misdannet. Tjek den venligst for du fortsætter.</string>
+		<string name="login_error_general">Der opstod et generelt problem. Vi undskylder.</string>
 		<string name="login_loading">Indlæser. Vent venligst...</string>
 		<string name="login_error_google_no_accounts">Der blev desværre ikke fundet nogen Google konti på denne enhed. Set venligst en op, og prøv igen.</string>
+		<string name="preference_endpoint">Endpoint</string>
+		<string name="preference_endpoint_summary">Autentifikations- og dataserveren</string>
 </resources>

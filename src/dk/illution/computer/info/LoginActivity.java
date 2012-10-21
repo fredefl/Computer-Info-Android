@@ -10,10 +10,12 @@ import java.util.Scanner;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,19 +37,20 @@ class SignIn extends AsyncTask<String, Void, String> {
 	protected String doInBackground (String... params) {
 		URL url;
 		HttpURLConnection connection;
+		SharedPreferences preferences = PreferenceManager
+				.getDefaultSharedPreferences(appContext);
 
 		try {
 			String response= "";
 
 			// Set the URL
-			url=new URL(appContext.getString(R.string.base_url) + "/login/device");
+			url=new URL(preferences.getString("preference_endpoint", null) + "/login/device");
 
 			// Set parameters
-			String param="username=" + URLEncoder.encode(params[0],"UTF-8")+
-			"&password="+URLEncoder.encode(params[1],"UTF-8");
+			String param = "username=" + URLEncoder.encode(params[0], "UTF-8") + "&password=" + URLEncoder.encode(params[1], "UTF-8");
 
 			// Open connection
-			connection=(HttpURLConnection)url.openConnection();
+			connection = (HttpURLConnection)url.openConnection();
 			connection.setDoOutput(true);
 			connection.setRequestMethod("POST");
 
@@ -73,15 +76,15 @@ class SignIn extends AsyncTask<String, Void, String> {
 			// Return the response
 			return response;
 		}
-		//catch some error
-		catch(MalformedURLException ex){
-			Log.d("ComputerInfo", "Malformed URL error");
-			return null;
+		// Catch some errors
+		catch (MalformedURLException ex) {
+			return "error.malformedUrl";
 		}
-		// and some more
-		catch(IOException ex){
-			Log.d("ComputerInfo", "IO Exception");
-			return null;
+		catch (IOException ex) {
+			return "error.io";
+		}
+		catch (Exception ex) {
+			return "error.general";
 		}
 	}
 
@@ -99,6 +102,10 @@ class SignIn extends AsyncTask<String, Void, String> {
 			Toast.makeText(appContext, this.activity.getString(R.string.login_error_connection), Toast.LENGTH_LONG).show();
 		} else if (response.startsWith("error.statusCode")) {
 			Toast.makeText(appContext, this.activity.getString(R.string.login_error_status_code) + response, Toast.LENGTH_LONG).show();
+		} else if (response.startsWith("error.malformedUrl")) {
+			Toast.makeText(appContext, this.activity.getString(R.string.login_error_malformedUrl) + response, Toast.LENGTH_LONG).show();
+		} else if (response.startsWith("error.general")) {
+			Toast.makeText(appContext, this.activity.getString(R.string.login_error_general) + response, Toast.LENGTH_LONG).show();
 		}
 		if (response.startsWith("error")) {
 			LoginActivity.dialog.hide();

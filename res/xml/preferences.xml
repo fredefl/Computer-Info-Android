@@ -1,9 +1,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp">
-    <CheckBoxPreference
-        android:key="pref_sync"
-        android:title="Sync"
-        android:summary="Sync"
-        android:defaultValue="true" />
+		android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp">
+		<EditTextPreference
+				android:key="preference_endpoint"
+				android:title="@string/preference_endpoint"
+				android:inputType="textNoSuggestions"
+				android:summary="@string/preference_endpoint_summary"
+				android:defaultValue="https://ci.illution.dk" />
 </PreferenceScreen>

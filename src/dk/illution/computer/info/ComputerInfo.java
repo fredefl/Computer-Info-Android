@@ -187,19 +187,18 @@ public class ComputerInfo extends Application implements OnNavigationListener {
 				activity.getString(R.string.about_open_source) +
 				activity.getString(R.string.about_icons_wireframesketcher_studio)))
 		.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-	        public void onClick(DialogInterface dialog, int id) {
-	        	dialog.cancel();
-	        }
-	    })
+			public void onClick(DialogInterface dialog, int id) {
+				dialog.cancel();
+			}
+		})
 		.show()
 		.findViewById(android.R.id.message))
 		.setMovementMethod(LinkMovementMethod.getInstance());
-	
+
 	}
 
 	public static boolean parseUserTokenResponse (String response, Context context) {
 		try {
-			Log.d("ComputerInfo", response);
 			JSONObject credentials = new JSONObject(response);
 			Log.d("ComputerInfo", "Login status: " + credentials.getString("status"));
 			if (credentials.getString("status").equals("FAIL")) {

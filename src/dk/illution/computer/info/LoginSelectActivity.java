@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
@@ -17,6 +18,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,12 +39,14 @@ class GoogleAuthTokenValidator extends AsyncTask<String, Void, String> {
 	protected String doInBackground (String... params) {
 		URL url;
 		HttpURLConnection connection;
+		SharedPreferences preferences = PreferenceManager
+				.getDefaultSharedPreferences(appContext);
 
 		try {
 			String response= "";
 
 			// Set the URL
-			url=new URL(appContext.getString(R.string.base_url) + "/login/device/google?access_token=" + params[0]);
+			url=new URL(preferences.getString("preference_endpoint", null) + "/login/device/google?access_token=" + params[0]);
 
 
 			// Open connection
