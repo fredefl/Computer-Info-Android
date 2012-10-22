@@ -19,7 +19,8 @@ public class ComputerListActivity extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_computer_list);
 		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-
+		getWindow().setWindowAnimations(0);
+		
 		try {
 			ComputerInfo.mainDatabase.selectCredential("token");
 		} catch (SQLiteException e) {
