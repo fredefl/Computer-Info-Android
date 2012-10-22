@@ -1,37 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-		<string name="app_name">Computer Info</string>
-		<string name="preferences">Indstillinger</string>
-		<string name="refresh">Genopfrisk</string>
-		<string name="username_and_password">Brugernavn og kodeord</string>
-		<string name="choose_login_method">Vælg autentifikations metode</string>
-		<string name="username">Brugernavn:</string>
-		<string name="password">Kodeord:</string>
-		<string name="forgot_password">Glemt dit kodeord?</string>
-		<string name="sign_up">Opret bruger</string>
-		<string name="login">Log ind</string>
-		<string name="computers">Computere</string>
-		<string name="printers">Printere</string>
-		<string name="units">Enheder</string>
-		<string name="logout">Log ud</string>
-		<string-array name="computer_sections">
-				<item >Generelt</item>
-				<item >Processorere</item>
-				<item >Hukommelse</item>
-		</string-array>
-		<string name="about">Om</string>
-		<string name="about_title"><![CDATA[<h4>Computer Info til Android</h4>]]></string>
-		<string name="about_made_by"><![CDATA[Denne applikation er lavet af <a href=\'https://illution.dk\'>Illution</a>.<br><br>]]></string>
-		<string name="about_open_source"><![CDATA[Denne applikation er open source, find koden på <a href=\'https://github.com/fredefl/Computer-Info-Android\'>github</a>.<br><br>]]></string>
-		<string name="about_icons_wireframesketcher_studio"><![CDATA[Denne applikation indeholder ikoner fra <a href=\'http://wireframesketcher.com\'>WireframeSketcher.com</a>.]]></string>
-		<string name="login_error_google_validation">Der opstod et problem med valideringen af dine oplysninger, prøv igen.</string>
-		<string name="login_error_connection">Der opstod et problem med at forbinde til serveren, prøv igen.</string>
-		<string name="login_error_validation">Vi kunne ikke validere dine oplysninger, tjek venligst dit brugernavn og kodeord. Dette kan også skyldes et problem med serveren.</string>
-		<string name="login_error_status_code">Operationen returnerede ikke en succes. Statuskode: </string>
-		<string name="login_error_malformedUrl">Endpoint URLen var misdannet. Tjek den venligst for du fortsætter.</string>
-		<string name="login_error_general">Der opstod et generelt problem. Vi undskylder.</string>
-		<string name="login_loading">Indlæser. Vent venligst&#8230;</string>
-		<string name="login_error_google_no_accounts">Der blev desværre ikke fundet nogen Google konti på denne enhed. Set venligst en op, og prøv igen.</string>
-		<string name="preference_endpoint">Endpoint</string>
-		<string name="preference_endpoint_summary">Autentifikations- og dataserveren</string>
-		<string name="preference_sync">Synkronisering</string>
+  <string name="google">Google</string>
+  <string name="computer_info">Computer Info</string>
+  <!---->
+  <string name="app_name">Computer Info</string>
+  <string name="preferences">Indstillinger</string>
+  <string name="refresh">Genopfrisk</string>
+  <string name="username_and_password">Brugernavn og kodeord</string>
+  <string name="choose_login_method">Vælg autentifikations metode</string>
+  <string name="username">Brugernavn:</string>
+  <string name="password">Kodeord:</string>
+  <string name="forgot_password">Glemt dit kodeord?</string>
+  <string name="sign_up">Opret bruger</string>
+  <string name="login">Log ind</string>
+  <string name="computers">Computere</string>
+  <string name="printers">Printere</string>
+  <string name="units">Enheder</string>
+  <string name="logout">Log ud</string>
+  <string-array name="computer_sections">
+    <item>Generelt</item>
+    <item>Processorere</item>
+    <item>Hukommelse</item>
+  </string-array>
+  <string name="about">Om</string>
+  <string name="about_title"><![CDATA[<h4>Computer Info til Android</h4>]]></string>
+  <string name="about_made_by"><![CDATA[Denne applikation er lavet af <a href=\'https://illution.dk\'>Illution</a>.<br><br>]]></string>
+  <string name="about_open_source"><![CDATA[Denne applikation er open source, find koden på <a href=\'https://github.com/fredefl/Computer-Info-Android\'>github</a>.<br><br>]]></string>
+  <string name="about_icons_wireframesketcher_studio"><![CDATA[Denne applikation indeholder ikoner fra <a href=\'http://wireframesketcher.com\'>WireframeSketcher.com</a>.]]></string>
+  <string name="login_error_google_validation">Der opstod et problem med valideringen af dine oplysninger, prøv igen.</string>
+  <string name="login_error_connection">Der opstod et problem med at forbinde til serveren, prøv igen.</string>
+  <string name="login_error_validation">Vi kunne ikke validere dine oplysninger, tjek venligst dit brugernavn og kodeord. Dette kan også skyldes et problem med serveren.</string>
+  <string name="login_error_status_code">Operationen returnerede ikke en succes. Statuskode: </string>
+  <string name="login_error_malformedUrl">Endpoint URLen var misdannet. Tjek den venligst for du fortsætter.</string>
+  <string name="login_error_general">Der opstod et generelt problem. Vi undskylder.</string>
+  <string name="login_loading">Indlæser. Vent venligst…</string>
+  <string name="login_error_google_no_accounts">Der blev desværre ikke fundet nogen Google konti på denne enhed. Set venligst en op, og prøv igen.</string>
+  <string name="preference_endpoint">Endpoint</string>
+  <string name="preference_endpoint_summary">Autentifikations- og dataserveren</string>
+  <string name="preference_sync">Synkronisering</string>
 </resources>
