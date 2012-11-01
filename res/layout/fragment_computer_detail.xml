@@ -19,7 +19,7 @@
 				android:background="#fff5f5f5"
 				android:orientation="vertical" >
 
-					<LinearLayout
+				<LinearLayout
 						android:id="@+id/section_computer_general"
 						android:layout_width="fill_parent"
 						android:layout_height="wrap_content"
@@ -31,12 +31,7 @@
 						android:id="@+id/test" />
 				</LinearLayout>
 
-					<LinearLayout
-						android:id="@+id/section_computer_processor"
-						android:layout_width="fill_parent"
-						android:layout_height="wrap_content"
-						android:orientation="vertical" >
-				</LinearLayout>
+				
 
 				<LinearLayout
 					android:id="@+id/section_computer_memory"

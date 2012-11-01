@@ -1,11 +1,15 @@
 package dk.illution.computer.info;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import dk.illution.computer.info.ComputerList;
+import dk.illution.computer.info.widget.AccordionView;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -43,6 +47,17 @@ public class ComputerDetailFragment extends Fragment {
 			getActivity().setTitle(computer.getString("identifier"));
 		} catch (Exception e) {
 		}
+		
+		try {
+			JSONArray processors = computer.getJSONArray("processors");
+	        
+			int length = processors.length();
+	        for (int i = 0; i < length; ++i) {
+	            JSONObject processor = processors.getJSONObject(i);
+	            Log.d("ComputerInfo", processor.getString("name"));
+	        }
+				
+		} catch (Exception e) {}
 	}
 
 	@Override
@@ -89,9 +104,13 @@ public class ComputerDetailFragment extends Fragment {
 				e.printStackTrace();
 			}
 
-			LinearLayout ll = (LinearLayout) rootView.findViewById(R.id.section_computer_processor);
+			//LinearLayout ll = (LinearLayout) rootView.findViewById(R.id.section_computer_processor);
+			//View processor = inflater.inflate(R.layout.computer_processor, null);
+			//ll.addView(processor);
+			
+			AccordionView view = (AccordionView) rootView.findViewById(R.id.accordion_view);
 			View processor = inflater.inflate(R.layout.computer_processor, null);
-			ll.addView(processor);
+			view.addView(processor);
 		}
 		return rootView;
 	}
