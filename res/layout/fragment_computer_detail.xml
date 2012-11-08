@@ -31,7 +31,13 @@
 						android:id="@+id/test" />
 				</LinearLayout>
 
+				<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				    android:id="@+id/section_computer_processor"
+				    android:layout_width="fill_parent"
+				    android:layout_height="match_parent"
+				    android:orientation="vertical" >
 				
+				</LinearLayout>
 
 				<LinearLayout
 					android:id="@+id/section_computer_memory"

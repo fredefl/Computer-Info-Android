@@ -228,29 +228,29 @@
                "manufacturer":{
                   "id":2,
                   "name":"Intel",
-                  "website":null,
+                  "website":"http://intel.com",
                   "detection_string":"GenuineIntel",
                   "abbrevation":"Intel"
                },
                "cores":"4",
-               "clock_rate":null,
+               "clock_rate":"1.4",
                "name":"Pentium II",
                "detection_string":"Intel Pentium II-processor",
-               "max_clock_speed":null,
-               "threads":null,
+               "max_clock_speed":"2",
+               "threads":"8",
                "family":{
                   "id":3,
                   "manufacturer":{
                      "id":2,
                      "name":"Intel",
-                     "website":null,
+                     "website":"http://intel.com",
                      "detection_string":"GenuineIntel",
                      "abbrevation":"Intel"
                   },
                   "name":"Core 2",
-                  "architecture":null
+                  "architecture":"64-bit"
                },
-               "model_number":null
+               "model_number":"AI39ERJER93"
             }
          ],
          "memory":{

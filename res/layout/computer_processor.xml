@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/section_computer_processor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/computer_processor_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="#1"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textStyle="bold" />
     
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/computer_processor_clock_speed_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Clock speed:"
@@ -23,15 +21,14 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/computer_processor_clock_speed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2,6 Ghz"
         android:layout_marginLeft="4dp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
     
     <TextView
-        android:id="@+id/TextView03"
+        android:id="@+id/computer_processor_cores_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cores:"
@@ -40,15 +37,14 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/TextView04"
+        android:id="@+id/computer_processor_cores"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="4"
         android:layout_marginLeft="4dp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:id="@+id/TextView01"
+        android:id="@+id/computer_processor_threads_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Threads:"
@@ -57,15 +53,14 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/TextView02"
+        android:id="@+id/computer_processor_threads"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="8"
         android:layout_marginLeft="4dp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/computer_processor_manufacturer_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Manufacturer:"
@@ -74,11 +69,26 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/computer_processor_manufacturer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
-        android:text="Intel"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    
+	<TextView
+        android:id="@+id/computer_processor_model_number_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Model number:"
+        android:layout_marginLeft="1dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/computer_processor_model_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </LinearLayout>

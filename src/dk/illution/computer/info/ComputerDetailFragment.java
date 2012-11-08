@@ -103,14 +103,58 @@ public class ComputerDetailFragment extends Fragment {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-			//LinearLayout ll = (LinearLayout) rootView.findViewById(R.id.section_computer_processor);
-			//View processor = inflater.inflate(R.layout.computer_processor, null);
-			//ll.addView(processor);
+		
+			try {
+				JSONArray processors = computer.getJSONArray("processors");
+				
+				int length = processors.length();
+		        for (int i = 0; i < length; ++i) {
+					JSONObject processor = processors.getJSONObject(i);
+		            LinearLayout ll = (LinearLayout) rootView.findViewById(R.id.section_computer_processor);
+					View processorView = inflater.inflate(R.layout.computer_processor, null);
+					
+					((TextView) processorView.findViewById(R.id.computer_processor_number))
+						.setText("#" + Integer.toString(i + 1));
+					
+					try {
+						((TextView) processorView.findViewById(R.id.computer_processor_clock_speed))
+							.setText(processor.getString("clock_rate") + " Ghz");
+					} catch (Exception e) {};
+					
+					try {
+						((TextView) processorView.findViewById(R.id.computer_processor_cores))
+							.setText(processor.getString("cores"));
+					} catch (Exception e) {};
+					
+					try {
+						((TextView) processorView.findViewById(R.id.computer_processor_threads))
+							.setText(processor.getString("threads"));
+					} catch (Exception e) {};
+					
+					try {
+						((TextView) processorView.findViewById(R.id.computer_processor_manufacturer))
+							.setText(processor.getJSONObject("manufacturer").getString("name"));
+					} catch (Exception e) {};
+					
+					try {
+						((TextView) processorView.findViewById(R.id.computer_processor_model_number))
+							.setText(processor.getString("model_number"));
+					} catch (Exception e) {};
+					
+					ll.addView(processorView);
+		        }
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        
 			
-			AccordionView view = (AccordionView) rootView.findViewById(R.id.accordion_view);
-			View processor = inflater.inflate(R.layout.computer_processor, null);
-			view.addView(processor);
+
+			
+			
+			//AccordionView view = (AccordionView) rootView.findViewById(R.id.accordion_view);
+			//View processor = inflater.inflate(R.layout.computer_processor, null);
+			//view.addView(processor);
 		}
 		return rootView;
 	}
