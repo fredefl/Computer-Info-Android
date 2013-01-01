@@ -114,63 +114,69 @@ public class ComputerDetailFragment extends Fragment {
 				e.printStackTrace();
 			}
 
+			// ************************************************* //
+			// ***************** PROCESSOR ********************* //
+			// ************************************************* //
 			try {
-				JSONArray processors = null;
-				processors = computer.getJSONArray("processors");
+				// Find the layout to insert the processor in
+				LinearLayout processorLayout = (LinearLayout) rootView.findViewById(R.id.section_computer_processor);
+				
+				// Get the list of processors
+				JSONArray processors = computer.getJSONArray("processors");
 
-
+				// Count the total amount of processors
 				int length = processors.length();
+				
+				// Loop though all of them
 				for (int i = 0; i < length; ++i) {
-					JSONObject processor = null;
 					try {
-						processor = processors.getJSONObject(i);
+						// Grab the current processor
+						JSONObject processor = processors.getJSONObject(i);
+						
+						// Create a new processor view
+						View processorView = inflater.inflate(R.layout.computer_processor, null);
+
+						// Set the current processor number
+						((TextView) processorView.findViewById(R.id.computer_processor_number))
+							.setText("#" + Integer.toString(i + 1));
+
+						// And the newly created view to the layout
+						processorLayout.addView(processorView);
+						
+						// Compile the template to insert to data
+						compileTemplate((LinearLayout) processorLayout.findViewById(R.id.section_computer_processor_inner), toMap(processor));
 					} catch (JSONException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					LinearLayout ll = (LinearLayout) rootView.findViewById(R.id.section_computer_processor);
-					View processorView = inflater.inflate(R.layout.computer_processor, null);
-
-					// Set the current processor number
-					((TextView) processorView.findViewById(R.id.computer_processor_number))
-						.setText("#" + Integer.toString(i + 1));
-
-					// And the newly created view to the layout
-					ll.addView(processorView);
-
-					// Find the child layout
-					LinearLayout ll2 = (LinearLayout) ll.findViewById(R.id.inner);
-
-					// Convert the object to a map
-					Map<String, Object> processorMap = toMap(processor);
-
-					// Loop though childs
-					for (int j = 0; j < ll2.getChildCount(); j++) {
-						// Get current child
-						View childView = ll2.getChildAt(j);
-
-						// If child is a TextView
-						if (childView.getClass() == TextView.class) {
-							// Get the current child as TextView
-							TextView childTextView = (TextView) childView;
-							try {
-								// If current child has the tag "value"
-								if (childTextView.getTag().toString().compareTo("value") == 0) {
-									// Compile and execute the current child's text
-									childTextView.setText(Mustache.compiler().compile(childTextView.getText().toString()).execute(processorMap));
-								}
-							} catch (Exception e) {
-
-							}
-						}
+						Log.e("ComputerInfo", "Error while creating a processor");
 					}
 				}
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Log.e("ComputerInfo", "Error while creating all processors");
 			}
 		}
 		return rootView;
+	}
+	
+	public void compileTemplate (LinearLayout layout, Map<String, Object> map) {
+		// Loop though childs
+		for (int i = 0; i < layout.getChildCount(); i++) {
+			// Get current child
+			View childView = layout.getChildAt(i);
+
+			// If child is a TextView
+			if (childView.getClass() == TextView.class) {
+				// Get the current child as TextView
+				TextView childTextView = (TextView) childView;
+				try {
+					// If current child has the tag "value"
+					if (childTextView.getTag().toString().compareTo("value") == 0) {
+						// Compile and execute the current child's text
+						childTextView.setText(Mustache.compiler().compile(childTextView.getText().toString()).execute(map));
+					}
+				} catch (Exception e) {
+
+				}
+			}
+		}
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
