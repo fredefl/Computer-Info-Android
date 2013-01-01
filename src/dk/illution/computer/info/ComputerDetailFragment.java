@@ -1,8 +1,16 @@
 package dk.illution.computer.info;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.samskivert.mustache.Mustache;
 
 import dk.illution.computer.info.ComputerList;
 import dk.illution.computer.info.widget.AccordionView;
@@ -29,6 +37,8 @@ public class ComputerDetailFragment extends Fragment {
 	public ComputerDetailFragment() {
 	}
 
+
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -47,16 +57,16 @@ public class ComputerDetailFragment extends Fragment {
 			getActivity().setTitle(computer.getString("identifier"));
 		} catch (Exception e) {
 		}
-		
+
 		try {
 			JSONArray processors = computer.getJSONArray("processors");
-	        
+
 			int length = processors.length();
-	        for (int i = 0; i < length; ++i) {
-	            JSONObject processor = processors.getJSONObject(i);
-	            Log.d("ComputerInfo", processor.getString("name"));
-	        }
-				
+			for (int i = 0; i < length; ++i) {
+				JSONObject processor = processors.getJSONObject(i);
+				Log.d("ComputerInfo", processor.getString("name"));
+			}
+
 		} catch (Exception e) {}
 	}
 
@@ -103,58 +113,62 @@ public class ComputerDetailFragment extends Fragment {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
+
 			try {
-				JSONArray processors = computer.getJSONArray("processors");
-				
+				JSONArray processors = null;
+				processors = computer.getJSONArray("processors");
+
+
 				int length = processors.length();
-		        for (int i = 0; i < length; ++i) {
-					JSONObject processor = processors.getJSONObject(i);
-		            LinearLayout ll = (LinearLayout) rootView.findViewById(R.id.section_computer_processor);
+				for (int i = 0; i < length; ++i) {
+					JSONObject processor = null;
+					try {
+						processor = processors.getJSONObject(i);
+					} catch (JSONException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					LinearLayout ll = (LinearLayout) rootView.findViewById(R.id.section_computer_processor);
 					View processorView = inflater.inflate(R.layout.computer_processor, null);
-					
+
+					// Set the current processor number
 					((TextView) processorView.findViewById(R.id.computer_processor_number))
 						.setText("#" + Integer.toString(i + 1));
-					
-					try {
-						((TextView) processorView.findViewById(R.id.computer_processor_clock_speed))
-							.setText(processor.getString("clock_rate") + " Ghz");
-					} catch (Exception e) {};
-					
-					try {
-						((TextView) processorView.findViewById(R.id.computer_processor_cores))
-							.setText(processor.getString("cores"));
-					} catch (Exception e) {};
-					
-					try {
-						((TextView) processorView.findViewById(R.id.computer_processor_threads))
-							.setText(processor.getString("threads"));
-					} catch (Exception e) {};
-					
-					try {
-						((TextView) processorView.findViewById(R.id.computer_processor_manufacturer))
-							.setText(processor.getJSONObject("manufacturer").getString("name"));
-					} catch (Exception e) {};
-					
-					try {
-						((TextView) processorView.findViewById(R.id.computer_processor_model_number))
-							.setText(processor.getString("model_number"));
-					} catch (Exception e) {};
-					
+
+					// And the newly created view to the layout
 					ll.addView(processorView);
-		        }
+
+					// Find the child layout
+					LinearLayout ll2 = (LinearLayout) ll.findViewById(R.id.inner);
+
+					// Convert the object to a map
+					Map<String, Object> processorMap = toMap(processor);
+
+					// Loop though childs
+					for (int j = 0; j < ll2.getChildCount(); j++) {
+						// Get current child
+						View childView = ll2.getChildAt(j);
+
+						// If child is a TextView
+						if (childView.getClass() == TextView.class) {
+							// Get the current child as TextView
+							TextView childTextView = (TextView) childView;
+							try {
+								// If current child has the tag "value"
+								if (childTextView.getTag().toString().compareTo("value") == 0) {
+									// Compile and execute the current child's text
+									childTextView.setText(Mustache.compiler().compile(childTextView.getText().toString()).execute(processorMap));
+								}
+							} catch (Exception e) {
+
+							}
+						}
+					}
+				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	        
-			
-
-			
-			
-			//AccordionView view = (AccordionView) rootView.findViewById(R.id.accordion_view);
-			//View processor = inflater.inflate(R.layout.computer_processor, null);
-			//view.addView(processor);
 		}
 		return rootView;
 	}
@@ -169,6 +183,42 @@ public class ComputerDetailFragment extends Fragment {
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
+		}
+	}
+
+	public static Map<String, Object> toMap(JSONObject object) throws JSONException
+	{
+		Map<String, Object> map = new HashMap<String, Object>();
+		Iterator keys = object.keys();
+		while (keys.hasNext())
+		{
+			String key = (String) keys.next();
+			map.put(key, fromJson(object.get(key)));
+		}
+		return map;
+	}
+
+	public static List toList(JSONArray array) throws JSONException
+	{
+		List list = new ArrayList();
+		for (int i = 0; i < array.length(); i++)
+		{
+			list.add(fromJson(array.get(i)));
+		}
+		return list;
+	}
+
+	private static Object fromJson(Object json) throws JSONException
+	{
+		if (json instanceof JSONObject)
+		{
+			return toMap((JSONObject) json);
+		} else if (json instanceof JSONArray)
+		{
+			return toList((JSONArray) json);
+		} else
+		{
+			return json;
 		}
 	}
 
