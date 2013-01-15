@@ -1,1 +1,798 @@
-{"Computers":[{"id":13,"identifier":"LALALAsds","organization":{"id":1,"name":"Gr\u00f8ndalsv\u00e6ngets Skole","employees":["1","4","5"]},"date_of_purchase":null,"groups":null,"model":{"id":17,"manufacturer":{"id":22,"name":"Gigabyte","website":"http:\/\/www.gigabyte.com","detection_string":"Gigabyte Technology Co., Ltd.","abbrevation":"Gigabyte"},"image_url":null,"type":{"id":2,"name":"Desktop","category":{"id":1,"name":"Computer"}},"model_code":null,"name":"EX58-UD5","detection_string":"EX58-UD5","computer_series":null},"serial":"AL5SD2","operating_system":null,"screen_size":{"id":"52","width":"1920","height":"1080","detection_string":"1920x1080","name":"Widescreen Ultra eXtended Graphics Array","aspect_ratio":"16:9","abbrevation":"WUXGA"},"created_time":"28\/11-2012 - 23:19:09","last_updated":"28\/11-2012 - 23:19:09","creator_user":null,"last_updated_user":null,"location":"31","printers":null,"connected_devices":null,"power_usage_per_hour":null,"graphics_cards":[{"id":21,"model":{"id":1,"caption":"NVIDIA GeForce GTX 560 Ti  ","manufacturer":{"id":19,"name":"NVIDIA","website":"http:\/\/www.nvidia.com","detection_string":"NVIDIA","abbrevation":"NVIDIA"},"name":"NVIDIA GeForce GTX 560 Ti  ","description":"NVIDIA GeForce GTX 560 Ti  ","video_processor":"GeForce GTX 560 Ti","detection_string":"NVIDIA GeForce GTX 560 Ti  ","memory_type":null},"driver_version":"9.18.13.1033","video_architecture":null,"driver_date":"1354131195","screen_size":{"id":"52","width":"1920","height":"1080","detection_string":"1920x1080","name":"Widescreen Ultra eXtended Graphics Array","aspect_ratio":"16:9","abbrevation":"WUXGA"},"ram_size":"1024","device_identifier":"1"},{"id":22,"model":{"id":1,"caption":"NVIDIA GeForce GTX 560 Ti  ","manufacturer":{"id":19,"name":"NVIDIA","website":"http:\/\/www.nvidia.com","detection_string":"NVIDIA","abbrevation":"NVIDIA"},"name":"NVIDIA GeForce GTX 560 Ti  ","description":"NVIDIA GeForce GTX 560 Ti  ","video_processor":"GeForce GTX 560 Ti","detection_string":"NVIDIA GeForce GTX 560 Ti  ","memory_type":null},"driver_version":"9.18.13.1033","video_architecture":null,"driver_date":"1354131195","screen_size":{"id":"52","width":"1920","height":"1080","detection_string":"1920x1080","name":"Widescreen Ultra eXtended Graphics Array","aspect_ratio":"16:9","abbrevation":"WUXGA"},"ram_size":"1024","device_identifier":"2"}],"processors":null,"memory":{"id":12,"total_physical_memory":"6141","slots":[{"id":25,"empty":false,"capacity":"2048","manufacturer":null,"serial":null,"part_number":" ","speed":"400","device_identifier":null},{"id":26,"empty":false,"capacity":null,"manufacturer":null,"serial":null,"part_number":null,"speed":null,"device_identifier":"1"},{"id":27,"empty":false,"capacity":"2048","manufacturer":null,"serial":null,"part_number":" ","speed":"400","device_identifier":"2"},{"id":28,"empty":false,"capacity":null,"manufacturer":null,"serial":null,"part_number":null,"speed":null,"device_identifier":"3"},{"id":29,"empty":false,"capacity":"2048","manufacturer":null,"serial":null,"part_number":" ","speed":"400","device_identifier":"4"},{"id":30,"empty":false,"capacity":null,"manufacturer":null,"serial":null,"part_number":null,"speed":null,"device_identifier":"5"}]},"network_cards":null,"logical_drives":null,"physical_drives":null},{"id":14,"identifier":"LALALA","organization":{"id":1,"name":"Gr\u00f8ndalsv\u00e6ngets Skole","employees":["1","4","5"]},"date_of_purchase":null,"groups":null,"model":{"id":17,"manufacturer":{"id":22,"name":"Gigabyte","website":"http:\/\/www.gigabyte.com","detection_string":"Gigabyte Technology Co., Ltd.","abbrevation":"Gigabyte"},"image_url":null,"type":{"id":2,"name":"Desktop","category":{"id":1,"name":"Computer"}},"model_code":null,"name":"EX58-UD5","detection_string":"EX58-UD5","computer_series":null},"serial":"AL5SD2","operating_system":null,"screen_size":{"id":"52","width":"1920","height":"1080","detection_string":"1920x1080","name":"Widescreen Ultra eXtended Graphics Array","aspect_ratio":"16:9","abbrevation":"WUXGA"},"created_time":"28\/11-2012 - 23:19:22","last_updated":"28\/11-2012 - 23:19:22","creator_user":null,"last_updated_user":null,"location":"31","printers":null,"connected_devices":null,"power_usage_per_hour":null,"graphics_cards":[{"id":23,"model":{"id":1,"caption":"NVIDIA GeForce GTX 560 Ti  ","manufacturer":{"id":19,"name":"NVIDIA","website":"http:\/\/www.nvidia.com","detection_string":"NVIDIA","abbrevation":"NVIDIA"},"name":"NVIDIA GeForce GTX 560 Ti  ","description":"NVIDIA GeForce GTX 560 Ti  ","video_processor":"GeForce GTX 560 Ti","detection_string":"NVIDIA GeForce GTX 560 Ti  ","memory_type":null},"driver_version":"9.18.13.1033","video_architecture":null,"driver_date":"1354131195","screen_size":{"id":"52","width":"1920","height":"1080","detection_string":"1920x1080","name":"Widescreen Ultra eXtended Graphics Array","aspect_ratio":"16:9","abbrevation":"WUXGA"},"ram_size":"1024","device_identifier":"1"},{"id":24,"model":{"id":1,"caption":"NVIDIA GeForce GTX 560 Ti  ","manufacturer":{"id":19,"name":"NVIDIA","website":"http:\/\/www.nvidia.com","detection_string":"NVIDIA","abbrevation":"NVIDIA"},"name":"NVIDIA GeForce GTX 560 Ti  ","description":"NVIDIA GeForce GTX 560 Ti  ","video_processor":"GeForce GTX 560 Ti","detection_string":"NVIDIA GeForce GTX 560 Ti  ","memory_type":null},"driver_version":"9.18.13.1033","video_architecture":null,"driver_date":"1354131195","screen_size":{"id":"52","width":"1920","height":"1080","detection_string":"1920x1080","name":"Widescreen Ultra eXtended Graphics Array","aspect_ratio":"16:9","abbrevation":"WUXGA"},"ram_size":"1024","device_identifier":"2"}],"processors":null,"memory":{"id":13,"total_physical_memory":"6141","slots":[{"id":31,"empty":false,"capacity":"2048","manufacturer":null,"serial":null,"part_number":" ","speed":"400","device_identifier":null},{"id":32,"empty":false,"capacity":null,"manufacturer":null,"serial":null,"part_number":null,"speed":null,"device_identifier":"1"},{"id":33,"empty":false,"capacity":"2048","manufacturer":null,"serial":null,"part_number":" ","speed":"400","device_identifier":"2"},{"id":34,"empty":false,"capacity":null,"manufacturer":null,"serial":null,"part_number":null,"speed":null,"device_identifier":"3"},{"id":35,"empty":false,"capacity":"2048","manufacturer":null,"serial":null,"part_number":" ","speed":"400","device_identifier":"4"},{"id":36,"empty":false,"capacity":null,"manufacturer":null,"serial":null,"part_number":null,"speed":null,"device_identifier":"5"}]},"network_cards":null,"logical_drives":null,"physical_drives":null},{"id":15,"identifier":"Liv","organization":{"id":1,"name":"Gr\u00f8ndalsv\u00e6ngets Skole","employees":["1","4","5"]},"date_of_purchase":null,"groups":null,"model":{"id":19,"manufacturer":{"id":1,"name":"Hewlett Packard","website":"http:\/\/www.hp.com","detection_string":"Hewlett-Packard","abbrevation":"HP"},"image_url":null,"type":{"id":2,"name":"Desktop","category":{"id":1,"name":"Computer"}},"model_code":null,"name":"HP Pavilion dv6 Notebook PC","detection_string":"HP Pavilion dv6 Notebook PC","computer_series":null},"serial":"5CH1210RY8","operating_system":{"id":"20","computer_name":"LLAMARIUS","install_date":"1310397508","architecture":"64-bit","service_pack":"1","system_drive":"C:","version":"6.1.7601","edition":{"id":"2","manufacturer":null,"name":null,"detection_string":"Ultimate"},"core":{"id":"9","name":"Windows 7","version_number":"6.1","operating_system":{"id":"6","name":"Windows 7","system_int":"261","family":{"id":"1","manufacturer":{"id":18,"name":"Microsoft","website":"http:\/\/microsoft.com","detection_string":"Microsoft Corporation","abbrevation":"Microsoft"},"name":"Windows","core":{"id":"1","manufacturer":{"id":18,"name":"Microsoft","website":"http:\/\/microsoft.com","detection_string":"Microsoft Corporation","abbrevation":"Microsoft"},"name":"Windows","detection_string":"Windows"}}},"detection_string":"Windows 7"}},"screen_size":{"id":"5","width":"1366","height":"768","detection_string":"1366x768","name":"HD ready","aspect_ratio":"16:9","abbrevation":"HDR"},"created_time":"28\/11-2012 - 23:24:02","last_updated":"28\/11-2012 - 23:24:02","creator_user":{"id":1,"organizations":[{"id":1,"name":"Gr\u00f8ndalsv\u00e6ngets Skole","employees":["1","4","5"]},{"id":2,"name":"Illution","employees":["1","2","3"]}],"email":"support@illution.dk","name":"Bo Thomsen"},"last_updated_user":{"id":1,"organizations":[{"id":1,"name":"Gr\u00f8ndalsv\u00e6ngets Skole","employees":["1","4","5"]},{"id":2,"name":"Illution","employees":["1","2","3"]}],"email":"support@illution.dk","name":"Bo Thomsen"},"location":{"id":22,"name":"Lokale 32","floor":null,"building":null,"room_number":"32","organization":{"id":1,"name":"Gr\u00f8ndalsv\u00e6ngets Skole","employees":[{"id":1,"organizations":["1","2"],"email":"support@illution.dk","name":"Bo Thomsen"},{"id":4,"organizations":["1"],"email":"boh1996@gmail.com","name":"Bo Thomsen"},{"id":5,"organizations":["1"],"email":"frederiklassen@gmail.com","name":"Frederik Lassen"}]}},"printers":[{"id":84,"identifier":"Send til OneNote 2010","name":"Send til OneNote 2010","created_time":"1354141442","last_updated":"1354141442","location":null,"ip":null,"mac":null,"model":null,"connected_devices":["15","16","17","18","19","20","21","22","23"],"organization":null,"groups":null},{"id":85,"identifier":"Microsoft XPS Document Writer","name":"Microsoft XPS Document Writer","created_time":"1354141442","last_updated":"1354141442","location":null,"ip":null,"mac":null,"model":null,"connected_devices":["15","16","17","18","19","20","21","22","23"],"organization":null,"groups":null},{"id":86,"identifier":"Adobe PDF","name":"Adobe PDF","created_time":"1354141443","last_updated":"1354141443","location":null,"ip":null,"mac":null,"model":null,"connected_devices":["15","16","17","18","19","20","21","22","23"],"organization":null,"groups":null},{"id":87,"identifier":"\\\\10.10.0.35\\CAR-TAARN-1SAL-P01","name":"\\\\10.10.0.35\\CAR-TAARN-1SAL-P01","created_time":"1354141443","last_updated":"1354141443","location":null,"ip":null,"mac":null,"model":null,"connected_devices":["15","16","17","18","19","20","21","22","23"],"organization":null,"groups":null}],"connected_devices":null,"power_usage_per_hour":null,"graphics_cards":[{"id":25,"model":{"id":2,"caption":"Intel(R) HD Graphics Family","manufacturer":{"id":2,"name":"Intel","website":"http:\/\/intel.com","detection_string":"GenuineIntel","abbrevation":"Intel"},"name":"Intel(R) HD Graphics Family","description":"Intel(R) HD Graphics Family","video_processor":"Intel(R) HD Graphics Family","detection_string":"Intel(R) HD Graphics Family","memory_type":null},"driver_version":"8.882.2.3000","video_architecture":null,"driver_date":null,"screen_size":{"id":"5","width":"1366","height":"768","detection_string":"1366x768","name":"HD ready","aspect_ratio":"16:9","abbrevation":"HDR"},"ram_size":null,"device_identifier":"VideoController1"}],"processors":[{"id":14,"model":{"id":35,"manufacturer":{"id":2,"name":"Intel","website":"http:\/\/intel.com","detection_string":"GenuineIntel","abbrevation":"Intel"},"cores":"4","clock_rate":"2","name":"i7","detection_string":"Intel(R) Core(TM) i7-2630QM CPU @ 2.00GHz","max_clock_speed":"2","threads":"8","family":null,"model_number":null,"data_width":"64"},"device_identifier":"CPU0"}],"memory":{"id":14,"total_physical_memory":"8140","slots":[{"id":37,"empty":false,"capacity":"4096","manufacturer":null,"serial":null,"part_number":"9905428-051.A00LF ","speed":"1333","device_identifier":null},{"id":38,"empty":false,"capacity":"4096","manufacturer":null,"serial":null,"part_number":"EBJ41UF8BCS0-DJ-F ","speed":"1333","device_identifier":"1"}]},"network_cards":null,"logical_drives":null,"physical_drives":null}],"count":3,"error_message":null,"error_code":null,"script_excecution_time":"0.1338","server_time":1355132603}
+{
+   "Computers":[
+      {
+         "id":13,
+         "identifier":"LALALAsds",
+         "organization":{
+            "id":1,
+            "name":"Gr\u00f8ndalsv\u00e6ngets Skole",
+            "employees":[
+               "1",
+               "4",
+               "5"
+            ]
+         },
+         "date_of_purchase":null,
+         "groups":null,
+         "model":{
+            "id":17,
+            "manufacturer":{
+               "id":22,
+               "name":"Gigabyte",
+               "website":"http:\/\/www.gigabyte.com",
+               "detection_string":"Gigabyte Technology Co., Ltd.",
+               "abbrevation":"Gigabyte"
+            },
+            "image_url":null,
+            "type":{
+               "id":2,
+               "name":"Desktop",
+               "category":{
+                  "id":1,
+                  "name":"Computer"
+               }
+            },
+            "model_code":null,
+            "name":"EX58-UD5",
+            "detection_string":"EX58-UD5",
+            "computer_series":null
+         },
+         "serial":"AL5SD2",
+         "operating_system":null,
+         "screen_size":{
+            "id":"52",
+            "width":"1920",
+            "height":"1080",
+            "detection_string":"1920x1080",
+            "name":"Widescreen Ultra eXtended Graphics Array",
+            "aspect_ratio":"16:9",
+            "abbrevation":"WUXGA"
+         },
+         "created_time":"28\/11-2012 - 23:19:09",
+         "last_updated":"28\/11-2012 - 23:19:09",
+         "creator_user":null,
+         "last_updated_user":null,
+         "location":"31",
+         "printers":null,
+         "connected_devices":null,
+         "power_usage_per_hour":null,
+         "graphics_cards":[
+            {
+               "id":21,
+               "model":{
+                  "id":1,
+                  "caption":"NVIDIA GeForce GTX 560 Ti  ",
+                  "manufacturer":{
+                     "id":19,
+                     "name":"NVIDIA",
+                     "website":"http:\/\/www.nvidia.com",
+                     "detection_string":"NVIDIA",
+                     "abbrevation":"NVIDIA"
+                  },
+                  "name":"NVIDIA GeForce GTX 560 Ti  ",
+                  "description":"NVIDIA GeForce GTX 560 Ti  ",
+                  "video_processor":"GeForce GTX 560 Ti",
+                  "detection_string":"NVIDIA GeForce GTX 560 Ti  ",
+                  "memory_type":null
+               },
+               "driver_version":"9.18.13.1033",
+               "video_architecture":null,
+               "driver_date":"1354131195",
+               "screen_size":{
+                  "id":"52",
+                  "width":"1920",
+                  "height":"1080",
+                  "detection_string":"1920x1080",
+                  "name":"Widescreen Ultra eXtended Graphics Array",
+                  "aspect_ratio":"16:9",
+                  "abbrevation":"WUXGA"
+               },
+               "ram_size":"1024",
+               "device_identifier":"1"
+            },
+            {
+               "id":22,
+               "model":{
+                  "id":1,
+                  "caption":"NVIDIA GeForce GTX 560 Ti  ",
+                  "manufacturer":{
+                     "id":19,
+                     "name":"NVIDIA",
+                     "website":"http:\/\/www.nvidia.com",
+                     "detection_string":"NVIDIA",
+                     "abbrevation":"NVIDIA"
+                  },
+                  "name":"NVIDIA GeForce GTX 560 Ti  ",
+                  "description":"NVIDIA GeForce GTX 560 Ti  ",
+                  "video_processor":"GeForce GTX 560 Ti",
+                  "detection_string":"NVIDIA GeForce GTX 560 Ti  ",
+                  "memory_type":null
+               },
+               "driver_version":"9.18.13.1033",
+               "video_architecture":null,
+               "driver_date":"1354131195",
+               "screen_size":{
+                  "id":"52",
+                  "width":"1920",
+                  "height":"1080",
+                  "detection_string":"1920x1080",
+                  "name":"Widescreen Ultra eXtended Graphics Array",
+                  "aspect_ratio":"16:9",
+                  "abbrevation":"WUXGA"
+               },
+               "ram_size":"1024",
+               "device_identifier":"2"
+            }
+         ],
+         "processors":null,
+         "memory":{
+            "id":12,
+            "total_physical_memory":"6141",
+            "slots":[
+               {
+                  "id":25,
+                  "empty":false,
+                  "capacity":"2048",
+                  "manufacturer":null,
+                  "serial":null,
+                  "part_number":" ",
+                  "speed":"400",
+                  "device_identifier":null
+               },
+               {
+                  "id":26,
+                  "empty":false,
+                  "capacity":null,
+                  "manufacturer":null,
+                  "serial":null,
+                  "part_number":null,
+                  "speed":null,
+                  "device_identifier":"1"
+               },
+               {
+                  "id":27,
+                  "empty":false,
+                  "capacity":"2048",
+                  "manufacturer":null,
+                  "serial":null,
+                  "part_number":" ",
+                  "speed":"400",
+                  "device_identifier":"2"
+               },
+               {
+                  "id":28,
+                  "empty":false,
+                  "capacity":null,
+                  "manufacturer":null,
+                  "serial":null,
+                  "part_number":null,
+                  "speed":null,
+                  "device_identifier":"3"
+               },
+               {
+                  "id":29,
+                  "empty":false,
+                  "capacity":"2048",
+                  "manufacturer":null,
+                  "serial":null,
+                  "part_number":" ",
+                  "speed":"400",
+                  "device_identifier":"4"
+               },
+               {
+                  "id":30,
+                  "empty":false,
+                  "capacity":null,
+                  "manufacturer":null,
+                  "serial":null,
+                  "part_number":null,
+                  "speed":null,
+                  "device_identifier":"5"
+               }
+            ]
+         },
+         "network_cards":null,
+         "logical_drives":null,
+         "physical_drives":null
+      },
+      {
+         "id":14,
+         "identifier":"LALALA",
+         "organization":{
+            "id":1,
+            "name":"Gr\u00f8ndalsv\u00e6ngets Skole",
+            "employees":[
+               "1",
+               "4",
+               "5"
+            ]
+         },
+         "date_of_purchase":null,
+         "groups":null,
+         "model":{
+            "id":17,
+            "manufacturer":{
+               "id":22,
+               "name":"Gigabyte",
+               "website":"http:\/\/www.gigabyte.com",
+               "detection_string":"Gigabyte Technology Co., Ltd.",
+               "abbrevation":"Gigabyte"
+            },
+            "image_url":null,
+            "type":{
+               "id":2,
+               "name":"Desktop",
+               "category":{
+                  "id":1,
+                  "name":"Computer"
+               }
+            },
+            "model_code":null,
+            "name":"EX58-UD5",
+            "detection_string":"EX58-UD5",
+            "computer_series":null
+         },
+         "serial":"AL5SD2",
+         "operating_system":null,
+         "screen_size":{
+            "id":"52",
+            "width":"1920",
+            "height":"1080",
+            "detection_string":"1920x1080",
+            "name":"Widescreen Ultra eXtended Graphics Array",
+            "aspect_ratio":"16:9",
+            "abbrevation":"WUXGA"
+         },
+         "created_time":"28\/11-2012 - 23:19:22",
+         "last_updated":"28\/11-2012 - 23:19:22",
+         "creator_user":null,
+         "last_updated_user":null,
+         "location":"31",
+         "printers":null,
+         "connected_devices":null,
+         "power_usage_per_hour":null,
+         "graphics_cards":[
+            {
+               "id":23,
+               "model":{
+                  "id":1,
+                  "caption":"NVIDIA GeForce GTX 560 Ti  ",
+                  "manufacturer":{
+                     "id":19,
+                     "name":"NVIDIA",
+                     "website":"http:\/\/www.nvidia.com",
+                     "detection_string":"NVIDIA",
+                     "abbrevation":"NVIDIA"
+                  },
+                  "name":"NVIDIA GeForce GTX 560 Ti  ",
+                  "description":"NVIDIA GeForce GTX 560 Ti  ",
+                  "video_processor":"GeForce GTX 560 Ti",
+                  "detection_string":"NVIDIA GeForce GTX 560 Ti  ",
+                  "memory_type":null
+               },
+               "driver_version":"9.18.13.1033",
+               "video_architecture":null,
+               "driver_date":"1354131195",
+               "screen_size":{
+                  "id":"52",
+                  "width":"1920",
+                  "height":"1080",
+                  "detection_string":"1920x1080",
+                  "name":"Widescreen Ultra eXtended Graphics Array",
+                  "aspect_ratio":"16:9",
+                  "abbrevation":"WUXGA"
+               },
+               "ram_size":"1024",
+               "device_identifier":"1"
+            },
+            {
+               "id":24,
+               "model":{
+                  "id":1,
+                  "caption":"NVIDIA GeForce GTX 560 Ti  ",
+                  "manufacturer":{
+                     "id":19,
+                     "name":"NVIDIA",
+                     "website":"http:\/\/www.nvidia.com",
+                     "detection_string":"NVIDIA",
+                     "abbrevation":"NVIDIA"
+                  },
+                  "name":"NVIDIA GeForce GTX 560 Ti  ",
+                  "description":"NVIDIA GeForce GTX 560 Ti  ",
+                  "video_processor":"GeForce GTX 560 Ti",
+                  "detection_string":"NVIDIA GeForce GTX 560 Ti  ",
+                  "memory_type":null
+               },
+               "driver_version":"9.18.13.1033",
+               "video_architecture":null,
+               "driver_date":"1354131195",
+               "screen_size":{
+                  "id":"52",
+                  "width":"1920",
+                  "height":"1080",
+                  "detection_string":"1920x1080",
+                  "name":"Widescreen Ultra eXtended Graphics Array",
+                  "aspect_ratio":"16:9",
+                  "abbrevation":"WUXGA"
+               },
+               "ram_size":"1024",
+               "device_identifier":"2"
+            }
+         ],
+         "processors":null,
+         "memory":{
+            "id":13,
+            "total_physical_memory":"6141",
+            "slots":[
+               {
+                  "id":31,
+                  "empty":false,
+                  "capacity":"2048",
+                  "manufacturer":null,
+                  "serial":null,
+                  "part_number":" ",
+                  "speed":"400",
+                  "device_identifier":null
+               },
+               {
+                  "id":32,
+                  "empty":false,
+                  "capacity":null,
+                  "manufacturer":null,
+                  "serial":null,
+                  "part_number":null,
+                  "speed":null,
+                  "device_identifier":"1"
+               },
+               {
+                  "id":33,
+                  "empty":false,
+                  "capacity":"2048",
+                  "manufacturer":null,
+                  "serial":null,
+                  "part_number":" ",
+                  "speed":"400",
+                  "device_identifier":"2"
+               },
+               {
+                  "id":34,
+                  "empty":false,
+                  "capacity":null,
+                  "manufacturer":null,
+                  "serial":null,
+                  "part_number":null,
+                  "speed":null,
+                  "device_identifier":"3"
+               },
+               {
+                  "id":35,
+                  "empty":false,
+                  "capacity":"2048",
+                  "manufacturer":null,
+                  "serial":null,
+                  "part_number":" ",
+                  "speed":"400",
+                  "device_identifier":"4"
+               },
+               {
+                  "id":36,
+                  "empty":false,
+                  "capacity":null,
+                  "manufacturer":null,
+                  "serial":null,
+                  "part_number":null,
+                  "speed":null,
+                  "device_identifier":"5"
+               }
+            ]
+         },
+         "network_cards":null,
+         "logical_drives":null,
+         "physical_drives":null
+      },
+      {
+         "id":15,
+         "identifier":"Liv",
+         "organization":{
+            "id":1,
+            "name":"Gr\u00f8ndalsv\u00e6ngets Skole",
+            "employees":[
+               "1",
+               "4",
+               "5"
+            ]
+         },
+         "date_of_purchase":null,
+         "groups":null,
+         "model":{
+            "id":19,
+            "manufacturer":{
+               "id":1,
+               "name":"Hewlett Packard",
+               "website":"http:\/\/www.hp.com",
+               "detection_string":"Hewlett-Packard",
+               "abbrevation":"HP"
+            },
+            "image_url":null,
+            "type":{
+               "id":2,
+               "name":"Desktop",
+               "category":{
+                  "id":1,
+                  "name":"Computer"
+               }
+            },
+            "model_code":null,
+            "name":"HP Pavilion dv6 Notebook PC",
+            "detection_string":"HP Pavilion dv6 Notebook PC",
+            "computer_series":null
+         },
+         "serial":"5CH1210RY8",
+         "operating_system":{
+            "id":"20",
+            "computer_name":"LLAMARIUS",
+            "install_date":"1310397508",
+            "architecture":"64-bit",
+            "service_pack":"1",
+            "system_drive":"C:",
+            "version":"6.1.7601",
+            "edition":{
+               "id":"2",
+               "manufacturer":null,
+               "name":null,
+               "detection_string":"Ultimate"
+            },
+            "core":{
+               "id":"9",
+               "name":"Windows 7",
+               "version_number":"6.1",
+               "operating_system":{
+                  "id":"6",
+                  "name":"Windows 7",
+                  "system_int":"261",
+                  "family":{
+                     "id":"1",
+                     "manufacturer":{
+                        "id":18,
+                        "name":"Microsoft",
+                        "website":"http:\/\/microsoft.com",
+                        "detection_string":"Microsoft Corporation",
+                        "abbrevation":"Microsoft"
+                     },
+                     "name":"Windows",
+                     "core":{
+                        "id":"1",
+                        "manufacturer":{
+                           "id":18,
+                           "name":"Microsoft",
+                           "website":"http:\/\/microsoft.com",
+                           "detection_string":"Microsoft Corporation",
+                           "abbrevation":"Microsoft"
+                        },
+                        "name":"Windows",
+                        "detection_string":"Windows"
+                     }
+                  }
+               },
+               "detection_string":"Windows 7"
+            }
+         },
+         "screen_size":{
+            "id":"5",
+            "width":"1366",
+            "height":"768",
+            "detection_string":"1366x768",
+            "name":"HD ready",
+            "aspect_ratio":"16:9",
+            "abbrevation":"HDR"
+         },
+         "created_time":"28\/11-2012 - 23:24:02",
+         "last_updated":"28\/11-2012 - 23:24:02",
+         "creator_user":{
+            "id":1,
+            "organizations":[
+               {
+                  "id":1,
+                  "name":"Gr\u00f8ndalsv\u00e6ngets Skole",
+                  "employees":[
+                     "1",
+                     "4",
+                     "5"
+                  ]
+               },
+               {
+                  "id":2,
+                  "name":"Illution",
+                  "employees":[
+                     "1",
+                     "2",
+                     "3"
+                  ]
+               }
+            ],
+            "email":"support@illution.dk",
+            "name":"Bo Thomsen"
+         },
+         "last_updated_user":{
+            "id":1,
+            "organizations":[
+               {
+                  "id":1,
+                  "name":"Gr\u00f8ndalsv\u00e6ngets Skole",
+                  "employees":[
+                     "1",
+                     "4",
+                     "5"
+                  ]
+               },
+               {
+                  "id":2,
+                  "name":"Illution",
+                  "employees":[
+                     "1",
+                     "2",
+                     "3"
+                  ]
+               }
+            ],
+            "email":"support@illution.dk",
+            "name":"Bo Thomsen"
+         },
+         "location":{
+            "id":22,
+            "name":"Lokale 32",
+            "floor":null,
+            "building":null,
+            "room_number":"32",
+            "organization":{
+               "id":1,
+               "name":"Gr\u00f8ndalsv\u00e6ngets Skole",
+               "employees":[
+                  {
+                     "id":1,
+                     "organizations":[
+                        "1",
+                        "2"
+                     ],
+                     "email":"support@illution.dk",
+                     "name":"Bo Thomsen"
+                  },
+                  {
+                     "id":4,
+                     "organizations":[
+                        "1"
+                     ],
+                     "email":"boh1996@gmail.com",
+                     "name":"Bo Thomsen"
+                  },
+                  {
+                     "id":5,
+                     "organizations":[
+                        "1"
+                     ],
+                     "email":"frederiklassen@gmail.com",
+                     "name":"Frederik Lassen"
+                  }
+               ]
+            }
+         },
+         "printers":[
+            {
+               "id":84,
+               "identifier":"Send til OneNote 2010",
+               "name":"Send til OneNote 2010",
+               "created_time":"1354141442",
+               "last_updated":"1354141442",
+               "location":null,
+               "ip":null,
+               "mac":null,
+               "model":null,
+               "connected_devices":[
+                  "15",
+                  "16",
+                  "17",
+                  "18",
+                  "19",
+                  "20",
+                  "21",
+                  "22",
+                  "23"
+               ],
+               "organization":null,
+               "groups":null
+            },
+            {
+               "id":85,
+               "identifier":"Microsoft XPS Document Writer",
+               "name":"Microsoft XPS Document Writer",
+               "created_time":"1354141442",
+               "last_updated":"1354141442",
+               "location":null,
+               "ip":null,
+               "mac":null,
+               "model":null,
+               "connected_devices":[
+                  "15",
+                  "16",
+                  "17",
+                  "18",
+                  "19",
+                  "20",
+                  "21",
+                  "22",
+                  "23"
+               ],
+               "organization":null,
+               "groups":null
+            },
+            {
+               "id":86,
+               "identifier":"Adobe PDF",
+               "name":"Adobe PDF",
+               "created_time":"1354141443",
+               "last_updated":"1354141443",
+               "location":null,
+               "ip":null,
+               "mac":null,
+               "model":null,
+               "connected_devices":[
+                  "15",
+                  "16",
+                  "17",
+                  "18",
+                  "19",
+                  "20",
+                  "21",
+                  "22",
+                  "23"
+               ],
+               "organization":null,
+               "groups":null
+            },
+            {
+               "id":87,
+               "identifier":"\\\\10.10.0.35\\CAR-TAARN-1SAL-P01",
+               "name":"\\\\10.10.0.35\\CAR-TAARN-1SAL-P01",
+               "created_time":"1354141443",
+               "last_updated":"1354141443",
+               "location":null,
+               "ip":null,
+               "mac":null,
+               "model":null,
+               "connected_devices":[
+                  "15",
+                  "16",
+                  "17",
+                  "18",
+                  "19",
+                  "20",
+                  "21",
+                  "22",
+                  "23"
+               ],
+               "organization":null,
+               "groups":null
+            }
+         ],
+         "connected_devices":null,
+         "power_usage_per_hour":null,
+         "graphics_cards":[
+            {
+               "id":25,
+               "model":{
+                  "id":2,
+                  "caption":"Intel(R) HD Graphics Family",
+                  "manufacturer":{
+                     "id":2,
+                     "name":"Intel",
+                     "website":"http:\/\/intel.com",
+                     "detection_string":"GenuineIntel",
+                     "abbrevation":"Intel"
+                  },
+                  "name":"Intel(R) HD Graphics Family",
+                  "description":"Intel(R) HD Graphics Family",
+                  "video_processor":"Intel(R) HD Graphics Family",
+                  "detection_string":"Intel(R) HD Graphics Family",
+                  "memory_type":null
+               },
+               "driver_version":"8.882.2.3000",
+               "video_architecture":null,
+               "driver_date":null,
+               "screen_size":{
+                  "id":"5",
+                  "width":"1366",
+                  "height":"768",
+                  "detection_string":"1366x768",
+                  "name":"HD ready",
+                  "aspect_ratio":"16:9",
+                  "abbrevation":"HDR"
+               },
+               "ram_size":null,
+               "device_identifier":"VideoController1"
+            }
+         ],
+         "processors":[
+            {
+               "id":14,
+               "model":{
+                  "id":35,
+                  "manufacturer":{
+                     "id":2,
+                     "name":"Intel",
+                     "website":"http:\/\/intel.com",
+                     "detection_string":"GenuineIntel",
+                     "abbrevation":"Intel"
+                  },
+                  "cores":"4",
+                  "clock_rate":"2",
+                  "name":"i7",
+                  "detection_string":"Intel(R) Core(TM) i7-2630QM CPU @ 2.00GHz",
+                  "max_clock_speed":"2",
+                  "threads":"8",
+                  "family":null,
+                  "model_number":null,
+                  "data_width":"64"
+               },
+               "device_identifier":"CPU0"
+            },
+            {
+               "id":14,
+               "model":{
+                  "id":35,
+                  "manufacturer":{
+                     "id":2,
+                     "name":"Intel",
+                     "website":"http:\/\/intel.com",
+                     "detection_string":"GenuineIntel",
+                     "abbrevation":"Intel"
+                  },
+                  "cores":"4",
+                  "clock_rate":"2",
+                  "name":"i7",
+                  "detection_string":"Intel(R) Core(TM) i7-2630QM CPU @ 2.00GHz",
+                  "max_clock_speed":"2",
+                  "threads":"8",
+                  "family":null,
+                  "model_number":null,
+                  "data_width":"64"
+               },
+               "device_identifier":"CPU1"
+            }
+         ],
+         "memory":{
+            "id":14,
+            "total_physical_memory":"8140",
+            "slots":[
+               {
+                  "id":37,
+                  "empty":false,
+                  "capacity":"4096",
+                  "manufacturer":null,
+                  "serial":null,
+                  "part_number":"9905428-051.A00LF ",
+                  "speed":"1333",
+                  "device_identifier":null
+               },
+               {
+                  "id":38,
+                  "empty":false,
+                  "capacity":"4096",
+                  "manufacturer":null,
+                  "serial":null,
+                  "part_number":"EBJ41UF8BCS0-DJ-F ",
+                  "speed":"1333",
+                  "device_identifier":"1"
+               }
+            ]
+         },
+         "network_cards":null,
+         "logical_drives":null,
+         "physical_drives":null
+      }
+   ],
+   "count":3,
+   "error_message":null,
+   "error_code":null,
+   "script_excecution_time":"0.1338",
+   "server_time":1355132603
+}

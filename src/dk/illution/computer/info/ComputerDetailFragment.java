@@ -115,6 +115,24 @@ public class ComputerDetailFragment extends Fragment {
 			}
 
 			// ************************************************* //
+			// ******************* MEMORY ********************** //
+			// ************************************************* //
+			
+			try {
+				// Find the layout to insert the memory in
+				LinearLayout memoryLayout = (LinearLayout) rootView.findViewById(R.id.section_computer_memory);
+				
+				// Get the memory information
+				JSONObject memory = computer.getJSONObject("memory");
+				//JSONArray memorySlots = memory.getJSONArray("slots");
+				
+				compileTemplate((LinearLayout) memoryLayout, toMap(memory));
+			} catch (Exception e) {
+				Log.e("ComputerInfo", "Error while creating memory view");
+				e.printStackTrace();
+			}
+
+			// ************************************************* //
 			// ***************** PROCESSOR ********************* //
 			// ************************************************* //
 			try {
@@ -130,6 +148,12 @@ public class ComputerDetailFragment extends Fragment {
 				// Loop though all of them
 				for (int i = 0; i < length; ++i) {
 					try {
+						if(i > 0) {
+							View ruler = new View(this.getActivity()); ruler.setMinimumHeight(10);
+							processorLayout.addView(ruler,
+									new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT, 2));
+						}
+						
 						// Grab the current processor
 						JSONObject processor = processors.getJSONObject(i);
 						
@@ -140,11 +164,14 @@ public class ComputerDetailFragment extends Fragment {
 						((TextView) processorView.findViewById(R.id.computer_processor_number))
 							.setText("#" + Integer.toString(i + 1));
 
+						processorView.setTag(i);
+						
 						// And the newly created view to the layout
 						processorLayout.addView(processorView);
 						
 						// Compile the template to insert to data
-						compileTemplate((LinearLayout) processorLayout.findViewById(R.id.section_computer_processor_inner), toMap(processor));
+						compileTemplate((LinearLayout) processorLayout.findViewWithTag(i), toMap(processor));
+						
 					} catch (JSONException e1) {
 						Log.e("ComputerInfo", "Error while creating a processor");
 					}
@@ -157,7 +184,7 @@ public class ComputerDetailFragment extends Fragment {
 	}
 	
 	public void compileTemplate (LinearLayout layout, Map<String, Object> map) {
-		// Loop though childs
+		// Loop through childs
 		for (int i = 0; i < layout.getChildCount(); i++) {
 			// Get current child
 			View childView = layout.getChildAt(i);
