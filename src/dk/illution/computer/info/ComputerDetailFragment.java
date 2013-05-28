@@ -36,8 +36,6 @@ public class ComputerDetailFragment extends Fragment {
 	public ComputerDetailFragment() {
 	}
 
-
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -110,6 +108,27 @@ public class ComputerDetailFragment extends Fragment {
 
             mCardView = (CardUI) rootView.findViewById(R.id.cardsview);
             mCardView.setSwipeable(false);
+
+            // ************************************************* //
+            // ************** OPERATING SYSTEM ***************** //
+            // ************************************************* //
+
+            try {
+                // Get the operating system information
+                JSONObject operatingSystem = computer.getJSONObject("operating_system");
+
+                String title = operatingSystem.getJSONObject("core").getString("detection_string");
+                String description = String.format("%s %s",
+                        operatingSystem.getJSONObject("edition").getString("detection_string"),
+                        operatingSystem.getString("architecture")
+                );
+
+                mCardView.addCard(new MyPlayCard(title, description, "#AA66CC", "#222222", false, false));
+
+            } catch (Exception e) {
+                Log.e("ComputerInfo", "Error while creating operating system");
+                e.printStackTrace();
+            }
 
             // ************************************************* //
             // ***************** PROCESSOR ********************* //
@@ -228,30 +247,8 @@ public class ComputerDetailFragment extends Fragment {
             }
 
             // ************************************************* //
-            // ************** OPERATING SYSTEM ***************** //
-            // ************************************************* //
-
-            try {
-                // Get the operating system information
-                JSONObject operatingSystem = computer.getJSONObject("operating_system");
-
-                String title = operatingSystem.getJSONObject("core").getString("detection_string");
-                String description = String.format("%s %s",
-                        operatingSystem.getJSONObject("edition").getString("detection_string"),
-                        operatingSystem.getString("architecture")
-                );
-
-                 mCardView.addCard(new MyPlayCard(title, description, "#AA66CC", "#222222", false, false));
-
-            } catch (Exception e) {
-                Log.e("ComputerInfo", "Error while creating operating system");
-                e.printStackTrace();
-            }
-
-            // ************************************************* //
             // *************** NETWORK CARDS ******************* //
             // ************************************************* //
-
 
             try {
                 // Get the list of network cards
