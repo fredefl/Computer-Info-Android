@@ -139,9 +139,9 @@ public class ComputerDetailFragment extends Fragment {
                         );
 
                         if (i == 0)
-                            mCardView.addCard(new MyPlayCard(title, description, "#f2a400", "#9d36d0", false, false));
+                            mCardView.addCard(new MyPlayCard(title, description, "#f2a400", "#222222", false, false));
                         else
-                            mCardView.addCardToLastStack(new MyPlayCard(title, description, "#f2a400", "#9d36d0", false, false));
+                            mCardView.addCardToLastStack(new MyPlayCard(title, description, "#f2a400", "#222222", false, false));
 
                     } catch (JSONException e1) {
                         Log.e("ComputerInfo", "Error while creating a processor");
