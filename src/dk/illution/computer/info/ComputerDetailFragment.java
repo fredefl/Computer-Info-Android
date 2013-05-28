@@ -222,6 +222,78 @@ public class ComputerDetailFragment extends Fragment {
                                         "slots empty"),
                                 "#4ac925", "#222222", false, false));
 
+            } catch (Exception e) {
+                Log.e("ComputerInfo", "Error while creating memory");
+                e.printStackTrace();
+            }
+
+            // ************************************************* //
+            // ************** OPERATING SYSTEM ***************** //
+            // ************************************************* //
+
+            try {
+                // Get the operating system information
+                JSONObject operatingSystem = computer.getJSONObject("operating_system");
+
+                String title = operatingSystem.getJSONObject("core").getString("detection_string");
+                String description = String.format("%s %s",
+                        operatingSystem.getJSONObject("edition").getString("detection_string"),
+                        operatingSystem.getString("architecture")
+                );
+
+                 mCardView.addCard(new MyPlayCard(title, description, "#AA66CC", "#222222", false, false));
+
+            } catch (Exception e) {
+                Log.e("ComputerInfo", "Error while creating operating system");
+                e.printStackTrace();
+            }
+
+            // ************************************************* //
+            // *************** NETWORK CARDS ******************* //
+            // ************************************************* //
+
+
+            try {
+                // Get the list of network cards
+                JSONArray networkCards = computer.getJSONArray("network_cards");
+
+                // Count the total amount of network cards
+                int length = networkCards.length();
+
+                // Loop though all of them
+                for (int i = 0; i < length; ++i) {
+                    try {
+                        // Grab the current network cards
+                        JSONObject networkCard = networkCards.getJSONObject(i);
+
+                        String title = networkCard.getJSONObject("model").getString("detection_string");
+                        String description = String.format("%s\n%s\n",
+                                networkCard.getJSONObject("adapter_type").getString("detection_string"),
+                                networkCard.getString("mac_address")
+                        );
+
+                        if (i == 0)
+                            mCardView.addCard(new MyPlayCard(title, description, "#FF4444", "#222222", false, false));
+                        else
+                            mCardView.addCardToLastStack(new MyPlayCard(title, description, "#FF4444", "#222222", false, false));
+
+                    } catch (JSONException e1) {
+                        Log.e("ComputerInfo", "Error while creating a network card");
+                    }
+                }
+            } catch (Exception e) {
+                Log.e("ComputerInfo", "Error while creating all network cards");
+            }
+
+            // ************************************************* //
+            // **************** MEMORY SLOTS ******************* //
+            // ************************************************* //
+
+            try {
+                // Get the memory information
+                JSONObject memory = computer.getJSONObject("memory");
+                JSONArray memorySlots = memory.getJSONArray("slots");
+
                 for (int i = 0; i <= memorySlots.length() - 1; i++) {
                     JSONObject memorySlot = memorySlots.getJSONObject(i);
 
@@ -241,38 +313,14 @@ public class ComputerDetailFragment extends Fragment {
                     }
                 }
 
-
             } catch (Exception e) {
-                Log.e("ComputerInfo", "Error while creating memory view");
+                Log.e("ComputerInfo", "Error while creating memory slots");
                 e.printStackTrace();
             }
 
             mCardView.refresh();
 		}
 		return rootView;
-	}
-	
-	public void compileTemplate (LinearLayout layout, Map<String, Object> map) {
-		// Loop through childs
-		for (int i = 0; i < layout.getChildCount(); i++) {
-			// Get current child
-			View childView = layout.getChildAt(i);
-
-			// If child is a TextView
-			if (childView.getClass() == TextView.class) {
-				// Get the current child as TextView
-				TextView childTextView = (TextView) childView;
-				try {
-					// If current child has the tag "value"
-					if (childTextView.getTag().toString().compareTo("value") == 0) {
-						// Compile and execute the current child's text
-						childTextView.setText(Mustache.compiler().compile(childTextView.getText().toString()).execute(map));
-					}
-				} catch (Exception e) {
-
-				}
-			}
-		}
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -287,41 +335,4 @@ public class ComputerDetailFragment extends Fragment {
 			return super.onOptionsItemSelected(item);
 		}
 	}
-
-	public static Map<String, Object> toMap(JSONObject object) throws JSONException
-	{
-		Map<String, Object> map = new HashMap<String, Object>();
-		Iterator keys = object.keys();
-		while (keys.hasNext())
-		{
-			String key = (String) keys.next();
-			map.put(key, fromJson(object.get(key)));
-		}
-		return map;
-	}
-
-	public static List toList(JSONArray array) throws JSONException
-	{
-		List list = new ArrayList();
-		for (int i = 0; i < array.length(); i++)
-		{
-			list.add(fromJson(array.get(i)));
-		}
-		return list;
-	}
-
-	private static Object fromJson(Object json) throws JSONException
-	{
-		if (json instanceof JSONObject)
-		{
-			return toMap((JSONObject) json);
-		} else if (json instanceof JSONArray)
-		{
-			return toList((JSONArray) json);
-		} else
-		{
-			return json;
-		}
-	}
-
 }

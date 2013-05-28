@@ -35,7 +35,7 @@ public class ComputerDetailActivity extends FragmentActivity {
 		ComputerDetailFragment fragment = new ComputerDetailFragment();
 		fragment.setArguments(arguments);
 		getSupportFragmentManager().beginTransaction()
-				.add(R.id.computer_detail_container, fragment).commit();
+				.replace(R.id.computer_detail_container, fragment).commit();
 	}
 
 	@Override

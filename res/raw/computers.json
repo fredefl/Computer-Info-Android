@@ -829,7 +829,68 @@
                }
             ]
          },
-         "network_cards":null,
+         "network_cards": [{
+                 "id": 111,
+                 "model": {
+                     "id": 9,
+                     "detection_string": "Hamachi Network Interface",
+                     "manufacturer": null,
+                     "name": null
+                 },
+                 "device_identifier": null,
+                 "guid": "{7CC1C845-75DF-4C0E-BC7B-F1F7B6C338B8}",
+                 "adapter_type": {
+                     "id": 15,
+                     "detection_string": "Ethernet",
+                     "name": null
+                 },
+                 "mac_address": "7A:79:19:52:CC:BD",
+                 "max_speed": "95",
+                 "ip_addresses": ["2620:9b::1952:ccbd", "fe80::d39:698:56ea:bd61%166", "25.82.204.189"]
+             }, {
+                 "id": 112,
+                 "model": {
+                     "id": 4,
+                     "detection_string": "Broadcom 43225 802.11b\/g\/n",
+                     "manufacturer": {
+                         "id": 36,
+                         "name": "Broadcom",
+                         "website": null,
+                         "detection_string": "Broadcom",
+                         "abbrevation": "Broadcom"
+                     },
+                     "name": "Broadcom 43225 802.11b\/g\/n"
+                 },
+                 "device_identifier": "1",
+                 "guid": "{21B6F93D-3F34-4656-B624-9AE0017C3A0E}",
+                 "adapter_type": {
+                     "id": 16,
+                     "detection_string": "Wireless80211",
+                     "name": null
+                 },
+                 "mac_address": "C4:17:FE:37:41:C7",
+                 "max_speed": "111",
+                 "ip_addresses": ["fe80::b89d:d4e8:b451:a2f3%14", "192.168.1.12"]
+             }, {
+                 "id": 113,
+                 "model": {
+                     "id": 10,
+                     "detection_string": "Microsoft Teredo Tunneling-adapter",
+                     "manufacturer": null,
+                     "name": null
+                 },
+                 "device_identifier": "95",
+                 "guid": "{A54B64A0-B5E2-4D32-A06F-3C772411CDFC}",
+                 "adapter_type": {
+                     "id": 17,
+                     "detection_string": "Tunnel",
+                     "name": null
+                 },
+                 "mac_address": "00:00:00:00:00:00:00:E0",
+                 "max_speed": null,
+                 "ip_addresses": ["2001:0:4137:9e76:2035:37ba:3f57:fef3", "fe80::2035:37ba:3f57:fef3%169"]
+             }
+         ],
          "logical_drives":null,
          "physical_drives":null
       }
