@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import com.fima.cardsui.views.CardUI;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,6 +34,7 @@ public class ComputerDetailFragment extends Fragment {
 	public static Integer id;
 
 	JSONObject computer;
+    private CardUI mCardView;
 
 	public ComputerDetailFragment() {
 	}
@@ -107,17 +109,56 @@ public class ComputerDetailFragment extends Fragment {
 		// Make sure the computer isn't null
 		if (computer != null) {
 			// TODO: Gogo!
-			try {
-				((TextView) rootView.findViewById(R.id.test)).setText(computer.getString("serial"));
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+
+            mCardView = (CardUI) rootView.findViewById(R.id.cardsview);
+            mCardView.setSwipeable(false);
+
+            mCardView
+                    .addCard(new MyPlayCard(
+                            "Intel i7",
+                            "2Ghz\n" +
+                                    "4 Cores\n" +
+                                    "8 Threads",
+                            "#f2a400", "#9d36d0", false, false));
+
+            mCardView
+                    .addCard(new MyPlayCard(
+                            "NVIDIA GeForce GTX 560 Ti",
+                            "1024MB of RAM\n" +
+                                    "1920x1080, 16:9",
+                            "#33B5E5", "#222222", false, false));
+
+            mCardView
+                    .addCard(new MyPlayCard(
+                            "8GB of RAM",
+                            "4 slots used\n" +
+                                    "4 slots empty",
+                            "#4ac925", "#222222", false, false));
+
+            mCardView
+                    .addCard(new MyPlayCard(
+                            "RAM Slot 1",
+                            "2GB\n" +
+                                    "DDR3\n" +
+                                    "1333 Mhz",
+                            "#4ac925", "#222222", false, false));
+
+            for (int i = 2; i <= 4; i++) {
+                mCardView
+                        .addCardToLastStack(new MyPlayCard(
+                                String.format("RAM Slot %s", i),
+                                "2GB\n" +
+                                        "DDR3\n" +
+                                        "1333 Mhz",
+                                "#4ac925", "#222222", false, false));
+            }
+
+            mCardView.refresh();
 
 			// ************************************************* //
 			// ******************* MEMORY ********************** //
 			// ************************************************* //
-			
+			/*
 			try {
 				// Find the layout to insert the memory in
 				LinearLayout memoryLayout = (LinearLayout) rootView.findViewById(R.id.section_computer_memory);
@@ -178,7 +219,7 @@ public class ComputerDetailFragment extends Fragment {
 				}
 			} catch (Exception e) {
 				Log.e("ComputerInfo", "Error while creating all processors");
-			}
+			}*/
 		}
 		return rootView;
 	}

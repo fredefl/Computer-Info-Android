@@ -37,4 +37,13 @@
 		<string name="preference_endpoint">Endpoint</string>
 		<string name="preference_endpoint_summary">The authentication and data endpoint</string>
 		<string name="preference_sync">Sync</string>
+
+        <string name="app_name">CardsUI Example</string>
+        <string name="hello_world">Hello world!</string>
+        <string name="menu_settings">Settings</string>
+        <string name="title_activity_main">CardsUI</string>
+        <string name="title">Title</string>
+        <string name="desc">Description</string>
+        <string name="overflow">Menu Overflow</string>
+        <string name="color_stripe">Color Stripe</string>
 </resources>

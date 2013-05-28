@@ -16,3 +16,5 @@ gen/
 local.properties
 
 /.idea/workspace.xml
+
+/.idea/libraries/nineoldandroids_2_4_0.xml

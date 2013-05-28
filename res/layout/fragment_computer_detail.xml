@@ -1,77 +1,11 @@
-<ScrollView
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		xmlns:accordion="http://schemas.android.com/apk/res-auto/com.sentaca.android.accordion"
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
-		android:background="@android:color/white" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
 
-		<dk.illution.computer.info.widget.AccordionView
-				android:id="@+id/accordion_view"
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				accordion:header_layout_fold_button_id="@id/foldButton"
-				accordion:header_layout_id="@layout/accordion_header"
-				accordion:header_layout_label_id="@id/foldText"
-				accordion:section_bottom="@layout/accordion_footer"
-				accordion:section_container="@layout/accordion_section"
-				accordion:section_container_parent="@id/section_content"
-				accordion:section_headers="@array/computer_sections"
-				android:background="#fff5f5f5"
-				android:orientation="vertical" >
+    <com.fima.cardsui.views.CardUI
+            android:id="@+id/cardsview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-				<LinearLayout
-						android:id="@+id/section_computer_general"
-						android:layout_width="fill_parent"
-						android:layout_height="wrap_content"
-						android:orientation="vertical" >
-				<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:text="Item 1"
-						android:id="@+id/test" />
-				</LinearLayout>
-
-				<LinearLayout
-						android:id="@+id/section_computer_processor"
-						android:layout_width="fill_parent"
-						android:layout_height="match_parent"
-						android:orientation="vertical" >
-
-				</LinearLayout>
-
-				<LinearLayout
-					android:id="@+id/section_computer_memory"
-					android:layout_width="fill_parent"
-					android:layout_height="wrap_content"
-					android:orientation="vertical" >
-
-					<TextView
-						android:id="@+id/computer_memory_total_label"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:text="Total memory:"
-						android:layout_marginLeft="1dp"
-						android:textAppearance="?android:attr/textAppearanceSmall"
-						android:textStyle="bold" />
-
-					<TextView
-						android:id="@+id/computer_memory_total"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_marginLeft="4dp"
-						android:textAppearance="?android:attr/textAppearanceSmall"
-						android:tag="value"
-						android:text="{{total_physical_memory}} MB"/>
-					
-					<TextView
-						android:id="@+id/computer_memory_slots_label"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:text="Memory slots:"
-						android:layout_marginLeft="1dp"
-						android:textAppearance="?android:attr/textAppearanceSmall"
-						android:textStyle="bold" />
-				</LinearLayout>
-
-		</dk.illution.computer.info.widget.AccordionView>
-</ScrollView>
+</RelativeLayout>
