@@ -125,8 +125,10 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.activity_login);
 		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 		ActionBar actionBar = getActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(true);
-		final Button loginButton = (Button) findViewById(R.id.login_button);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        final Button loginButton = (Button) findViewById(R.id.login_button);
 		final Button signUpButton = (Button) findViewById(R.id.sign_up_button);
 
 
