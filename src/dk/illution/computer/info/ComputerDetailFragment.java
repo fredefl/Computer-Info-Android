@@ -128,16 +128,20 @@ public class ComputerDetailFragment extends Fragment {
                         // Grab the current processor
                         JSONObject processor = processors.getJSONObject(i);
                         JSONObject processorModel = processor.getJSONObject("model");
-                        mCardView
-                                .addCard(new MyPlayCard(
-                                        String.format("%s %s", processorModel.getJSONObject("manufacturer").getString("name"), processorModel.getString("name")),
-                                        String.format("%s GHz\n%s %s\n%s %s",
-                                                processorModel.getString("clock_rate"),
-                                                processorModel.getString("cores"),
-                                                "Cores",
-                                                processorModel.getString("threads"),
-                                                "Threads"),
-                                        "#f2a400", "#9d36d0", false, false));
+
+                        String title = String.format("%s %s", processorModel.getJSONObject("manufacturer").getString("name"), processorModel.getString("name"));
+                        String description = String.format("%s GHz\n%s %s\n%s %s",
+                                processorModel.getString("clock_rate"),
+                                processorModel.getString("cores"),
+                                "Cores",
+                                processorModel.getString("threads"),
+                                "Threads"
+                        );
+
+                        if (i == 0)
+                            mCardView.addCard(new MyPlayCard(title, description, "#f2a400", "#9d36d0", false, false));
+                        else
+                            mCardView.addCardToLastStack(new MyPlayCard(title, description, "#f2a400", "#9d36d0", false, false));
 
                     } catch (JSONException e1) {
                         Log.e("ComputerInfo", "Error while creating a processor");
@@ -164,16 +168,18 @@ public class ComputerDetailFragment extends Fragment {
                     try {
                         JSONObject graphicsCard = graphicsCards.getJSONObject(i);
 
-                        mCardView
-                                .addCard(new MyPlayCard(
-                                        graphicsCard.getJSONObject("model").getString("caption").trim(),
-                                        String.format("%s MB %s RAM\n%s, %s",
-                                                graphicsCard.getString("ram_size"),
-                                                "of",
-                                                graphicsCard.getJSONObject("screen_size").getString("detection_string"),
-                                                graphicsCard.getJSONObject("screen_size").getString("aspect_ratio")
-                                        ),
-                                        "#33B5E5", "#222222", false, false));
+                        String title = graphicsCard.getJSONObject("model").getString("caption").trim();
+                        String description = String.format("%s MB %s RAM\n%s, %s",
+                                graphicsCard.getString("ram_size"),
+                                "of",
+                                graphicsCard.getJSONObject("screen_size").getString("detection_string"),
+                                graphicsCard.getJSONObject("screen_size").getString("aspect_ratio")
+                        );
+
+                        if (i == 0)
+                            mCardView.addCard(new MyPlayCard(title, description, "#33B5E5", "#222222", false, false));
+                        else
+                            mCardView.addCardToLastStack(new MyPlayCard(title, description, "#33B5E5", "#222222", false, false));
 
 
                     } catch (JSONException e1) {
