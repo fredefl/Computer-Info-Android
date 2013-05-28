@@ -13,9 +13,6 @@ import org.json.JSONObject;
 
 import com.samskivert.mustache.Mustache;
 
-import dk.illution.computer.info.ComputerList;
-import dk.illution.computer.info.widget.AccordionView;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -108,118 +105,143 @@ public class ComputerDetailFragment extends Fragment {
 				container, false);
 		// Make sure the computer isn't null
 		if (computer != null) {
-			// TODO: Gogo!
+			// TODO: Go go!
+            // mCardView.addCard(new MyPlayCard("Test Card", "Yay", "#4ac925", "#222222", false, false));
 
             mCardView = (CardUI) rootView.findViewById(R.id.cardsview);
             mCardView.setSwipeable(false);
 
-            mCardView
-                    .addCard(new MyPlayCard(
-                            "Intel i7",
-                            "2Ghz\n" +
-                                    "4 Cores\n" +
-                                    "8 Threads",
-                            "#f2a400", "#9d36d0", false, false));
+            // ************************************************* //
+            // ***************** PROCESSOR ********************* //
+            // ************************************************* //
 
-            mCardView
-                    .addCard(new MyPlayCard(
-                            "NVIDIA GeForce GTX 560 Ti",
-                            "1024MB of RAM\n" +
-                                    "1920x1080, 16:9",
-                            "#33B5E5", "#222222", false, false));
+            try {
+                // Get the list of processors
+                JSONArray processors = computer.getJSONArray("processors");
 
-            mCardView
-                    .addCard(new MyPlayCard(
-                            "8GB of RAM",
-                            "4 slots used\n" +
-                                    "4 slots empty",
-                            "#4ac925", "#222222", false, false));
+                // Count the total amount of processors
+                int length = processors.length();
 
-            mCardView
-                    .addCard(new MyPlayCard(
-                            "RAM Slot 1",
-                            "2GB\n" +
-                                    "DDR3\n" +
-                                    "1333 Mhz",
-                            "#4ac925", "#222222", false, false));
+                // Loop though all of them
+                for (int i = 0; i < length; ++i) {
+                    try {
+                        // Grab the current processor
+                        JSONObject processor = processors.getJSONObject(i);
+                        JSONObject processorModel = processor.getJSONObject("model");
+                        mCardView
+                                .addCard(new MyPlayCard(
+                                        String.format("%s %s", processorModel.getJSONObject("manufacturer").getString("name"), processorModel.getString("name")),
+                                        String.format("%s GHz\n%s %s\n%s %s",
+                                                processorModel.getString("clock_rate"),
+                                                processorModel.getString("cores"),
+                                                "Cores",
+                                                processorModel.getString("threads"),
+                                                "Threads"),
+                                        "#f2a400", "#9d36d0", false, false));
 
-            for (int i = 2; i <= 4; i++) {
+                    } catch (JSONException e1) {
+                        Log.e("ComputerInfo", "Error while creating a processor");
+                    }
+                }
+            } catch (Exception e) {
+                Log.e("ComputerInfo", "Error while creating all processors");
+            }
+
+            // ************************************************* //
+            // ******************* GRAPHICS ******************** //
+            // ************************************************* //
+
+            try {
+
+                // Get the list of graphics cards
+                JSONArray graphicsCards = computer.getJSONArray("graphics_cards");
+
+                // Count the total amount of graphics cards
+                int length = graphicsCards.length();
+
+                // Loop though all of them
+                for (int i = 0; i < length; ++i) {
+                    try {
+                        JSONObject graphicsCard = graphicsCards.getJSONObject(i);
+
+                        mCardView
+                                .addCard(new MyPlayCard(
+                                        graphicsCard.getJSONObject("model").getString("caption").trim(),
+                                        String.format("%s MB %s RAM\n%s, %s",
+                                                graphicsCard.getString("ram_size"),
+                                                "of",
+                                                graphicsCard.getJSONObject("screen_size").getString("detection_string"),
+                                                graphicsCard.getJSONObject("screen_size").getString("aspect_ratio")
+                                        ),
+                                        "#33B5E5", "#222222", false, false));
+
+
+                    } catch (JSONException e1) {
+                        Log.e("ComputerInfo", "Error while creating a graphics card");
+                    }
+                }
+
+            } catch (Exception e) {
+                Log.e("ComputerInfo", "Error while creating all graphics cards");
+                e.printStackTrace();
+            }
+
+            // ************************************************* //
+            // ******************* MEMORY ********************** //
+            // ************************************************* //
+
+            try {
+                // Get the memory information
+                JSONObject memory = computer.getJSONObject("memory");
+                JSONArray memorySlots = memory.getJSONArray("slots");
+
+                int usedMemorySlots = 0;
+                int emptyMemorySlots = 0;
+
+                for (int i = 0; i <= memorySlots.length() - 1; i++) {
+                    if (memorySlots.getJSONObject(i).getBoolean("empty")) {
+                        emptyMemorySlots++;
+                    } else {
+                        usedMemorySlots++;
+                    }
+                }
+
                 mCardView
-                        .addCardToLastStack(new MyPlayCard(
-                                String.format("RAM Slot %s", i),
-                                "2GB\n" +
-                                        "DDR3\n" +
-                                        "1333 Mhz",
+                        .addCard(new MyPlayCard(
+                                String.format("%sGB of RAM", Math.round(memory.getDouble("total_physical_memory")/1024), 2),
+                                String.format("%s %s\n%s %s",
+                                        usedMemorySlots,
+                                        "slots used",
+                                        emptyMemorySlots,
+                                        "slots empty"),
                                 "#4ac925", "#222222", false, false));
+
+                for (int i = 0; i <= memorySlots.length() - 1; i++) {
+                    JSONObject memorySlot = memorySlots.getJSONObject(i);
+
+                    String title = String.format("%s %s", "RAM Slot", i+1);
+                    String description = "Empty";
+                    if (!memorySlot.getBoolean("empty")) {
+                        description = String.format("%s MB\n%s Mhz",
+                                memorySlot.getInt("capacity"),
+                                memorySlot.getInt("speed")
+                        );
+                    }
+
+                    if (i == 0) {
+                        mCardView.addCard(new MyPlayCard(title, description, "#4ac925", "#222222", false, false));
+                    } else {
+                        mCardView.addCardToLastStack(new MyPlayCard(title, description, "#4ac925", "#222222", false, false));
+                    }
+                }
+
+
+            } catch (Exception e) {
+                Log.e("ComputerInfo", "Error while creating memory view");
+                e.printStackTrace();
             }
 
             mCardView.refresh();
-
-			// ************************************************* //
-			// ******************* MEMORY ********************** //
-			// ************************************************* //
-			/*
-			try {
-				// Find the layout to insert the memory in
-				LinearLayout memoryLayout = (LinearLayout) rootView.findViewById(R.id.section_computer_memory);
-				
-				// Get the memory information
-				JSONObject memory = computer.getJSONObject("memory");
-				//JSONArray memorySlots = memory.getJSONArray("slots");
-				
-				compileTemplate((LinearLayout) memoryLayout, toMap(memory));
-			} catch (Exception e) {
-				Log.e("ComputerInfo", "Error while creating memory view");
-				e.printStackTrace();
-			}
-
-			// ************************************************* //
-			// ***************** PROCESSOR ********************* //
-			// ************************************************* //
-			try {
-				// Find the layout to insert the processor in
-				LinearLayout processorLayout = (LinearLayout) rootView.findViewById(R.id.section_computer_processor);
-				
-				// Get the list of processors
-				JSONArray processors = computer.getJSONArray("processors");
-
-				// Count the total amount of processors
-				int length = processors.length();
-				
-				// Loop though all of them
-				for (int i = 0; i < length; ++i) {
-					try {
-						if(i > 0) {
-							View ruler = new View(this.getActivity()); ruler.setMinimumHeight(10);
-							processorLayout.addView(ruler,
-									new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT, 2));
-						}
-						
-						// Grab the current processor
-						JSONObject processor = processors.getJSONObject(i);
-						
-						// Create a new processor view
-						View processorView = inflater.inflate(R.layout.computer_processor, null);
-
-						// Set the current processor number
-						((TextView) processorView.findViewById(R.id.computer_processor_number))
-							.setText("#" + Integer.toString(i + 1));
-
-						processorView.setTag(i);
-						
-						// And the newly created view to the layout
-						processorLayout.addView(processorView);
-						
-						// Compile the template to insert to data
-						compileTemplate((LinearLayout) processorLayout.findViewWithTag(i), toMap(processor));
-						
-					} catch (JSONException e1) {
-						Log.e("ComputerInfo", "Error while creating a processor");
-					}
-				}
-			} catch (Exception e) {
-				Log.e("ComputerInfo", "Error while creating all processors");
-			}*/
 		}
 		return rootView;
 	}

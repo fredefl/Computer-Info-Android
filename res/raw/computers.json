@@ -124,7 +124,29 @@
                "device_identifier":"2"
             }
          ],
-         "processors":null,
+         "processors":[{
+               "id":14,
+               "model":{
+                  "id":35,
+                  "manufacturer":{
+                     "id":2,
+                     "name":"Intel",
+                     "website":"http:\/\/intel.com",
+                     "detection_string":"GenuineIntel",
+                     "abbrevation":"Intel"
+                  },
+                  "cores":"4",
+                  "clock_rate":"2",
+                  "name":"i7",
+                  "detection_string":"Intel(R) Core(TM) i7-2630QM CPU @ 2.00GHz",
+                  "max_clock_speed":"2",
+                  "threads":"8",
+                  "family":null,
+                  "model_number":null,
+                  "data_width":"64"
+               },
+               "device_identifier":"CPU0"
+         }],
          "memory":{
             "id":12,
             "total_physical_memory":"6141",
@@ -141,7 +163,7 @@
                },
                {
                   "id":26,
-                  "empty":false,
+                  "empty":true,
                   "capacity":null,
                   "manufacturer":null,
                   "serial":null,
@@ -161,7 +183,7 @@
                },
                {
                   "id":28,
-                  "empty":false,
+                  "empty":true,
                   "capacity":null,
                   "manufacturer":null,
                   "serial":null,
@@ -181,7 +203,7 @@
                },
                {
                   "id":30,
-                  "empty":false,
+                  "empty":true,
                   "capacity":null,
                   "manufacturer":null,
                   "serial":null,
@@ -319,7 +341,29 @@
                "device_identifier":"2"
             }
          ],
-         "processors":null,
+         "processors":[{
+               "id":14,
+               "model":{
+                  "id":35,
+                  "manufacturer":{
+                     "id":2,
+                     "name":"Intel",
+                     "website":"http:\/\/intel.com",
+                     "detection_string":"GenuineIntel",
+                     "abbrevation":"Intel"
+                  },
+                  "cores":"4",
+                  "clock_rate":"2",
+                  "name":"i7",
+                  "detection_string":"Intel(R) Core(TM) i7-2630QM CPU @ 2.00GHz",
+                  "max_clock_speed":"2",
+                  "threads":"8",
+                  "family":null,
+                  "model_number":null,
+                  "data_width":"64"
+               },
+               "device_identifier":"CPU0"
+         }],
          "memory":{
             "id":13,
             "total_physical_memory":"6141",
@@ -336,7 +380,7 @@
                },
                {
                   "id":32,
-                  "empty":false,
+                  "empty":true,
                   "capacity":null,
                   "manufacturer":null,
                   "serial":null,
@@ -356,7 +400,7 @@
                },
                {
                   "id":34,
-                  "empty":false,
+                  "empty":true,
                   "capacity":null,
                   "manufacturer":null,
                   "serial":null,
@@ -376,7 +420,7 @@
                },
                {
                   "id":36,
-                  "empty":false,
+                  "empty":true,
                   "capacity":null,
                   "manufacturer":null,
                   "serial":null,
