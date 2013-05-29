@@ -173,10 +173,10 @@ public class ComputerDetailFragment extends Fragment {
 
                         String title = graphicsCard.getJSONObject("model").getString("caption").trim();
                         String description = String.format("%s MB %s RAM\n%s, %s",
-                                graphicsCard.getString("ram_size"),
+                                avoidNull(graphicsCard.getString("ram_size")),
                                 "of",
                                 graphicsCard.getJSONObject("screen_size").getString("detection_string"),
-                                graphicsCard.getJSONObject("screen_size").getString("aspect_ratio")
+                                avoidNull(graphicsCard.getJSONObject("screen_size").getString("aspect_ratio"))
                         );
 
                         if (i == 0)
@@ -302,6 +302,13 @@ public class ComputerDetailFragment extends Fragment {
             mCardView.refresh();
         }
         return rootView;
+    }
+
+    public String avoidNull (String input) {
+        if (input == null || input.equals("null"))
+            return "-";
+        else
+            return input;
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
