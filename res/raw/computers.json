@@ -893,9 +893,617 @@
          ],
          "logical_drives":null,
          "physical_drives":null
+      },
+      {
+          "id": 282,
+          "identifier": "Akrylius",
+          "organization": {
+              "id": 1,
+              "name": "Gr\u00f8ndalsv\u00e6ngets Skole",
+              "employees": ["1", "4", "5"]
+          },
+          "date_of_purchase": null,
+          "groups": null,
+          "model": {
+              "id": "17",
+              "manufacturer": {
+                  "id": null,
+                  "name": null,
+                  "website": null,
+                  "detection_string": "Gigabyte Technology Co., Ltd.",
+                  "abbrevation": null
+              },
+              "image_url": null,
+              "type": {
+                  "id": 2,
+                  "name": "Desktop",
+                  "category": {
+                      "id": 1,
+                      "name": "Computer"
+                  }
+              },
+              "model_code": null,
+              "name": null,
+              "detection_string": "EX58-UD5",
+              "computer_series": null
+          },
+          "serial": " ",
+          "operating_system": {
+              "id": 84,
+              "computer_name": "AKRYLIUS",
+              "install_date": "1270906242",
+              "architecture": "64-bit",
+              "service_pack": "1",
+              "system_drive": "C:",
+              "version": "6.1.7601",
+              "edition": {
+                  "id": "1",
+                  "manufacturer": {
+                      "id": null,
+                      "name": null,
+                      "website": null,
+                      "detection_string": "Microsoft Corporation",
+                      "abbrevation": null
+                  },
+                  "name": null,
+                  "detection_string": "Professional"
+              },
+              "core": {
+                  "id": "9",
+                  "name": null,
+                  "version_number": null,
+                  "operating_system": null,
+                  "detection_string": "Windows 7"
+              },
+              "computer_id": 282
+          },
+          "screen_size": {
+              "id": "52",
+              "width": 1920,
+              "height": null,
+              "detection_string": "1920x1080",
+              "name": null,
+              "aspect_ratio": null,
+              "abbrevation": null
+          },
+          "created_time": 1369830134.9313,
+          "last_updated": 1369830134.9313,
+          "creator_user": 1,
+          "last_updated_user": 1,
+          "location": "47",
+          "printers": [{
+                  "id": "1",
+                  "identifier": "Send til OneNote 2010",
+                  "name": "Send til OneNote 2010",
+                  "created_time": null,
+                  "local": "True",
+                  "capabilities": [{
+                          "id": "5",
+                          "detection_string": "4",
+                          "name": null
+                      }, {
+                          "id": "3",
+                          "detection_string": "2",
+                          "name": null
+                      }
+                  ],
+                  "last_updated": 1369830134.9665,
+                  "location": {
+                      "id": "39",
+                      "name": "",
+                      "floor": null,
+                      "building": null,
+                      "room_number": null,
+                      "organization": null
+                  },
+                  "ip": null,
+                  "mac": null,
+                  "model": {
+                      "id": "7",
+                      "name": null,
+                      "model_name": null,
+                      "image_url": null,
+                      "manufacturer": null,
+                      "color": null,
+                      "detection_string": "Send To Microsoft OneNote 2010 Driver"
+                  },
+                  "organization": null,
+                  "groups": null,
+                  "year_of_purchase": null
+              }, {
+                  "id": "10",
+                  "identifier": "PDF KMSPDFWRITER",
+                  "name": "PDF KMSPDFWRITER",
+                  "created_time": null,
+                  "local": "True",
+                  "capabilities": [{
+                          "id": "1",
+                          "detection_string": null,
+                          "name": null
+                      }
+                  ],
+                  "last_updated": 1369830135.0649,
+                  "location": {
+                      "id": "39",
+                      "name": "",
+                      "floor": null,
+                      "building": null,
+                      "room_number": null,
+                      "organization": null
+                  },
+                  "ip": null,
+                  "mac": null,
+                  "model": {
+                      "id": "13",
+                      "name": null,
+                      "model_name": null,
+                      "image_url": null,
+                      "manufacturer": null,
+                      "color": null,
+                      "detection_string": "CUSTPDF Writer"
+                  },
+                  "organization": null,
+                  "groups": null,
+                  "year_of_purchase": null
+              }, {
+                  "id": "2",
+                  "identifier": "Microsoft XPS Document Writer",
+                  "name": "Microsoft XPS Document Writer",
+                  "created_time": null,
+                  "local": "True",
+                  "capabilities": [{
+                          "id": "5",
+                          "detection_string": "4",
+                          "name": null
+                      }, {
+                          "id": "3",
+                          "detection_string": "2",
+                          "name": null
+                      }, {
+                          "id": "4",
+                          "detection_string": "3",
+                          "name": null
+                      }, {
+                          "id": "6",
+                          "detection_string": "5",
+                          "name": null
+                      }
+                  ],
+                  "last_updated": 1369830135.1047,
+                  "location": {
+                      "id": "39",
+                      "name": "",
+                      "floor": null,
+                      "building": null,
+                      "room_number": null,
+                      "organization": null
+                  },
+                  "ip": null,
+                  "mac": null,
+                  "model": {
+                      "id": "8",
+                      "name": null,
+                      "model_name": null,
+                      "image_url": null,
+                      "manufacturer": null,
+                      "color": null,
+                      "detection_string": "Microsoft XPS Document Writer"
+                  },
+                  "organization": null,
+                  "groups": null,
+                  "year_of_purchase": null
+              }, {
+                  "id": "3",
+                  "identifier": "Fax",
+                  "name": "Fax",
+                  "created_time": null,
+                  "local": "True",
+                  "capabilities": [{
+                          "id": "3",
+                          "detection_string": "2",
+                          "name": null
+                      }, {
+                          "id": "4",
+                          "detection_string": "3",
+                          "name": null
+                      }
+                  ],
+                  "last_updated": 1369830135.1728,
+                  "location": {
+                      "id": "39",
+                      "name": "",
+                      "floor": null,
+                      "building": null,
+                      "room_number": null,
+                      "organization": null
+                  },
+                  "ip": null,
+                  "mac": null,
+                  "model": {
+                      "id": "9",
+                      "name": null,
+                      "model_name": null,
+                      "image_url": null,
+                      "manufacturer": null,
+                      "color": null,
+                      "detection_string": "Microsoft Shared Fax Driver"
+                  },
+                  "organization": null,
+                  "groups": null,
+                  "year_of_purchase": null
+              }, {
+                  "id": "11",
+                  "identifier": "Canon Inkjet PIXMA iP4000 R\u00f8v",
+                  "name": "Canon Inkjet PIXMA iP4000 R\u00f8v",
+                  "created_time": null,
+                  "local": "True",
+                  "capabilities": [{
+                          "id": "5",
+                          "detection_string": "4",
+                          "name": null
+                      }, {
+                          "id": "3",
+                          "detection_string": "2",
+                          "name": null
+                      }, {
+                          "id": "4",
+                          "detection_string": "3",
+                          "name": null
+                      }, {
+                          "id": "6",
+                          "detection_string": "5",
+                          "name": null
+                      }
+                  ],
+                  "last_updated": 1369830135.2168,
+                  "location": {
+                      "id": "39",
+                      "name": "",
+                      "floor": null,
+                      "building": null,
+                      "room_number": null,
+                      "organization": null
+                  },
+                  "ip": null,
+                  "mac": null,
+                  "model": {
+                      "id": "6",
+                      "name": null,
+                      "model_name": null,
+                      "image_url": null,
+                      "manufacturer": null,
+                      "color": null,
+                      "detection_string": "Canon Inkjet PIXMA iP4000"
+                  },
+                  "organization": null,
+                  "groups": null,
+                  "year_of_purchase": null
+              }
+          ],
+          "connected_devices": null,
+          "power_usage_per_hour": null,
+          "graphics_cards": [{
+                  "id": 90,
+                  "model": {
+                      "id": "1",
+                      "caption": "NVIDIA GeForce GTX 560 Ti  ",
+                      "manufacturer": {
+                          "id": null,
+                          "name": null,
+                          "website": null,
+                          "detection_string": "NVIDIA GeForce GTX 560 Ti  ",
+                          "abbrevation": null
+                      },
+                      "name": "NVIDIA GeForce GTX 560 Ti  ",
+                      "description": "NVIDIA GeForce GTX 560 Ti  ",
+                      "video_processor": "GeForce GTX 560 Ti",
+                      "detection_string": "NVIDIA GeForce GTX 560 Ti  ",
+                      "memory_type": {
+                          "id": null,
+                          "name": null,
+                          "detection_string": "2"
+                      }
+                  },
+                  "driver_version": "9.18.13.1422",
+                  "video_architecture": {
+                      "id": "5",
+                      "name": null,
+                      "detection_string": "5"
+                  },
+                  "driver_date": null,
+                  "screen_size": {
+                      "id": "52",
+                      "width": null,
+                      "height": null,
+                      "detection_string": "1920x1080",
+                      "name": null,
+                      "aspect_ratio": null,
+                      "abbrevation": null
+                  },
+                  "ram_size": "1024",
+                  "device_identifier": "VideoController1",
+                  "computer_id": 282
+              }
+          ],
+          "processors": [{
+                  "id": 85,
+                  "model": {
+                      "id": "34",
+                      "manufacturer": null,
+                      "cores": "4",
+                      "clock_rate": null,
+                      "name": null,
+                      "detection_string": "Intel(R) Core(TM) i7 CPU         920  @ 2.67GHz",
+                      "max_clock_speed": "2,7",
+                      "threads": "8",
+                      "family": null,
+                      "model_number": null,
+                      "data_width": "64"
+                  },
+                  "device_identifier": "CPU0",
+                  "computer_id": 282
+              }
+          ],
+          "memory": {
+              "id": 78,
+              "total_physical_memory": "18429",
+              "slots": [{
+                      "id": 703,
+                      "empty": false,
+                      "capacity": "4096",
+                      "manufacturer": {
+                          "id": "37",
+                          "name": null,
+                          "website": null,
+                          "detection_string": " ",
+                          "abbrevation": null
+                      },
+                      "serial": null,
+                      "part_number": null,
+                      "speed": "400",
+                      "device_identifier": "0",
+                      "computer_memory_id": 78
+                  }, {
+                      "id": 704,
+                      "empty": false,
+                      "capacity": "2048",
+                      "manufacturer": {
+                          "id": "37",
+                          "name": null,
+                          "website": null,
+                          "detection_string": " ",
+                          "abbrevation": null
+                      },
+                      "serial": null,
+                      "part_number": null,
+                      "speed": "400",
+                      "device_identifier": "1",
+                      "computer_memory_id": 78
+                  }, {
+                      "id": 705,
+                      "empty": false,
+                      "capacity": "4096",
+                      "manufacturer": {
+                          "id": "37",
+                          "name": null,
+                          "website": null,
+                          "detection_string": " ",
+                          "abbrevation": null
+                      },
+                      "serial": null,
+                      "part_number": null,
+                      "speed": "400",
+                      "device_identifier": "2",
+                      "computer_memory_id": 78
+                  }, {
+                      "id": 706,
+                      "empty": false,
+                      "capacity": "2048",
+                      "manufacturer": {
+                          "id": "37",
+                          "name": null,
+                          "website": null,
+                          "detection_string": " ",
+                          "abbrevation": null
+                      },
+                      "serial": null,
+                      "part_number": null,
+                      "speed": "400",
+                      "device_identifier": "3",
+                      "computer_memory_id": 78
+                  }, {
+                      "id": 707,
+                      "empty": false,
+                      "capacity": "4096",
+                      "manufacturer": {
+                          "id": "37",
+                          "name": null,
+                          "website": null,
+                          "detection_string": " ",
+                          "abbrevation": null
+                      },
+                      "serial": null,
+                      "part_number": null,
+                      "speed": "400",
+                      "device_identifier": "4",
+                      "computer_memory_id": 78
+                  }, {
+                      "id": 708,
+                      "empty": false,
+                      "capacity": "2048",
+                      "manufacturer": {
+                          "id": "37",
+                          "name": null,
+                          "website": null,
+                          "detection_string": " ",
+                          "abbrevation": null
+                      },
+                      "serial": null,
+                      "part_number": null,
+                      "speed": "400",
+                      "device_identifier": "5",
+                      "computer_memory_id": 78
+                  }
+              ],
+              "computer_id": 282
+          },
+          "network_cards": [{
+                  "id": 148,
+                  "model": {
+                      "id": "1",
+                      "detection_string": "Realtek PCIe GBE Family Controller #2",
+                      "manufacturer": null,
+                      "name": null
+                  },
+                  "device_identifier": null,
+                  "guid": "{3E6B0A65-BCFF-4B51-8931-139A1BA7F833}",
+                  "adapter_type": {
+                      "id": "15",
+                      "detection_string": "Ethernet",
+                      "name": null
+                  },
+                  "mac_address": "00:24:1D:1F:DC:23",
+                  "max_speed": 953,
+                  "ip_addresses": ["192.168.0.197"],
+                  "computer_id": 282
+              }, {
+                  "id": 149,
+                  "model": {
+                      "id": "2",
+                      "detection_string": "VMware Virtual Ethernet Adapter for VMnet1",
+                      "manufacturer": null,
+                      "name": null
+                  },
+                  "device_identifier": 1,
+                  "guid": "{340DA304-4BB9-47C8-BC6D-1C4529ACB58D}",
+                  "adapter_type": {
+                      "id": "15",
+                      "detection_string": "Ethernet",
+                      "name": null
+                  },
+                  "mac_address": "00:50:56:C0:00:01",
+                  "max_speed": 95,
+                  "ip_addresses": ["fe80::4167:bb05:b0c8:1efb%37", "192.168.116.1"],
+                  "computer_id": 282
+              }, {
+                  "id": 150,
+                  "model": {
+                      "id": "3",
+                      "detection_string": "VMware Virtual Ethernet Adapter for VMnet8",
+                      "manufacturer": null,
+                      "name": null
+                  },
+                  "device_identifier": 2,
+                  "guid": "{16D82A3F-13F3-4A41-97CA-29EFB9843F2F}",
+                  "adapter_type": {
+                      "id": "15",
+                      "detection_string": "Ethernet",
+                      "name": null
+                  },
+                  "mac_address": "00:50:56:C0:00:08",
+                  "max_speed": 95,
+                  "ip_addresses": ["fe80::a43e:7ff5:246f:c542%38", "192.168.153.1"],
+                  "computer_id": 282
+              }
+          ],
+          "logical_drives": [{
+                  "id": 295,
+                  "device_identifier": "C:",
+                  "free_space": "14",
+                  "disk_size": "139",
+                  "volume_name": null,
+                  "volume_serial_number": "3A067199",
+                  "file_system": "NTFS",
+                  "drive_type": {
+                      "id": "4",
+                      "name": null,
+                      "detection_string": "3"
+                  },
+                  "name": "C:",
+                  "computer_id": 282
+              }, {
+                  "id": 296,
+                  "device_identifier": "D:",
+                  "free_space": null,
+                  "disk_size": null,
+                  "volume_name": null,
+                  "volume_serial_number": null,
+                  "file_system": null,
+                  "drive_type": {
+                      "id": "6",
+                      "name": null,
+                      "detection_string": "5"
+                  },
+                  "name": "D:",
+                  "computer_id": 282
+              }, {
+                  "id": 297,
+                  "device_identifier": "G:",
+                  "free_space": "102",
+                  "disk_size": "811",
+                  "volume_name": "Diverse",
+                  "volume_serial_number": "3C6BB44F",
+                  "file_system": "NTFS",
+                  "drive_type": {
+                      "id": "4",
+                      "name": null,
+                      "detection_string": "3"
+                  },
+                  "name": "G:",
+                  "computer_id": 282
+              }, {
+                  "id": 298,
+                  "device_identifier": "M:",
+                  "free_space": "52",
+                  "disk_size": "99",
+                  "volume_name": "Multimedia",
+                  "volume_serial_number": "38496977",
+                  "file_system": "NTFS",
+                  "drive_type": {
+                      "id": "4",
+                      "name": null,
+                      "detection_string": "3"
+                  },
+                  "name": "M:",
+                  "computer_id": 282
+              }, {
+                  "id": 299,
+                  "device_identifier": "S:",
+                  "free_space": "14",
+                  "disk_size": "19",
+                  "volume_name": "SVN",
+                  "volume_serial_number": "E8548BBC",
+                  "file_system": "NTFS",
+                  "drive_type": {
+                      "id": "4",
+                      "name": null,
+                      "detection_string": "3"
+                  },
+                  "name": "S:",
+                  "computer_id": 282
+              }
+          ],
+          "physical_drives": [{
+                  "model": {
+                      "detection_string": "WDC WD1001FALS-00J7B1 ATA Device"
+                  },
+                  "device_identifier": "\\\\.\\PHYSICALDRIVE1",
+                  "disk_size": "931",
+                  "serial_number": "2020202057202d444d5754413156303735363638",
+                  "partitions": null
+              }, {
+                  "model": {
+                      "detection_string": "WDC WD1500HLFS-01G6U0 ATA Device"
+                  },
+                  "device_identifier": "\\\\.\\PHYSICALDRIVE0",
+                  "disk_size": "139",
+                  "serial_number": "2020202057202d445857594c3830353031323034",
+                  "partitions": null
+              }
+          ]
       }
    ],
-   "count":3,
+   "count":4,
    "error_message":null,
    "error_code":null,
    "script_excecution_time":"0.1338",
