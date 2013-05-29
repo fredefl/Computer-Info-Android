@@ -1,6 +1,7 @@
 package dk.illution.computer.info;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -9,8 +10,8 @@ import com.fima.cardsui.objects.Card;
 
 public class MyImageCard extends Card {
 
-    public MyImageCard(String title, int image) {
-        super(title, image);
+    public MyImageCard(String title, String desc, int image) {
+        super(title, desc, image);
     }
 
     @Override
@@ -18,6 +19,7 @@ public class MyImageCard extends Card {
         View view = LayoutInflater.from(context).inflate(R.layout.card_picture, null);
 
         ((TextView) view.findViewById(R.id.title)).setText(title);
+        ((TextView) view.findViewById(R.id.description)).setText(desc);
         ((ImageView) view.findViewById(R.id.imageView1)).setImageResource(image);
 
         return view;
