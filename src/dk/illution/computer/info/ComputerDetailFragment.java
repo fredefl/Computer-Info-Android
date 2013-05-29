@@ -248,7 +248,7 @@ public class ComputerDetailFragment extends Fragment {
                         JSONObject networkCard = networkCards.getJSONObject(i);
 
                         String title = networkCard.getJSONObject("model").getString("detection_string");
-                        String description = String.format("%s\n%s\n",
+                        String description = String.format("%s\n%s",
                                 networkCard.getJSONObject("adapter_type").getString("detection_string"),
                                 networkCard.getString("mac_address")
                         );
