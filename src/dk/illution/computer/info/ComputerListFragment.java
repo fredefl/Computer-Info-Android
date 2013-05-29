@@ -65,6 +65,7 @@ public class ComputerListFragment extends ListFragment {
                         .getString("id"), computer));
             }
         } catch (JSONException e) {
+            Log.e("ComputerInfo", "Error loading one or more computers");
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
