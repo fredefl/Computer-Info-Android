@@ -31,9 +31,8 @@ public class ComputerDetailFragment extends Fragment {
 	public static Integer id;
 
 	JSONObject computer;
-    private CardUI mCardView;
 
-	public ComputerDetailFragment() {
+    public ComputerDetailFragment() {
 	}
 
 	@Override
@@ -106,7 +105,7 @@ public class ComputerDetailFragment extends Fragment {
 			// TODO: Go go!
             // mCardView.addCard(new MyPlayCard("Test Card", "Yay", "#4ac925", "#222222", false, false));
 
-            mCardView = (CardUI) rootView.findViewById(R.id.cardsview);
+            CardUI mCardView = (CardUI) rootView.findViewById(R.id.cardsview);
             mCardView.setSwipeable(false);
 
             // ************************************************* //
@@ -233,7 +232,7 @@ public class ComputerDetailFragment extends Fragment {
 
                 mCardView
                         .addCard(new MyPlayCard(
-                                String.format("%sGB of RAM", Math.round(memory.getDouble("total_physical_memory")/1024), 2),
+                                String.format("%sGB of RAM", Math.round(memory.getDouble("total_physical_memory") / 1024)),
                                 String.format("%s %s\n%s %s",
                                         usedMemorySlots,
                                         "slots used",
