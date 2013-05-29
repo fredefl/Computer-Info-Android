@@ -48,9 +48,11 @@
     <string name="preference_sync">Sync</string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>
+    <string name="ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra metus et ligula accumsan auctor. Nullam luctus neque quis nibh porttitor sagittis. Nunc dignissim quam nec quam scelerisque faucibus. Maecenas elementum ante eget felis vestibulum quis pharetra dui condimentum. In a ligula lectus, aliquet interdum diam. Fusce luctus bibendum tellus, sed iaculis mi vehicula vitae. Fusce quis ipsum in est ultricies egestas a vel orci.</string>
 
     <string name="title">Title</string>
     <string name="desc">Description</string>
     <string name="overflow">Menu Overflow</string>
     <string name="color_stripe">Color Stripe</string>
+    <string name="search">Search</string>
 </resources>

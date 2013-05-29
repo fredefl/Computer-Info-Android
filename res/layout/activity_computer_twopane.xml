@@ -7,6 +7,7 @@
               android:layout_marginRight="16dp"
               android:divider="?android:attr/dividerHorizontal"
               android:showDividers="middle"
+              android:baselineAligned="false"
               tools:context=".ComputerListActivity">
 
     <fragment android:name="dk.illution.computer.info.ComputerListFragment"

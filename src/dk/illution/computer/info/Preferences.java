@@ -1,5 +1,6 @@
 package dk.illution.computer.info;
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
  */
 public class Preferences extends Activity {
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

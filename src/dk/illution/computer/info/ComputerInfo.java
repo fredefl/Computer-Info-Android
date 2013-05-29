@@ -1,5 +1,6 @@
 package dk.illution.computer.info;
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
@@ -73,6 +74,7 @@ public class ComputerInfo extends Application implements OnNavigationListener {
     }
 
     private static OnNavigationListener onNavigationItemSelected = new OnNavigationListener() {
+        @SuppressLint("NewApi")
         public boolean onNavigationItemSelected(int position, long id) {
             Log.d("ComputerInfo", "Switched to " + deviceList[position]);
             if (position == 0) {
