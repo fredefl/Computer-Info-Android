@@ -8,21 +8,19 @@ import com.fima.cardsui.objects.Card;
 
 public class MyCard extends Card {
 
-	public MyCard(String title){
-		super(title);
-	}
+    public MyCard(String title) {
+        super(title);
+    }
 
-	@Override
-	public View getCardContent(Context context) {
-		View view = LayoutInflater.from(context).inflate(R.layout.card_ex, null);
+    @Override
+    public View getCardContent(Context context) {
+        View view = LayoutInflater.from(context).inflate(R.layout.card_ex, null);
 
-		((TextView) view.findViewById(R.id.title)).setText(title);
+        ((TextView) view.findViewById(R.id.title)).setText(title);
 
-		
-		return view;
-	}
 
-	
-	
-	
+        return view;
+    }
+
+
 }

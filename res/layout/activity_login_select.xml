@@ -1,27 +1,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		android:orientation="vertical"
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
-		android:gravity="center">
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:gravity="center">
 
-		<TextView
-			android:id="@+id/choose_login_method_label"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:gravity="center"
-			android:text="@string/choose_login_method"
-			android:textAppearance="?android:attr/textAppearanceMedium" />
+    <TextView
+            android:id="@+id/choose_login_method_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/choose_login_method"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-		<Button
-			android:id="@+id/google_button"
-			android:layout_width="250dp"
-			android:layout_height="wrap_content"
-			android:text="@string/google" />
+    <Button
+            android:id="@+id/google_button"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="@string/google"/>
 
-		<Button
-			android:id="@+id/username_and_password_button"
-			android:layout_width="250dp"
-			android:layout_height="wrap_content"
-			android:text="@string/username_and_password" />
+    <Button
+            android:id="@+id/username_and_password_button"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="@string/username_and_password"/>
 
 </LinearLayout>

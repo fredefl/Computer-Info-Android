@@ -1,123 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		android:id="@+id/section_computer_processor_inner"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:orientation="vertical">
+              android:id="@+id/section_computer_processor_inner"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-		<TextView
-				android:id="@+id/computer_processor_number"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:textStyle="bold" />
+    <TextView
+            android:id="@+id/computer_processor_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"/>
 
-		<TextView
-				android:id="@+id/computer_processor_name_label"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="Name:"
-				android:layout_marginLeft="1dp"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:textStyle="bold" />
+    <TextView
+            android:id="@+id/computer_processor_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name:"
+            android:layout_marginLeft="1dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"/>
 
-		<TextView
-				android:id="@+id/computer_processor_name"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="4dp"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:tag="value"
-				android:text="{{model.name}}"/>
+    <TextView
+            android:id="@+id/computer_processor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:tag="value"
+            android:text="{{model.name}}"/>
 
-		<TextView
-				android:id="@+id/computer_processor_clock_speed_label"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="Clock speed:"
-				android:layout_marginLeft="1dp"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:textStyle="bold" />
+    <TextView
+            android:id="@+id/computer_processor_clock_speed_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clock speed:"
+            android:layout_marginLeft="1dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"/>
 
-		<TextView
-				android:id="@+id/computer_processor_clock_speed"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="4dp"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:tag="value"
-				android:text="{{model.clock_rate}} Ghz"/>
+    <TextView
+            android:id="@+id/computer_processor_clock_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:tag="value"
+            android:text="{{model.clock_rate}} Ghz"/>
 
-		<TextView
-				android:id="@+id/computer_processor_cores_label"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="Cores:"
-				android:layout_marginLeft="1dp"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:textStyle="bold"/>
+    <TextView
+            android:id="@+id/computer_processor_cores_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cores:"
+            android:layout_marginLeft="1dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"/>
 
-		<TextView
-				android:id="@+id/computer_processor_cores"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="4dp"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:tag="value"
-				android:text="{{model.cores}}"/>
+    <TextView
+            android:id="@+id/computer_processor_cores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:tag="value"
+            android:text="{{model.cores}}"/>
 
-		<TextView
-				android:id="@+id/computer_processor_threads_label"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="Threads:"
-				android:layout_marginLeft="1dp"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:textStyle="bold" />
+    <TextView
+            android:id="@+id/computer_processor_threads_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Threads:"
+            android:layout_marginLeft="1dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"/>
 
-		<TextView
-				android:id="@+id/computer_processor_threads"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="4dp"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:tag="value"
-				android:text="{{model.threads}}" />
+    <TextView
+            android:id="@+id/computer_processor_threads"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:tag="value"
+            android:text="{{model.threads}}"/>
 
-		<TextView
-				android:id="@+id/computer_processor_manufacturer_label"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="Manufacturer:"
-				android:layout_marginLeft="1dp"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:textStyle="bold" />
+    <TextView
+            android:id="@+id/computer_processor_manufacturer_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manufacturer:"
+            android:layout_marginLeft="1dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"/>
 
-		<TextView
-				android:id="@+id/computer_processor_manufacturer"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="4dp"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:tag="value"
-				android:text="{{model.manufacturer.name}}" />
+    <TextView
+            android:id="@+id/computer_processor_manufacturer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:tag="value"
+            android:text="{{model.manufacturer.name}}"/>
 
-	<TextView
-				android:id="@+id/computer_processor_model_number_label"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="Model number:"
-				android:layout_marginLeft="1dp"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:textStyle="bold" />
+    <TextView
+            android:id="@+id/computer_processor_model_number_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Model number:"
+            android:layout_marginLeft="1dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"/>
 
-	<TextView
-				android:id="@+id/computer_processor_model_number"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="4dp"
-				android:textAppearance="?android:attr/textAppearanceSmall"
-				android:tag="value"
-				android:text="{{model.model_number}}" />
+    <TextView
+            android:id="@+id/computer_processor_model_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:tag="value"
+            android:text="{{model.model_number}}"/>
 
 </LinearLayout>

@@ -1,10 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-		<item android:id="@+id/navigation_previous"
-				android:title="Previous"
-				android:icon="@drawable/navigation_previous_item"
-				android:showAsAction="ifRoom" />
-		<item android:id="@+id/navigation_next"
-				android:title="Next"
-				android:icon="@drawable/navigation_next_item"
-				android:showAsAction="ifRoom" />
+    <item android:id="@+id/navigation_previous"
+          android:title="@string/previous"
+          android:icon="@drawable/navigation_previous_item"
+          android:showAsAction="ifRoom"/>
+    <item android:id="@+id/navigation_next"
+          android:title="@string/next"
+          android:icon="@drawable/navigation_next_item"
+          android:showAsAction="ifRoom"/>
 </menu>

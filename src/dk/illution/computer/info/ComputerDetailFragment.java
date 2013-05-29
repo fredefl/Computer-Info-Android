@@ -1,108 +1,93 @@
 package dk.illution.computer.info;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.*;
 import com.fima.cardsui.views.CardUI;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.samskivert.mustache.Mustache;
-
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
 public class ComputerDetailFragment extends Fragment {
 
-	public static final String ARG_ITEM_ID = "item_id";
-	public static Integer id;
+    public static final String ARG_ITEM_ID = "item_id";
+    public static Integer id;
 
-	JSONObject computer;
+    JSONObject computer;
 
     public ComputerDetailFragment() {
-	}
+    }
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		// Make sure to say that we want influence on the menu
-		setHasOptionsMenu(true);
+        // Make sure to say that we want influence on the menu
+        setHasOptionsMenu(true);
 
-		// Get the computers id and the computer object
-		if (getArguments().containsKey(ARG_ITEM_ID)) {
-			id = Integer.parseInt(getArguments().getString(ARG_ITEM_ID));
-			computer = ComputerList.ITEM_MAP.get(id.toString()).computer;
-		}
+        // Get the computers id and the computer object
+        if (getArguments().containsKey(ARG_ITEM_ID)) {
+            id = Integer.parseInt(getArguments().getString(ARG_ITEM_ID));
+            computer = ComputerList.ITEM_MAP.get(id.toString()).computer;
+        }
 
-		// Get the identifier of the computer
-		try {
-			getActivity().setTitle(computer.getString("identifier"));
-		} catch (Exception e) {
-		}
+        // Get the identifier of the computer
+        try {
+            getActivity().setTitle(computer.getString("identifier"));
+        } catch (Exception e) {
+        }
 
-		try {
-			JSONArray processors = computer.getJSONArray("processors");
+        try {
+            JSONArray processors = computer.getJSONArray("processors");
 
-			int length = processors.length();
-			for (int i = 0; i < length; ++i) {
-				JSONObject processor = processors.getJSONObject(i);
-				Log.d("ComputerInfo", processor.getString("name"));
-			}
+            int length = processors.length();
+            for (int i = 0; i < length; ++i) {
+                JSONObject processor = processors.getJSONObject(i);
+                Log.d("ComputerInfo", processor.getString("name"));
+            }
 
-		} catch (Exception e) {}
-	}
+        } catch (Exception e) {
+        }
+    }
 
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		try {
-			// Get the current computers id
-			id = Integer.parseInt(getArguments().getString(ARG_ITEM_ID));
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        try {
+            // Get the current computers id
+            id = Integer.parseInt(getArguments().getString(ARG_ITEM_ID));
 
-			// Check if the next computer exists, and remove the next arrow if it
-			// doesn't
-			if (!ComputerList.ITEM_MAP.containsKey(String.valueOf(id + 1))) {
-				menu.findItem(R.id.navigation_next).setVisible(false);
-			} else {
-				menu.findItem(R.id.navigation_next).setVisible(true);
-			}
+            // Check if the next computer exists, and remove the next arrow if it
+            // doesn't
+            if (!ComputerList.ITEM_MAP.containsKey(String.valueOf(id + 1))) {
+                menu.findItem(R.id.navigation_next).setVisible(false);
+            } else {
+                menu.findItem(R.id.navigation_next).setVisible(true);
+            }
 
-			// Check if the previous computer exists, and remove the previous arrow
-			// if it doesn't
-			if (!ComputerList.ITEM_MAP.containsKey(String.valueOf(id - 1))) {
-				menu.findItem(R.id.navigation_previous).setVisible(false);
-			} else {
-				menu.findItem(R.id.navigation_previous).setVisible(true);
-			}
-		} catch (Exception e) {
+            // Check if the previous computer exists, and remove the previous arrow
+            // if it doesn't
+            if (!ComputerList.ITEM_MAP.containsKey(String.valueOf(id - 1))) {
+                menu.findItem(R.id.navigation_previous).setVisible(false);
+            } else {
+                menu.findItem(R.id.navigation_previous).setVisible(true);
+            }
+        } catch (Exception e) {
 
-		}
+        }
 
-		// Get the menu inflated
-		super.onCreateOptionsMenu(menu, inflater);
-	}
+        // Get the menu inflated
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_computer_detail,
-				container, false);
-		// Make sure the computer isn't null
-		if (computer != null) {
-			// TODO: Go go!
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_computer_detail,
+                container, false);
+        // Make sure the computer isn't null
+        if (computer != null) {
+            // TODO: Go go!
             // mCardView.addCard(new MyPlayCard("Test Card", "Yay", "#4ac925", "#222222", false, false));
 
             CardUI mCardView = (CardUI) rootView.findViewById(R.id.cardsview);
@@ -293,7 +278,7 @@ public class ComputerDetailFragment extends Fragment {
                 for (int i = 0; i <= memorySlots.length() - 1; i++) {
                     JSONObject memorySlot = memorySlots.getJSONObject(i);
 
-                    String title = String.format("%s %s", "RAM Slot", i+1);
+                    String title = String.format("%s %s", "RAM Slot", i + 1);
                     String description = "Empty";
                     if (!memorySlot.getBoolean("empty")) {
                         description = String.format("%s MB\n%s Mhz",
@@ -315,20 +300,20 @@ public class ComputerDetailFragment extends Fragment {
             }
 
             mCardView.refresh();
-		}
-		return rootView;
-	}
+        }
+        return rootView;
+    }
 
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.navigation_next:
-			((ComputerDetailActivity)getActivity()).viewComputer(String.valueOf(id + 1));
-			return true;
-		case R.id.navigation_previous:
-			((ComputerDetailActivity)getActivity()).viewComputer(String.valueOf(id - 1));
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.navigation_next:
+                ((ComputerDetailActivity) getActivity()).viewComputer(String.valueOf(id + 1));
+                return true;
+            case R.id.navigation_previous:
+                ((ComputerDetailActivity) getActivity()).viewComputer(String.valueOf(id - 1));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

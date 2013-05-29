@@ -1,45 +1,56 @@
 <resources>
-		<string name="google">Google</string>
-		<string name="computer_info">Computer Info</string>
-		<!--  -->
-		<string name="app_name">Computer Info</string>
-		<string name="preferences">Preferences</string>
-		<string name="refresh">Refresh</string>
-		<string name="username_and_password">Username and password</string>
-		<string name="choose_login_method">Choose login method</string>
-		<string name="username">Username:</string>
-		<string name="password">Password:</string>
-		<string name="forgot_password">Forgot your password?</string>
-		<string name="sign_up">Sign up</string>
-		<string name="login">Login</string>
-		<string name="computers">Computers</string>
-		<string name="printers">Printers</string>
-		<string name="units">Units</string>
-		<string name="logout">Logout</string>
-		<string-array name="computer_sections">
-				<item >General</item>
-				<item >Processors</item>
-				<item >Memory</item>
-		</string-array>
-		<string name="about">About</string>
-		<string name="about_title"><![CDATA[<h4>Computer Info for Android</h4>]]></string>
-		<string name="about_made_by"><![CDATA[This app is made by <a href=\'https://illution.dk\'>Illution</a>.<br><br>]]></string>
-		<string name="about_open_source"><![CDATA[This app is open source, grab the source code from <a href=\'https://github.com/fredefl/Computer-Info-Android\'>github</a>.<br><br>]]></string>
-		<string name="about_icons_wireframesketcher_studio"><![CDATA[This app includes icons from <a href=\'http://wireframesketcher.com\'>WireframeSketcher.com</a>.]]></string>
-		<string name="login_error_google_validation">There was an error while validating your login request, please try again.</string>
-		<string name="login_error_connection">There was an error while connecting to the server, please try again.</string>
-		<string name="login_error_validation">We couldn\'t validate your credentials, please check your username and password. This could also be a problem with the server.</string>
-		<string name="login_error_status_code">The operation didn\'t succeed. Status code: </string>
-		<string name="login_error_malformedUrl">The endpoint URL was malformed. Please check it before proceeding.</string>
-		<string name="login_error_general">A general error occurred. We\'re very sorry.</string>
-		<string name="login_loading">Loading. Please wait&#8230;</string>
-		<string name="login_error_google_no_accounts">Sorry, no Google accounts were found on this device. Please set one up before proceeding.</string>
-		<string name="preference_endpoint">Endpoint</string>
-		<string name="preference_endpoint_summary">The authentication and data endpoint</string>
-		<string name="preference_sync">Sync</string>
+    <string name="google">Google</string>
+    <string name="computer_info">Computer Info</string>
+    <!--  -->
+    <string name="app_name">Computer Info</string>
+    <string name="preferences">Preferences</string>
+    <string name="refresh">Refresh</string>
+    <string name="username_and_password">Username and password</string>
+    <string name="choose_login_method">Choose login method</string>
+    <string name="username">Username:</string>
+    <string name="password">Password:</string>
+    <string name="forgot_password">Forgot your password?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="login">Login</string>
+    <string name="computers">Computers</string>
+    <string name="printers">Printers</string>
+    <string name="units">Units</string>
+    <string name="logout">Logout</string>
+    <string-array name="computer_sections">
+        <item>General</item>
+        <item>Processors</item>
+        <item>Memory</item>
+    </string-array>
+    <string name="about">About</string>
+    <string name="about_title"><![CDATA[<h4>Computer Info for Android</h4>]]></string>
+    <string name="about_made_by">
+        <![CDATA[This app is made by <a href=\'https://illution.dk\'>Illution</a>.<br><br>]]></string>
+    <string name="about_open_source">
+        <![CDATA[This app is open source, grab the source code from <a href=\'https://github.com/fredefl/Computer-Info-Android\'>github</a>.<br><br>]]></string>
+    <string name="about_icons_wireframesketcher_studio">
+        <![CDATA[This app includes icons from <a href=\'http://wireframesketcher.com\'>WireframeSketcher.com</a>.]]></string>
+    <string name="login_error_google_validation">There was an error while validating your login request, please try
+        again.
+    </string>
+    <string name="login_error_connection">There was an error while connecting to the server, please try again.</string>
+    <string name="login_error_validation">We couldn\'t validate your credentials, please check your username and
+        password. This could also be a problem with the server.
+    </string>
+    <string name="login_error_status_code">The operation didn\'t succeed. Status code:</string>
+    <string name="login_error_malformedUrl">The endpoint URL was malformed. Please check it before proceeding.</string>
+    <string name="login_error_general">A general error occurred. We\'re very sorry.</string>
+    <string name="login_loading">Loading. Please wait&#8230;</string>
+    <string name="login_error_google_no_accounts">Sorry, no Google accounts were found on this device. Please set one up
+        before proceeding.
+    </string>
+    <string name="preference_endpoint">Endpoint</string>
+    <string name="preference_endpoint_summary">The authentication and data endpoint</string>
+    <string name="preference_sync">Sync</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
 
-        <string name="title">Title</string>
-        <string name="desc">Description</string>
-        <string name="overflow">Menu Overflow</string>
-        <string name="color_stripe">Color Stripe</string>
+    <string name="title">Title</string>
+    <string name="desc">Description</string>
+    <string name="overflow">Menu Overflow</string>
+    <string name="color_stripe">Color Stripe</string>
 </resources>
