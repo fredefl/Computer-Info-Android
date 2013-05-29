@@ -93,6 +93,15 @@ public class ComputerDetailFragment extends Fragment {
             CardUI mCardView = (CardUI) rootView.findViewById(R.id.cardsview);
             mCardView.setSwipeable(false);
 
+            try {
+                mCardView.addCard(new MyImageCard(computer.getString("identifier"), String.format("%s\n%s",
+                        computer.getString("location"),
+                        computer.getJSONObject("organization").getString("name")
+                ), R.drawable.url1));
+            } catch (Exception e) {
+                //TODO: Add error catching
+            }
+
             // ************************************************* //
             // ************** OPERATING SYSTEM ***************** //
             // ************************************************* //
