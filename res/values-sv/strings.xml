@@ -40,7 +40,6 @@
     <string name="preference_sync">Synkronisering</string>
     <string name="previous">Föregående</string>
     <string name="next">Näste</string>
-    <string name="ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra metus et ligula accumsan auctor. Nullam luctus neque quis nibh porttitor sagittis. Nunc dignissim quam nec quam scelerisque faucibus. Maecenas elementum ante eget felis vestibulum quis pharetra dui condimentum. In a ligula lectus, aliquet interdum diam. Fusce luctus bibendum tellus, sed iaculis mi vehicula vitae. Fusce quis ipsum in est ultricies egestas a vel orci.</string>
     <string name="title">Titel</string>
     <string name="desc">Beskrivning</string>
     <string name="overflow">Meny Overflow</string>
