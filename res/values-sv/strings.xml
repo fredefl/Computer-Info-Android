@@ -24,29 +24,26 @@
     </string-array>
     <string name="about">Om</string>
     <string name="about_title"><![CDATA[<h4>Computer Info till Android</h4>]]></string>
-    <string name="about_made_by">
-        <![CDATA[Denna app är gjord av <a href=\'https://illution.dk\'>Illution</a>.<br><br>]]></string>
-    <string name="about_open_source">
-        <![CDATA[Denna app är öppen källkod, hitta källkoden på <a href=\'https://github.com/fredefl/Computer-Info-Android\'>github</a>.<br><br>]]>
-        \n
-    </string>
-    <string name="about_icons_wireframesketcher_studio">
-        <![CDATA[Denna app innehåller ikoner från <a href=\'http://wireframesketcher.com\'>WireframeSketcher.com</a>.]]></string>
-    <string name="login_error_google_validation">Det uppstod ett fel under validering din inloggning, försök igen.
-    </string>
+    <string name="about_made_by"><![CDATA[Denna app är gjord av <a href=\'https://illution.dk\'>Illution</a>.<br><br>]]></string>
+    <string name="about_open_source"><![CDATA[Denna app är öppen källkod, hitta källkoden på <a href=\'https://github.com/fredefl/Computer-Info-Android\'>github</a>.<br><br>]]>\n</string>
+    <string name="about_icons_wireframesketcher_studio"><![CDATA[Denna app innehåller ikoner från <a href=\'http://wireframesketcher.com\'>WireframeSketcher.com</a>.]]></string>
+    <string name="login_error_google_validation">Det uppstod ett fel under validering din inloggning, försök igen.</string>
     <string name="login_error_connection">Det uppstod ett fel vid anslutning till servern, försök igen.</string>
-    <string name="login_error_validation">Vi kunde inte validera dina referenser, kontrollera ditt användarnamn och
-        lösenord. Detta kan också vara ett problem med servern.
-    </string>
-    <string name="login_error_malformedUrl">Endpoint webbadressen var felaktig. Vänligen kontrollera det innan du
-        fortsätter.
-    </string>
+    <string name="login_error_validation">Vi kunde inte validera dina referenser, kontrollera ditt användarnamn och lösenord. Detta kan också vara ett problem med servern.</string>
+    <string name="login_error_status_code">Operationen lyckades inte. Status kod:</string>
+    <string name="login_error_malformedUrl">Endpoint webbadressen var felaktig. Vänligen kontrollera det innan du fortsätter.</string>
     <string name="login_error_general">En allmän inträffade. Vi är mycket ledsna.</string>
     <string name="login_loading">Laddar. Var god vänta…</string>
-    <string name="login_error_google_no_accounts">Tyvärr, inga Google-konton finns på den här enheten. Ställ en innan du
-        fortsätter.
-    </string>
+    <string name="login_error_google_no_accounts">Tyvärr, inga Google-konton finns på den här enheten. Ställ en innan du fortsätter.</string>
     <string name="preference_endpoint">Endpoint</string>
     <string name="preference_endpoint_summary">Autentisering och data endpoint</string>
     <string name="preference_sync">Synkronisering</string>
+    <string name="previous">Föregående</string>
+    <string name="next">Näste</string>
+    <string name="ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra metus et ligula accumsan auctor. Nullam luctus neque quis nibh porttitor sagittis. Nunc dignissim quam nec quam scelerisque faucibus. Maecenas elementum ante eget felis vestibulum quis pharetra dui condimentum. In a ligula lectus, aliquet interdum diam. Fusce luctus bibendum tellus, sed iaculis mi vehicula vitae. Fusce quis ipsum in est ultricies egestas a vel orci.</string>
+    <string name="title">Titel</string>
+    <string name="desc">Beskrivning</string>
+    <string name="overflow">Meny Overflow</string>
+    <string name="color_stripe">Färgrand</string>
+    <string name="search">Sök</string>
 </resources>
