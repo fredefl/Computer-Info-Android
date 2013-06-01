@@ -101,27 +101,27 @@ public class ComputerInfo extends Application implements OnNavigationListener {
      * @return A JSONObject containing the list of computers
      */
     public static JSONObject loadComputers() {
-        String computers_json = "{}";
+        String computersString = "{}";
         try {
             Resources res = context.getResources();
             InputStream in_s = res.openRawResource(R.raw.computers);
 
             byte[] b = new byte[in_s.available()];
             in_s.read(b);
-            computers_json = new String(b);
+            computersString = new String(b);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-        JSONObject computers_data = null;
+        JSONObject computersObject = null;
 
         try {
-            computers_data = new JSONObject(computers_json);
+            computersObject = new JSONObject(computersString);
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
         }
-        return computers_data;
+        return computersObject;
     }
 
     /**
