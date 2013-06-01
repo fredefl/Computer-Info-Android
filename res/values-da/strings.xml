@@ -24,9 +24,9 @@
     </string-array>
     <string name="about">Om</string>
     <string name="about_title"><![CDATA[<h4>Computer Info til Android</h4>]]></string>
-    <string name="about_made_by"><![CDATA[Denne applikation er lavet af <a href='https://illution.dk'>Illution</a>.<br><br>]]></string>
-    <string name="about_open_source"><![CDATA[Denne applikation er open source, find koden på <a href='https://github.com/fredefl/Computer-Info-Android'>github</a>.<br><br>]]></string>
-    <string name="about_icons_wireframesketcher_studio"><![CDATA[Denne applikation indeholder ikoner fra <a href='http://wireframesketcher.com'>WireframeSketcher.com</a>.]]></string>
+    <string name="about_made_by"><![CDATA[Denne applikation er lavet af <a href=\'https://illution.dk\'>Illution</a>.<br><br>]]></string>
+    <string name="about_open_source"><![CDATA[Denne applikation er open source, find koden på <a href=\'https://github.com/fredefl/Computer-Info-Android\'>github</a>.<br><br>]]></string>
+    <string name="about_icons_wireframesketcher_studio"><![CDATA[Denne applikation indeholder ikoner fra <a href=\'http://wireframesketcher.com\'>WireframeSketcher.com</a>.]]></string>
     <string name="login_error_google_validation">Der opstod et problem under valideringen af dine oplysninger, prøv igen.</string>
     <string name="login_error_connection">Der opstod et problem med at forbinde til serveren, prøv igen.</string>
     <string name="login_error_validation">Vi kunne ikke validere dine oplysninger, tjek venligst dit brugernavn og kodeord. Dette kan også skyldes et problem med serveren.</string>
