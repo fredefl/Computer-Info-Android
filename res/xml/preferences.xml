@@ -10,5 +10,5 @@
             android:title="@string/preference_endpoint"
             android:inputType="textNoSuggestions"
             android:summary="@string/preference_endpoint_summary"
-            android:defaultValue="https://ci.illution.dk"/>
+            android:defaultValue="https://illution.dk/ci"/>
 </PreferenceScreen>
