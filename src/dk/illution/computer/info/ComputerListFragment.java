@@ -1,12 +1,18 @@
 package dk.illution.computer.info;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,12 +45,74 @@ public class ComputerListFragment extends ListFragment {
 
     public List<String> computers = new ArrayList<String>();
 
+    public void downloadComputers() {
+        SharedPreferences preferences = PreferenceManager
+                .getDefaultSharedPreferences(ComputerInfo.getAppContext());
+
+        String computersString = "";
+
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        client.get(String.format("%s/computers/%s?token=%s&format=json&dev=true",
+                preferences.getString("preference_endpoint", ""),
+                "2",
+                ComputerInfo.mainDatabase.selectCredential("token")
+        ), new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(String response) {
+                JSONObject computersObject = null;
+
+                Log.d("ComputerInfo", "HERE!!!");
+
+                try {
+                    computersObject = new JSONObject(response);
+                    Log.d("ComputerInfo", "Got response from server!");
+
+                    createList(computersObject.getJSONArray("result"));
+                } catch (JSONException e) {
+                    Log.e("ComputerInfo", "Error loading one or more computers");
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable error, String content) {
+                Log.e("ComputerInfo", "Error!!!", error);
+                error.printStackTrace();
+            }
+        });
+    }
+
+
+    public void createList (JSONArray computersArray) {
+        try {
+            for (int i = 0; i <= computersArray.length() - 1; i++) {
+                JSONObject computer = computersArray.getJSONObject(i);
+                computers.add(computer.getString("identifier"));
+                ComputerList.addItem(new ComputerList.Computer(computer
+                        .getString("id"), computer));
+            }
+        } catch (JSONException e) {
+            Log.e("ComputerInfo", "Error loading one or more computers");
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),
+                android.R.layout.simple_list_item_1, computers);
+
+        this.setListAdapter(adapter);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setRetainInstance(true);
 
+        downloadComputers();
+
+        /*
         JSONObject computers_data = ComputerInfo.loadComputers();
         Log.d("ComputerInfo", "Loaded computers.");
 
@@ -74,6 +142,7 @@ public class ComputerListFragment extends ListFragment {
                 android.R.layout.simple_list_item_1, computers);
 
         this.setListAdapter(adapter);
+        */
     }
 
     @Override

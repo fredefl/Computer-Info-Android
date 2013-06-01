@@ -17,15 +17,17 @@ public class ComputerListActivity extends FragmentActivity implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_computer_list);
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-        getWindow().setWindowAnimations(0);
 
         try {
             ComputerInfo.mainDatabase.selectCredential("token");
-        } catch (SQLiteException e) {
+        } catch (Exception e) {
             ComputerInfo.launchLoginSelect(this);
+            return;
         }
+
+        setContentView(R.layout.activity_computer_list);
+        getWindow().setWindowAnimations(0);
 
         if (findViewById(R.id.computer_detail_container) != null) {
             mTwoPane = true;
